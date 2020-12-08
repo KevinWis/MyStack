@@ -9,3 +9,9 @@ export const getUsers = async(options) => {
         // console.log(response.data)
         // TODO: ADD dispatch
 }
+
+export const getUserById = async(userId) => {
+    const response = await kenzieHub.get(`/users/${userId}`)
+        // console.log(response.data)
+        // TODO: ADD dispatch
+}
