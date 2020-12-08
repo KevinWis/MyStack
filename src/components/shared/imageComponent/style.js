@@ -1,3 +1,6 @@
 import styled from "styled-components";
 
-export const styledComponent = styled.div``;
+export const StyledComponentImg = styled.img`
+  width:${props => props.width};
+  height:${props => props.height};
+`;

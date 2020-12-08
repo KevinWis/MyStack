@@ -1,7 +1,11 @@
+import PageSucess from "./pages/pagesucess";
+
 function App() {
   return (
     <div className="App">
-      <main></main>
+      <main>
+      <PageSucess></PageSucess>
+      </main>
     </div>
   );
 }
