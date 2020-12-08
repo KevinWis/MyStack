@@ -7,6 +7,7 @@ import {
   ImageContainer,
   PersonContainer,
   PlaceholdeImg,
+  TechImage,
 } from "./style.js";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
@@ -20,20 +21,21 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     backgroundColor: "#43c1d8",
   },
+  techimage: {
+    display: "flex",
+    alignItems: "center",
+  },
+  acordioncontainer: {
+    display: "flex",
+    flexDirection: "column",
+  },
   heading: {
     fontSize: theme.typography.pxToRem(19),
     fontWeight: theme.typography.fontWeightBold,
   },
 }));
 
-const MemberCard = ({
-  MemberName,
-  MemberModule,
-  MemberTec1,
-  MemberTec2,
-  TechBio1,
-  TechBio2,
-}) => {
+const MemberCard = ({ MemberName, MemberModule, MemberTec1, MemberTec2 }) => {
   const classes = useStyles();
   return (
     <>
@@ -58,22 +60,16 @@ const MemberCard = ({
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography className={classes.heading}>{MemberTec1}</Typography>
+              <Typography className={classes.heading}>Competencias</Typography>
             </AccordionSummary>
-            <AccordionDetails>
-              <Typography>{TechBio1}</Typography>
-            </AccordionDetails>
-          </Accordion>
-          <Accordion className={classes.root}>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-            >
-              <Typography className={classes.heading}>{MemberTec2}</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography>{TechBio2}</Typography>
+            <AccordionDetails className={classes.acordioncontainer}>
+              <Typography className={classes.techimage}>
+                <TechImage /> {MemberTec1}
+              </Typography>
+              <br />
+              <Typography className={classes.techimage}>
+                <TechImage /> {MemberTec2}
+              </Typography>
             </AccordionDetails>
           </Accordion>
         </TechContainer>

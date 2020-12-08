@@ -60,6 +60,14 @@ export const CardTech = styled.div`
   margin-bottom: 0.9rem;
 `;
 
+export const TechImage = styled.div`
+  width: 2rem;
+  height: 2rem;
+  background-color: pink;
+  border-radius: 100%;
+  margin-right: 1rem;
+`;
+
 export const PlaceholdeImg = styled.div`
   width: 8rem;
   height: 8rem;
