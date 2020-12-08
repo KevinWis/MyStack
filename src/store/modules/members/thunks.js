@@ -1,54 +1,44 @@
 import kenzieHub from '../../../services/axios'
 
-// buscar todos os usuários
-// recebe um obj com page e perPage
+export const getUserListThunk = async(options) => async(dispatch, _getState) => {
 
-export const getUsers = async(options) => {
     const { page, perPage } = options
-    const response = await kenzieHub.get(`/users?perPage=${perPage}&page=${page}`)
-        // console.log(response.data)
-        // TODO: ADD dispatch
-}
-
-export const getUserById = async(userId) => {
-    const response = await kenzieHub.get(`/users/${userId}`)
-        // console.log(response.data)
-        // TODO: ADD dispatch
-}
-
-// recebe obj {email, password}
-
-export const userLogin = async(userLoginInfo) => {
-    const { email, password } = userLoginInfo
-    const response = await kenzieHub.post(`/sessions`, {
-        "email": email,
-        "password": password
-    })
-
-    const { token } = response.data
-
-    if (response.data.token) {
-        localStorage.setItem("authTokes", token)
+    try {
+        const response = await kenzieHub.get(`/users?perPage=${perPage}&page=${page}`)
+    } catch (err) {
+        console.log(err)
     }
+
+    // dispatch(action())
 }
 
-export const registerUser = async(resisterUserInfo) => {
+export const getUserByIdThunk = async(userId) => async(dispatch, _getState) => {
+
+    try {
+        const response = await kenzieHub.get(`/users/${userId}`)
+    } catch (err) {
+        console.log(err)
+    }
+
+    // dispatch(action())
+}
+
+export const registerUserThunk = async(resisterUserInfo) => async(dispatch, _getState) => {
 
     const { email, password, name, bio, contact, course_module } = resisterUserInfo
+    try {
 
-    const response = await kenzieHub.post(`/users`, {
-        "email": email,
-        "password": password,
-        "name": name,
-        "bio": bio,
-        "contact": contact,
-        "course_module": course_module
-    })
-    console.log(response.data)
+        const response = await kenzieHub.post(`/users`, {
+            "email": email,
+            "password": password,
+            "name": name,
+            "bio": bio,
+            "contact": contact,
+            "course_module": course_module
+        })
+    } catch (err) {
+        console.log(err)
+    }
+
+    // dispatch(action())
 }
-
-// getUsers(options)
-// getUserById(searchUserId)
-// userLogin(loginForm)
-
-// registerUser(register)
