@@ -1,12 +1,18 @@
 import { GETUSERLIST, GETUSERSBYID, REGISTERUSER } from "./actionTypes";
-const membersReducer = (state = [], action) => {
+
+const memberList = {
+  list: [],
+  searchedMember: {},
+};
+
+const membersReducer = (state = memberList, action) => {
   const { type } = action;
   switch (type) {
     case GETUSERLIST:
-      return [...action.list];
+      return { list: [...action.list], searchedMember: state.searchedMember };
 
     case GETUSERSBYID:
-      return action.user;
+      return { list: [...state.list], searchedMember: action.searchedMember };
 
     default:
       return state;
