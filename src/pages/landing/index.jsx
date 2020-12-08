@@ -5,6 +5,11 @@ import Footer from "../../components/shared/footer";
 import Img from "./img.svg";
 import DefaultButton from "../../components/shared/buttons/defaultButton";
 
+const MainContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+`;
+
 const Container = styled.div`
   display: flex;
   align-items: center;
@@ -27,16 +32,18 @@ const ButtonsContainer = styled.div`
 const Landing = () => {
   return (
     <>
-      <Header></Header>
-      <Container>
-        <h1>Bem vindo!</h1>
-        <img src={Img}></img>
-        <ButtonsContainer>
-          <DefaultButton value={"Entrar"}></DefaultButton>
-          <DefaultButton value={"Se cadastrar"}></DefaultButton>
-        </ButtonsContainer>
-      </Container>
-      <Footer></Footer>
+      <MainContainer>
+        <Header>teste</Header>
+        <Container>
+          <h1>Bem vindo!</h1>
+          <img src={Img}></img>
+          <ButtonsContainer>
+            <DefaultButton value={"Entrar"}></DefaultButton>
+            <DefaultButton value={"Se cadastrar"}></DefaultButton>
+          </ButtonsContainer>
+        </Container>
+        <Footer>teste</Footer>
+      </MainContainer>
     </>
   );
 };
