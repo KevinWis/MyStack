@@ -1,8 +1,9 @@
-import Button from "@material-ui/core/Button";
+import defautButton from "../../components/shared/buttons/defaultButton";
 import styled from "styled-components";
 import Header from "../../components/shared/header";
 import Footer from "../../components/shared/footer";
 import Img from "./img.svg";
+import DefaultButton from "../../components/shared/buttons/defaultButton";
 
 const Container = styled.div`
   display: flex;
@@ -31,12 +32,8 @@ const Landing = () => {
         <h1>Bem vindo!</h1>
         <img src={Img}></img>
         <ButtonsContainer>
-          <Button variant="outlined" color="primary">
-            Entrar
-          </Button>
-          <Button variant="outlined" color="primary">
-            Se Cadastrar
-          </Button>
+          <DefaultButton value={"Entrar"}></DefaultButton>
+          <DefaultButton value={"Se Cadastre"}></DefaultButton>
         </ButtonsContainer>
       </Container>
       <Footer></Footer>
