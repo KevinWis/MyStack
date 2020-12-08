@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const DefaultCard = styled.div`
   width: 35rem !important;
-  height: 20rem !important;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -11,14 +10,12 @@ export const DefaultCard = styled.div`
 `;
 
 export const CardContainer = styled.div`
-  height: 100%;
+  height: 10rem;
   width: 60%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  div {
-    margin: 1rem 0 0 0;
-  }
+  justify-content: space-around !important;
+  align-items: center !important;
 `;
 
 export const TechContainer = styled.div`
@@ -29,7 +26,7 @@ export const TechContainer = styled.div`
 
 export const ImageContainer = styled.div`
   width: 40%;
-  height: 100%;
+  height: 10rem;
   display: flex;
   justify-content: center;
 `;
@@ -47,6 +44,7 @@ export const CardName = styled.div`
   text-align: center;
   border-radius: 3px;
   line-height: 2px;
+  margin-top: 1rem;
   img {
     width: 10px;
   }
@@ -59,6 +57,7 @@ export const CardTech = styled.div`
   text-align: center;
   border-radius: 3px;
   line-height: 2px;
+  margin-bottom: 0.9rem;
 `;
 
 export const PlaceholdeImg = styled.div`

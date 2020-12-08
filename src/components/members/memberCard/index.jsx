@@ -26,7 +26,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MemberCard = () => {
+const MemberCard = ({
+  MemberName,
+  MemberModule,
+  MemberTec1,
+  MemberTec2,
+  TechBio1,
+  TechBio2,
+}) => {
   const classes = useStyles();
   return (
     <>
@@ -37,12 +44,10 @@ const MemberCard = () => {
           </ImageContainer>
           <CardContainer>
             <CardName>
-              <img></img>
-              <p></p>
+              <p>{MemberName}</p>
             </CardName>
             <CardTech>
-              <img></img>
-              <p></p>
+              <p>{MemberModule}</p>
             </CardTech>
           </CardContainer>
         </PersonContainer>
@@ -53,10 +58,10 @@ const MemberCard = () => {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography className={classes.heading}>Tec 1</Typography>
+              <Typography className={classes.heading}>{MemberTec1}</Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography>PlaceHolder</Typography>
+              <Typography>{TechBio1}</Typography>
             </AccordionDetails>
           </Accordion>
           <Accordion className={classes.root}>
@@ -65,10 +70,10 @@ const MemberCard = () => {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography className={classes.heading}>Tec 2</Typography>
+              <Typography className={classes.heading}>{MemberTec2}</Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography>PlaceHolder</Typography>
+              <Typography>{TechBio2}</Typography>
             </AccordionDetails>
           </Accordion>
         </TechContainer>
