@@ -1,4 +1,4 @@
-import { CardImage } from "./style";
+import { CardImage,ContainerImage } from "./style";
 import {
   AnnounceImage,
   ColabImage,
@@ -11,6 +11,7 @@ import {
 const PageSucess = () => {
   return (
     <>
+    <ContainerImage>
       <CardImage>
         <SoftwareDeveloperImage></SoftwareDeveloperImage>        
       </CardImage>
@@ -72,6 +73,7 @@ const PageSucess = () => {
       <CardImage>
         <WelcomeImage></WelcomeImage>
       </CardImage>
+      </ContainerImage>
     </>
   );
 };

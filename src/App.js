@@ -1,4 +1,4 @@
-import PageSucess from "./pages/pagesucess";
+import PageSucess from "./pages/pagesuccess";
 
 function App() {
   return (
