@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
 import membersReducer from "./modules/members/membersReducer";
-import userReducer from "./modules/members/userReducer";
+import userReducer from "./modules/users/userReducer/";
 
 const reducers = combineReducers({
   members: membersReducer,
