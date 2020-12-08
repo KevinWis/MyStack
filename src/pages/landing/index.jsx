@@ -1,4 +1,3 @@
-import defautButton from "../../components/shared/buttons/defaultButton";
 import styled from "styled-components";
 import Header from "../../components/shared/header";
 import Footer from "../../components/shared/footer";
