@@ -1,7 +1,11 @@
+import Landing from "./pages/landing";
+
 function App() {
   return (
     <div className="App">
-      <main></main>
+      <main>
+        <Landing />
+      </main>
     </div>
   );
 }
