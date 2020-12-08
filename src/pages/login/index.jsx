@@ -17,7 +17,7 @@ const Login = () => {
   const history = useHistory();
 
   const schema = yup.object({
-    user: yup.string().required("Campo obrigatório"),
+    email: yup.string().email().required("Campo obrigatório"),
     password: yup
       .string()
       .min(3, "Mínimo 3 caractéres")
@@ -28,13 +28,15 @@ const Login = () => {
     resolver: yupResolver(schema),
   });
 
-  const handleForm = (data) => {
+  const handleForm = async (data) => {
     console.log(data);
+    // const request =  await userLoginThunk(data, setError)
+    // history.push("/members");
     axios
-      .post(" https://kenziehub.me/sessions", data)
+      .post("https://kenziehub.me/sessions", data)
       .then((res) => {
         window.localStorage.setItem("authToken", res.data.auth_token);
-        history.push("/");
+        history.push("/members");
       })
       .catch((err) =>
         setError("password", { message: "Senha ou usuário inválido" })
@@ -51,8 +53,8 @@ const Login = () => {
           <div>
             <TextField
               margin="normal"
-              label="Usuário"
-              name="user"
+              label="Email"
+              name="email"
               inputRef={register}
               error={!!errors.user}
               helperText={errors.user?.message}
