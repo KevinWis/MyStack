@@ -1,7 +1,34 @@
-import AnnounceImage from "../images/announce.svg";
-import ColabImage from "../images/colab.svg";
-import EmployImage from "../images/employ.svg";
-import FreelanceImage from "../images/freelance.svg";
-import OpenSourceImage from "../images/openSource.svg";
-import SoftwareDeveloperImage from "../images/SoftwareDeveloper.svg";
-import WelcomeImage from "../images/Welcome.svg";
+import Announce from "../images/announce.svg";
+import Colab from "../images/colab.svg";
+import Employ from "../images/employ.svg";
+import Freelance from "../images/freelance.svg";
+import OpenSource from "../images/openSource.svg";
+import SoftwareDeveloper from "../images/SoftwareDeveloper.svg";
+import Welcome from "../images/Welcome.svg";
+import ImageComponent from "../components/shared/image_component";
+
+export const AnnounceImage = () => {
+  return <ImageComponent src={Announce} alt="Announce" />;
+};
+export const ColabImage = () => {
+  return <ImageComponent src={Colab} alt="Colab" />;
+};
+
+export const EmployImage = () => {
+  return <ImageComponent src={Employ} alt="Employ" />;
+};
+
+export const FreelanceImage = () => {
+  return <ImageComponent src={Freelance} alt="Freelance" />;
+};
+export const OpenSourceImage = () => {
+  return <ImageComponent src={OpenSource} alt="OpenSource" />;
+};
+
+export const SoftwareDeveloperImage = () => {
+  return <ImageComponent src={SoftwareDeveloper} alt="SoftwareDeveloper" />;
+};
+
+export const WelcomeImage = () => {
+  return <ImageComponent src={Welcome} alt="Welcome" />;
+};
