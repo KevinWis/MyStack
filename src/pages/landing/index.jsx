@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Header from "../../components/shared/header";
 import Footer from "../../components/shared/footer";
-import Img from "./img.svg";
+import { WelcomeImage } from "../../helpers/getImages";
 import DefaultButton from "../../components/shared/buttons/defaultButton";
 
 const Container = styled.div`
@@ -29,7 +29,7 @@ const Landing = () => {
       <Header></Header>
       <Container>
         <h1>Bem vindo!</h1>
-        <img src={Img}></img>
+        <WelcomeImage />
         <ButtonsContainer>
           <DefaultButton value={"Entrar"}></DefaultButton>
           <DefaultButton value={"Se Cadastre"}></DefaultButton>
