@@ -1,10 +1,10 @@
 import { USERLOGIN, CREATENEWTECH, UPDATETECH } from "./actionTypes";
-const getUserList = (list) => {
-  return { type: USERLOGIN, list };
+const userLogin = (user) => {
+  return { type: USERLOGIN, user };
 };
-const getUserById = () => {
+const createNewTech = () => {
   return { type: CREATENEWTECH };
 };
-const registerUser = () => {
+const updateTech = () => {
   return { type: UPDATETECH };
 };
