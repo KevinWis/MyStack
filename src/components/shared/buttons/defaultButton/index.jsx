@@ -1,10 +1,14 @@
-import Button from "@material-ui/core/Button";
+import { DefaultSharedButton } from "./style.js";
 
 const DefaultButton = ({ value }) => {
   return (
-    <Button variant="outlined" color="primary">
+    <DefaultSharedButton
+      className="default-button"
+      variant="outlined"
+      color="primary"
+    >
       {value}
-    </Button>
+    </DefaultSharedButton>
   );
 };
 
