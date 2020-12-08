@@ -15,3 +15,40 @@ export const getUserById = async(userId) => {
         // console.log(response.data)
         // TODO: ADD dispatch
 }
+
+// recebe obj {email, password}
+
+export const userLogin = async(userLoginInfo) => {
+    const { email, password } = userLoginInfo
+    const response = await kenzieHub.post(`/sessions`, {
+        "email": email,
+        "password": password
+    })
+
+    const { token } = response.data
+
+    if (response.data.token) {
+        localStorage.setItem("authTokes", token)
+    }
+}
+
+export const registerUser = async(resisterUserInfo) => {
+
+    const { email, password, name, bio, contact, course_module } = resisterUserInfo
+
+    const response = await kenzieHub.post(`/users`, {
+        "email": email,
+        "password": password,
+        "name": name,
+        "bio": bio,
+        "contact": contact,
+        "course_module": course_module
+    })
+    console.log(response.data)
+}
+
+// getUsers(options)
+// getUserById(searchUserId)
+// userLogin(loginForm)
+
+// registerUser(register)
