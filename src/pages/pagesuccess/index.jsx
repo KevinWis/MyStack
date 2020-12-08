@@ -1,4 +1,6 @@
 import { CardImage,ContainerImage } from "./style";
+import Header from "../../components/shared/header"
+import Footer from "../../components/shared/footer"
 import {
   AnnounceImage,
   ColabImage,
@@ -10,10 +12,11 @@ import {
 
 const PageSucess = () => {
   return (
-    <>
+    <>  
+     <Header />
     <ContainerImage>
       <CardImage>
-        <SoftwareDeveloperImage></SoftwareDeveloperImage>        
+        <SoftwareDeveloperImage width="30rem"></SoftwareDeveloperImage>        
       </CardImage>
 
       <CardImage>
@@ -25,7 +28,7 @@ const PageSucess = () => {
       </CardImage>
 
       <CardImage>
-        <AnnounceImage></AnnounceImage>
+        <AnnounceImage width="30rem"></AnnounceImage>
         
       </CardImage>
 
@@ -38,7 +41,7 @@ const PageSucess = () => {
       
 
       <CardImage>
-        <ColabImage></ColabImage>
+        <ColabImage width="30rem"></ColabImage>
       </CardImage>
 
       <CardImage>
@@ -48,7 +51,7 @@ const PageSucess = () => {
       </CardImage>
 
       <CardImage>
-        <FreelanceImage></FreelanceImage>
+        <FreelanceImage width="30rem"></FreelanceImage>
       </CardImage>
 
       <CardImage>
@@ -60,7 +63,7 @@ const PageSucess = () => {
       </CardImage>
 
       <CardImage>
-        <OpenSourceImage></OpenSourceImage>
+        <OpenSourceImage width="30rem"></OpenSourceImage>
       </CardImage>
       <CardImage>
         <p>
@@ -71,9 +74,10 @@ const PageSucess = () => {
       </CardImage>
 
       <CardImage>
-        <WelcomeImage></WelcomeImage>
+        <WelcomeImage width="30rem"></WelcomeImage>
       </CardImage>
       </ContainerImage>
+      <Footer></Footer>
     </>
   );
 };

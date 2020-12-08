@@ -1,20 +1,17 @@
 import styled from "styled-components";
 
-export const CardImage = styled.div`
-  width: 80%;
-  display: flex;
-  justify-content: center;
-  text-align:center;
-
-  .sc-gsTCUz {
-    width: 10rem;
-    height: 10rem;
-  }
-`;
-
 export const ContainerImage = styled.div`
 display:flex;
 flex-direction:column;
+margin-top:5rem;
+margin-bottom:5rem;
 justify-content:center;
 align-items:center;
 `;
+export const CardImage = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align:center;
+`;
+

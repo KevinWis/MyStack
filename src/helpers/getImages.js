@@ -9,21 +9,21 @@ import ImageComponent from "../components/shared/imageComponent";
 export const AnnounceImage = ({width,height}) => {
   return <ImageComponent src={Announce} alt="Announce" width={width} height={height} />;
 };
-export const ColabImage = () => {
-  return <ImageComponent src={Colab} alt="Colab" />;
+export const ColabImage = ({width,height}) => {
+  return <ImageComponent src={Colab} alt="Colab" width={width} height={height} />;
 };
 
-export const FreelanceImage = () => {
-  return <ImageComponent src={Freelance} alt="Freelance" />;
+export const FreelanceImage = ({width,height}) => {
+  return <ImageComponent src={Freelance} alt="Freelance" width={width} height={height} />;
 };
-export const OpenSourceImage = () => {
-  return <ImageComponent src={OpenSource} alt="OpenSource" />;
-};
-
-export const SoftwareDeveloperImage = () => {
-  return <ImageComponent src={SoftwareDeveloper} alt="SoftwareDeveloper" />;
+export const OpenSourceImage = ({width,height}) => {
+  return <ImageComponent src={OpenSource} alt="OpenSource" width={width} height={height} />;
 };
 
-export const WelcomeImage = () => {
-  return <ImageComponent src={Welcome} alt="Welcome" />;
+export const SoftwareDeveloperImage = ({width,height}) => {
+  return <ImageComponent src={SoftwareDeveloper} alt="SoftwareDeveloper" width={width} height={height} />;
+};
+
+export const WelcomeImage = ({width,height}) => {
+  return <ImageComponent src={Welcome} alt="Welcome"  width={width} height={height}/>;
 };
