@@ -5,7 +5,7 @@ import Freelance from "../images/freelance.svg";
 import OpenSource from "../images/openSource.svg";
 import SoftwareDeveloper from "../images/SoftwareDeveloper.svg";
 import Welcome from "../images/Welcome.svg";
-import ImageComponent from "../components/shared/image_component";
+import ImageComponent from "../components/shared/imageComponent";
 
 export const AnnounceImage = () => {
   return <ImageComponent src={Announce} alt="Announce" />;
