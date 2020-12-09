@@ -1,6 +1,6 @@
 import Header from "../../components/shared/header";
 import Footer from "../../components/shared/footer";
-import Img from "./img.svg";
+import { WelcomeImage } from "../../helpers/getImages";
 import DefaultButton from "../../components/shared/buttons/defaultButton";
 import { Container, ButtonsContainer, MainContainer } from "./style";
 
@@ -8,16 +8,16 @@ const Landing = () => {
   return (
     <>
       <MainContainer>
-        <Header>teste</Header>
+        <Header></Header>
         <Container>
           <h1>Bem vindo!</h1>
-          <img src={Img}></img>
+          <img src={WelcomeImage}></img>
           <ButtonsContainer>
             <DefaultButton value={"Entrar"}></DefaultButton>
             <DefaultButton value={"Se cadastrar"}></DefaultButton>
           </ButtonsContainer>
         </Container>
-        <Footer>teste</Footer>
+        <Footer></Footer>
       </MainContainer>
     </>
   );
