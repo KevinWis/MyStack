@@ -11,7 +11,7 @@ export const MainCardContainer = styled.div`
 `;
 
 export const CardContainer = styled.div`
-  width: 22rem;
+  width: 26rem;
   height: 100%;
   display: flex;
   flex-direction: column;
