@@ -39,9 +39,9 @@ const RegisterEssencials = () => {
     axios
       .post("https://kenziehub.me/users", {
         ...data,
-        bio: " ",
-        contact: " ",
-        course_module: " ",
+        bio: "Bio",
+        contact: "111111111",
+        course_module: "Your Course",
       })
       .then((res) => {
         history.push("/register/2");
@@ -105,10 +105,8 @@ const RegisterEssencials = () => {
                   variant="contained"
                   color="primary"
                   value="Registrar"
-                  onType="submit"
-                >
-                  Registrar
-                </DefaultButton>
+                  _onType="submit"
+                />
               </ButtonContainer>
             </ContainerContentForm>
           </form>
