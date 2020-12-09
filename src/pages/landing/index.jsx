@@ -13,8 +13,11 @@ const Landing = () => {
           <h1>Bem vindo!</h1>
           <img src={WelcomeImage}></img>
           <ButtonsContainer>
-            <DefaultButton value={"Entrar"}></DefaultButton>
-            <DefaultButton value={"Se cadastrar"}></DefaultButton>
+            <DefaultButton value={"Entrar"} page="/Login"></DefaultButton>
+            <DefaultButton
+              value={"Se cadastrar"}
+              page="/Register"
+            ></DefaultButton>
           </ButtonsContainer>
         </Container>
         <Footer></Footer>
