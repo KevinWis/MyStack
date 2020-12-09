@@ -13,15 +13,15 @@ const Landing = () => {
         <Header></Header>
         <Container>
           <h1>Bem vindo!</h1>
-          <img src={WelcomeImage}></img>
+          <WelcomeImage width="30rem" height="30rem" />
           <ButtonsContainer>
             <DefaultButton
               value={"Entrar"}
-              _onClick={() => history.push("Login")}
+              _onClick={() => history.push("/login")}
             ></DefaultButton>
             <DefaultButton
               value={"Se cadastrar"}
-              _onClick={() => history.push("Register")}
+              _onClick={() => history.push("/register")}
             ></DefaultButton>
           </ButtonsContainer>
         </Container>

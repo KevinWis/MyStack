@@ -1,7 +1,11 @@
+import Routes from "./routes";
+
 function App() {
   return (
     <div className="App">
-      <main></main>
+      <main>
+        <Routes />
+      </main>
     </div>
   );
 }
