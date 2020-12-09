@@ -21,8 +21,9 @@ export const HDiv = styled.div`
 `;
 
 export const ContainerForm = styled.div`
-  width: 100vw;
-  height: 80vh;
+  width: 100%;
+  height: 80%;
+  position: fixed;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -30,7 +31,7 @@ export const ContainerForm = styled.div`
 `;
 
 export const ButtonContainer = styled.div`
-  margin: 0.5rem;
+  margin: 0.8rem;
 `;
 
 export const ContainerContentForm = styled.div`

@@ -1,9 +1,14 @@
+import RegisterEssentials from "./pages/registerEssentials"
+
 function App() {
   return (
     <div className="App">
-      <main></main>
+      <main>
+        <RegisterEssentials/>
+      </main>
     </div>
   );
 }
 
 export default App;
+ 
