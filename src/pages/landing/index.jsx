@@ -3,8 +3,10 @@ import Footer from "../../components/shared/footer";
 import { WelcomeImage } from "../../helpers/getImages";
 import DefaultButton from "../../components/shared/buttons/defaultButton";
 import { Container, ButtonsContainer, MainContainer } from "./style";
+import { useHistory } from "react-router-dom";
 
 const Landing = () => {
+  const history = useHistory();
   return (
     <>
       <MainContainer>
@@ -13,10 +15,13 @@ const Landing = () => {
           <h1>Bem vindo!</h1>
           <img src={WelcomeImage}></img>
           <ButtonsContainer>
-            <DefaultButton value={"Entrar"} page="/Login"></DefaultButton>
+            <DefaultButton
+              value={"Entrar"}
+              _onClick={() => history.push("Login")}
+            ></DefaultButton>
             <DefaultButton
               value={"Se cadastrar"}
-              page="/Register"
+              _onClick={() => history.push("Register")}
             ></DefaultButton>
           </ButtonsContainer>
         </Container>
