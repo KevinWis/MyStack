@@ -78,9 +78,8 @@ const Login = () => {
               variant="contained"
               color="primary"
               type="submit"
-            >
-              Entrar
-            </DefaultButton>
+              value={"Entrar"}
+            ></DefaultButton>
           </ButtonContainer>
 
           <ButtonContainer>
@@ -91,9 +90,8 @@ const Login = () => {
               color="primary"
               type="submit"
               onClick={() => history.push("/register/1")}
-            >
-              Se cadastrar
-            </DefaultButton>
+              value={"Se cadastrar"}
+            ></DefaultButton>
           </ButtonContainer>
         </ContainerContentForm>
       </Form>
