@@ -4,6 +4,10 @@ export const MainContainer = styled.div`
   width: 100%;
   padding: 5rem 0 3rem 0;
   height: calc(100vh - 8rem);
+  @media (min-width: 640px) {
+    padding: 4rem 0 3rem 0;
+    height: calc(100vh - 7rem);
+  }
 `;
 
 export const Container = styled.div`
@@ -25,5 +29,11 @@ export const ButtonsContainer = styled.div`
 
   button {
     margin-top: 2rem;
+  }
+  @media (min-width: 640px) {
+    width: 40%;
+  }
+  @media (min-width: 1080px) {
+    width: 30%;
   }
 `;
