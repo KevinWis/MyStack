@@ -1,7 +1,13 @@
+import Header from './components/shared/header'
+import Routes from './routes';
+
 function App() {
   return (
     <div className="App">
-      <main></main>
+      <Routes/>
+      <main>
+        <Header></Header>
+      </main>
     </div>
   );
 }
