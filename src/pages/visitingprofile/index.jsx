@@ -1,16 +1,20 @@
 import CardProfile from "../../components/shared/cardprofile";
-import {  Container } from "./style";
-import CartProfileTech from "../../components/shared/cartprofiletech"
+import {  ContainerProfile,Container } from "./style";
+import CartProfileTech from "../../components/shared/cartprofiletech";
+import Header from "../../components/shared/header";
+import Footer from "../../components/shared/footer";
 
 const VisitingProfile = () => {
   return (
     <>
+    <Header />
+    <Container>
     <CardProfile></CardProfile>
-
-
-      <Container>        
+      <ContainerProfile>        
         <CartProfileTech> </CartProfileTech>
-      </Container>
+      </ContainerProfile>
+      <Footer />
+      </Container>   
     </>
   );
 };
