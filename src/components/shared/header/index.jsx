@@ -1,6 +1,7 @@
 import { HeaderDiv } from "./style";
 import { IconButton } from "@material-ui/core";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { Logo } from "../../../helpers/getImages";
 
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -29,7 +30,11 @@ const Header = () => {
   return (
     <>
       <HeaderDiv>
-        <h1>My Dev</h1>
+        <Logo
+          width="4rem"
+          smallWidth="4rem"
+          func={() => history.push("/members")}
+        />
         <div>
           <IconButton onClick={handleClick}>
             <GiHamburgerMenu />
@@ -78,7 +83,9 @@ const Header = () => {
             </MenuItem>
             <MenuItem
               onClick={() => {
-                handleMenuItemClick("/profile/8b8e50a6-50c2-4718-b817-2d38cad0c8f4");
+                handleMenuItemClick(
+                  "/profile/8b8e50a6-50c2-4718-b817-2d38cad0c8f4"
+                );
               }}
             >
               /profile/:default
