@@ -2,7 +2,6 @@ import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { IoPersonCircle } from "react-icons/io5";
 import { MdAddAPhoto } from "react-icons/md";
 import { Fab } from "@material-ui/core";
 import {
