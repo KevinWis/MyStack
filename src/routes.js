@@ -20,7 +20,6 @@ const Routes = () => {
         <Route exact path="/register/2"></Route>
         <Route path="/profile/:id"></Route>
       </Switch>
-      ;
     </>
   );
 };

@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const MainContainer = styled.div`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  padding: 5rem 0 3rem 0;
+  height: calc(100vh - 8rem);
 `;
 
 export const Container = styled.div`
@@ -11,15 +12,18 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  height: 85vh;
+  height: 100%;
   background-color: whitesmoke;
 `;
 
 export const ButtonsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 50%;
-  height: 10%;
+  width: 60%;
   margin: 0 auto;
   justify-content: space-between;
+
+  button {
+    margin-top: 2rem;
+  }
 `;
