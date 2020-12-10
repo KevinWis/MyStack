@@ -10,12 +10,12 @@ export const getUserListThunk = (options) => async dispatch => {
     try {
         const response = await kenzieHub.get(`/users?perPage=${perPage}&page=${page}`)
         userList = [...response.data]
+        dispatch(getUserList(userList))
 
     } catch (err) {
         console.log(err)
     }
 
-    dispatch(getUserList(userList))
 }
 
 export const getUserByIdThunk = (userId) => async dispatch => {
@@ -25,13 +25,13 @@ export const getUserByIdThunk = (userId) => async dispatch => {
     try {
         const response = await kenzieHub.get(`/users/${userId}`)
         fetchedUser = response.data
+        dispatch(getUserById(fetchedUser))
 
     } catch (err) {
         console.log(err)
 
     }
 
-    dispatch(getUserById(fetchedUser))
 }
 
 
