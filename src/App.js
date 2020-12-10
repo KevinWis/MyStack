@@ -1,9 +1,15 @@
-import RegisterSecondary from './pages/registerSecondary';
+import RegisterSecondary from "./pages/registerSecondary";
+import Header from "./components/shared/header";
+import Footer from "./components/shared/footer";
 
 function App() {
   return (
     <div className="App">
-      <main><RegisterSecondary/></main>
+      <Header />
+      <main>
+        <RegisterSecondary />
+      </main>
+      <Footer />
     </div>
   );
 }
