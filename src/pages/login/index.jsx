@@ -35,7 +35,6 @@ const Login = () => {
       const res = await axios.post("https://kenziehub.me/sessions", data);
       window.localStorage.setItem("authToken", res.data.auth_token);
       console.log(res);
-      // history.push("/members");
     } catch (err) {
       console.log(err);
       setError("password", { message: "Senha ou usuário inválido" });
@@ -75,7 +74,7 @@ const Login = () => {
               aria-haspopup="true"
               variant="contained"
               color="primary"
-              type="submit"
+              _onType="submit"
               value={"Entrar"}
             ></DefaultButton>
           </ButtonContainer>
@@ -86,7 +85,8 @@ const Login = () => {
               aria-haspopup="true"
               variant="contained"
               color="primary"
-              onClick={() => history.push("/register/1")}
+              type="submit"
+              _onClick={() => history.push("/register/1")}
               value={"Se cadastrar"}
             ></DefaultButton>
           </ButtonContainer>

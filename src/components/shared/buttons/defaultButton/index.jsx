@@ -1,5 +1,4 @@
 import { DefaultSharedButton } from "./style.js";
-
 const DefaultButton = ({ value, type, _onClick }) => {
   return (
     <DefaultSharedButton
