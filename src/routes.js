@@ -3,7 +3,6 @@ import Landing from "./pages/landing";
 import PageSucess from "./pages/pagesuccess";
 import Login from "./pages/login";
 import MemberCard from "./components/members/memberCard";
-import Img from "./images/welcome.svg";
 
 const Routes = () => {
   return (
@@ -16,7 +15,6 @@ const Routes = () => {
         <MemberCard
           MemberName="teste de funcao"
           MemberWork="trabalha de testes"
-          _MemberImg={Img}
         />
       </Route>
       <Route exact path="/login">

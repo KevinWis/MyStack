@@ -7,7 +7,7 @@ import {
   PersonContainer,
 } from "./style";
 import AppleIcon from "@material-ui/icons/Apple";
-import Img from "../../../images/freelance.svg";
+import Img from "../../../images/maleavatar.svg";
 
 const MemberCard = ({ MemberName, MemberWork, _MemberImg }) => {
   return (
