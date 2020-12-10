@@ -23,7 +23,7 @@ export const MaleavatarImage = ({width,height}) => {
 
 
 
-export const AnnounceImage = ({width,height}) => {
+export const AnnounceImage = ({width,height}) => { 
   return <ImageComponent src={Announce} alt="Announce" width={width} height={height} />;
 };
 export const ColabImage = ({width,height}) => {
