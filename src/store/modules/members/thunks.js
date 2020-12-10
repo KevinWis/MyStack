@@ -29,6 +29,7 @@ export const getUserByIdThunk = (userId) => async dispatch => {
         console.log(err)
 
     }
+
     dispatch(getUserById(fetchedUser))
 }
 
