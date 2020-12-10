@@ -16,7 +16,7 @@ import {
   ButtonContainer,
   ContainerContentPage,
 } from "./style";
-const RegisterEssencials = () => {
+const RegisterEssentials = () => {
   const history = useHistory();
   const schema = yup.object({
     name: yup
@@ -117,4 +117,4 @@ const RegisterEssencials = () => {
   );
 };
 
-export default RegisterEssencials;
+export default RegisterEssentials;
