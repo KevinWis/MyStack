@@ -11,6 +11,7 @@ const Routes = () => {
       </Route>
       <Route exact path="/members">
         <h1>Em construção</h1>
+        <PageSucess />
       </Route>
       <Route exact path="/login">
         <Login />
