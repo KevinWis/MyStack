@@ -4,6 +4,7 @@ import Freelance from "../images/freelance.svg";
 import OpenSource from "../images/openSource.svg";
 import SoftwareDeveloper from "../images/softwareDeveloper.svg";
 import Welcome from "../images/welcome.svg";
+import logo from "../images/logo.svg";
 import ImageComponent from "../components/shared/imageComponent";
 
 export const AnnounceImage = ({ width, smallWidth }) => {
@@ -77,6 +78,18 @@ export const WelcomeTwoImage = ({ width, smallWidth }) => {
       alt="Welcome"
       width={width}
       smallWidth={smallWidth}
+    />
+  );
+};
+
+export const Logo = ({ width, smallWidth, func }) => {
+  return (
+    <ImageComponent
+      src={logo}
+      alt="logo"
+      width={width}
+      smallWidth={smallWidth}
+      _func={func}
     />
   );
 };
