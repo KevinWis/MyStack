@@ -19,8 +19,7 @@ export const userLoginThunk = (userLoginInfo, _error) => async dispatch => {
     }
 }
 
-/* Don't use*/
-export const createNewTechThunk = tech => async dispatch => {
+export const createTech = async tech => {
 
     const { title, status } = tech
     let api = ''
@@ -32,7 +31,7 @@ export const createNewTechThunk = tech => async dispatch => {
         }, {
             headers: {
                 "Content-Type": "application/json",
-                TOKEN: localStorage.getItem("authToken")
+                Authorization: `Bearer ${localStorage.getItem("authToken")}`
             }
         })
     } catch (err) {
@@ -40,19 +39,18 @@ export const createNewTechThunk = tech => async dispatch => {
     }
 }
 
-export const updateTechThunk = newTech => async dispatch => {
+export const updateTech = async newTech => {
 
     const { techId, newStatus } = newTech
     try {
-        const response = await kenzieHub.put(`/users/techs/${techId}`, {
+        const response = await kenzieHub.put(`/users/techs/${ techId }`, {
             "status": newStatus
         }, {
             headers: {
                 "Content-Type": "application/json",
-                TOKEN: localStorage.getItem("authToken")
+                Authorization: `Bearer ${localStorage.getItem("authToken")}`
             }
         })
-        test = response
     } catch (err) {
         console.log(err)
     }
