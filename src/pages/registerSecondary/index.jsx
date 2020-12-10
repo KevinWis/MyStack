@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { MdAddAPhoto } from "react-icons/md";
-import { Fab } from "@material-ui/core";
+// import { Fab } from "@material-ui/core";
 import {
   ContainerForm,
   ContainerPersonIcon,
@@ -14,6 +14,7 @@ import {
   ContainerButton,
   ContainerPersonPhoto,
   ContainerIcon,
+  FabComponent,
 } from "./style";
 import { Select, MenuItem, InputLabel, TextField } from "@material-ui/core";
 import DefaultButton from "../../components/shared/buttons/defaultButton";
@@ -64,14 +65,14 @@ const RegisterSeconddary = () => {
                   helperText={errors.avatar_url?.message}
                   type="file"
                 />
-                <Fab
+                <FabComponent
                   color="primary"
                   size="small"
                   component="span"
                   aria-label="add"
                 >
-                  <MdAddAPhoto />
-                </Fab>
+                  <MdAddAPhoto fontSize="2rem" />
+                </FabComponent>
               </label>
             </ContainerIcon>
           </ContainerPersonIcon>

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Fab } from "@material-ui/core";
 
 export const ContainerForm = styled.div`
   height: 100vh;
@@ -68,4 +69,8 @@ export const ContainerButton = styled.div`
   width: 24rem;
   margin: 0 auto;
   /* background-color: firebrick; */
+`;
+
+export const FabComponent = styled(Fab)`
+  background-color: #e5e5e5;;
 `;
