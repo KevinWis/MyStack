@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const HeaderDiv = styled.div`
   width: calc(100% - 2rem);
 
-  padding: 0 1rem;
+  padding: 0.5rem 1rem;
 
   position: fixed;
   top: 0px;
@@ -18,6 +18,6 @@ export const HeaderDiv = styled.div`
   box-shadow: 0px 0px 3px rgba(50, 50, 50, 0.75);
 
   h1 {
-    margin: 0.8rem;
+    margin: 0;
   }
 `;
