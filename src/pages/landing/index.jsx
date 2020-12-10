@@ -16,7 +16,7 @@ const Landing = () => {
         <Container>
           <h1>Bem-Vindo!</h1>
           <InnerContainer>
-            <WelcomeImage width="25rem" smallWidth="20rem" />
+            <WelcomeImage width="25rem" smallWidth="25rem" />
             <ButtonsContainer>
               <DefaultButton
                 value={"Entrar"}
