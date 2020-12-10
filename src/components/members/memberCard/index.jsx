@@ -7,13 +7,18 @@ import {
   PersonContainer,
 } from "./style";
 import AppleIcon from "@material-ui/icons/Apple";
+import Img from "../../../images/freelance.svg";
 
-const MemberCard = ({ MemberName, MemberWork }) => {
+const MemberCard = ({ MemberName, MemberWork, _MemberImg }) => {
   return (
     <>
       <MainCardContainer>
         <CardContainer>
-          <ImgContainer />
+          {_MemberImg ? (
+            <ImgContainer src={_MemberImg} />
+          ) : (
+            <ImgContainer src={Img} />
+          )}
           <PersonContainer>
             <DescContainer>
               <h3>{MemberName}</h3> <br />

@@ -8,6 +8,7 @@ export const MainCardContainer = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   padding-top: 4rem;
+  padding-bottom: 4rem;
 `;
 
 export const CardContainer = styled.div`
@@ -22,13 +23,17 @@ export const CardContainer = styled.div`
 export const PersonContainer = styled.div`
   width: 100%;
   height: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.4);
 `;
 
-export const ImgContainer = styled.div`
+export const ImgContainer = styled.img`
   width: 10rem;
   height: 10rem;
-  background-color: black;
+  background-color: whitesmoke;
   border-radius: 100%;
   transform: translatey(5rem);
   box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.4);
@@ -49,9 +54,9 @@ export const DescContainer = styled.div`
 `;
 
 export const TechIcons = styled.div`
-  width: 100%;
+  width: 80%;
   height: 5rem;
-  background-color: green;
+  background-color: whitesmoke;
   display: flex;
   justify-content: space-around;
   align-items: center;
