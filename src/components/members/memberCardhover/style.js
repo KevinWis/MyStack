@@ -48,35 +48,13 @@ justify-content: space-evenly;
 opacity: 0;
 transform: translateY(65px);
 transition:transform 0.8s ease-out;
-
-
-
 &:hover {
-  :nth-child(1) Media {
-    transition-delay:0.2s;
-  }
-  
-  :nth-child(1) Media {
-      transition-delay:0.2s;
-  }
-  /* :nth-child(2){
-    transition-delay:0.5s
-  }
-
-  :nth-child(3){
-    transition-delay:1s
-  }
-
-  :nth-child(4){
-    transition-delay:1.5s
-  } */
-
   transform: translateY(0px);
-  opacity:1;
-}
+  opacity:1;}
+
 `;
 
-export const Media = styled.div `
+export const MediaGithub = styled.div `
 width:3.7rem;
 height:3.7rem;
 margin-top: 250px;
@@ -86,6 +64,53 @@ box-shadow:4px 6px 7px;
 z-index:100;
 display:flex;
 align-items:center;
+transition-delay: 1s;
+.Media_Icon{
+  margin:auto;
+
+}
+`;
+export const MediaLinkedin = styled.div `
+width:3.7rem;
+height:3.7rem;
+margin-top: 250px;
+background-color: whitesmoke;
+border-radius:50%;
+box-shadow:4px 6px 7px;
+z-index:100;
+display:flex;
+align-items:center;
+transition-delay: 1s;
+.Media_Icon{
+  margin:auto;
+}
+`;
+export const MediaIntragram = styled.div `
+width:3.7rem;
+height:3.7rem;
+margin-top: 250px;
+background-color: whitesmoke;
+border-radius:50%;
+box-shadow:4px 6px 7px;
+z-index:100;
+display:flex;
+align-items:center;
+transition-delay: 1s;
+.Media_Icon{
+  margin:auto;
+}
+`;
+export const MediaYoutube = styled.div `
+width:3.7rem;
+height:3.7rem;
+margin-top: 250px;
+background-color: whitesmoke;
+border-radius:50%;
+box-shadow:4px 6px 7px;
+z-index:100;
+display:flex;
+align-items:center;
+transition-delay: 1s;
 .Media_Icon{
   margin:auto;
 }
