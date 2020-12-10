@@ -77,7 +77,7 @@ const Login = () => {
               aria-haspopup="true"
               variant="contained"
               color="primary"
-              type="submit"
+              _onType="submit"
               value={"Entrar"}
             ></DefaultButton>
           </ButtonContainer>
@@ -89,7 +89,7 @@ const Login = () => {
               variant="contained"
               color="primary"
               type="submit"
-              onClick={() => history.push("/register/1")}
+              _onClick={() => history.push("/register/1")}
               value={"Se cadastrar"}
             ></DefaultButton>
           </ButtonContainer>
