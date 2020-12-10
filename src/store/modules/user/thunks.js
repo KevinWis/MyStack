@@ -1,6 +1,6 @@
 import kenzieHub from '../../../services/axios'
 
-export const userLoginThunk = (userLoginInfo, error) => async dispatch => {
+export const userLoginThunk = (userLoginInfo, _error) => async dispatch => {
 
     const { email, password } = userLoginInfo
     try {
@@ -11,14 +11,15 @@ export const userLoginThunk = (userLoginInfo, error) => async dispatch => {
         })
 
         const { token } = response.data
-        if (response.data.token) {
-            localStorage.setItem("authToken", token)
-        }
+
+        localStorage.setItem("authToken", token)
+
     } catch (err) {
         console.log(err)
     }
 }
 
+/* Don't use*/
 export const createNewTechThunk = tech => async dispatch => {
 
     const { title, status } = tech
