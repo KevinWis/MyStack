@@ -5,22 +5,24 @@ export const getUserListThunk = async(options) => async(dispatch, _getState) => 
     const { page, perPage } = options
     try {
         const response = await kenzieHub.get(`/users?perPage=${perPage}&page=${page}`)
+
+        // dispatch(action())
     } catch (err) {
         console.log(err)
     }
 
-    // dispatch(action())
 }
 
 export const getUserByIdThunk = async(userId) => async(dispatch, _getState) => {
 
     try {
         const response = await kenzieHub.get(`/users/${userId}`)
+
+        // dispatch(action())
     } catch (err) {
         console.log(err)
     }
 
-    // dispatch(action())
 }
 
 export const registerUserThunk = async(resisterUserInfo) => async(dispatch, _getState) => {
@@ -36,9 +38,10 @@ export const registerUserThunk = async(resisterUserInfo) => async(dispatch, _get
             "contact": contact,
             "course_module": course_module
         })
+
+        // dispatch(action())?
     } catch (err) {
         console.log(err)
     }
 
-    // dispatch(action())
 }
