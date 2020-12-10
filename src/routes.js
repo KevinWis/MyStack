@@ -1,14 +1,20 @@
-import { Switch, Route } from "react-router-dom";
+import {Switch, Route}  from "react-router-dom";
+import Landing  from './pages/landing'
+import PageSucess  from './pages/pagesuccess'
+import Login  from './pages/login'
 
 const Routes = () => {
-  <Switch>
+  return (<Switch>
     <Route exact path="/"></Route>
-    <Route path="/members"></Route>
-    <Route path="/login"></Route>
+    <Route exact path="/members"><h1>Em construção</h1></Route>
+    <Route exact path="/login"><Landing/></Route>
     <Route exact path="/register/1"></Route>
     <Route exact path="/register/2"></Route>
-    <Route path="/profile/:id"></Route>
-  </Switch>;
+    <Route exact path="/profile/:id"></Route>
+    <Route exact path="/landing-page"><PageSucess/></Route>
+    <Route exact path="/my-profile/edit"><Login/></Route>
+    <Route exact path="/my-profile"></Route>
+  </Switch>)
 };
 
 export default Routes;
