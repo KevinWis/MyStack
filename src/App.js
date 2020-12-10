@@ -1,7 +1,9 @@
+import RegisterSecondary from './pages/registerSecondary';
+
 function App() {
   return (
     <div className="App">
-      <main></main>
+      <main><RegisterSecondary/></main>
     </div>
   );
 }
