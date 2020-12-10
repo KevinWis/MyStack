@@ -1,4 +1,5 @@
 import kenzieHub from '../../../services/axios'
+
 import { getUserList, getUserById, registerUser } from './actions'
 
 export const getUserListThunk = (options) => async dispatch => {
@@ -47,6 +48,13 @@ export const registerUserThunk = (resisterUserInfo) => async dispatch => {
             "contact": contact,
             "course_module": course_module
         })
+
+        const loginInfo = {
+            email: email,
+            password: password,
+        }
+
+        dispatch(userLoginThunk(loginInfo))
 
     } catch (err) {
         console.log(err)
