@@ -9,6 +9,7 @@ const Routes = () => {
       <Route exact path="/"></Route>
       <Route exact path="/members">
         <h1>Em construção</h1>
+        <PageSucess />
       </Route>
       <Route exact path="/login">
         <Landing />
@@ -16,9 +17,7 @@ const Routes = () => {
       <Route exact path="/register/1"></Route>
       <Route exact path="/register/2"></Route>
       <Route exact path="/profile/:id"></Route>
-      <Route exact path="/landing-page">
-        <PageSucess />
-      </Route>
+      <Route exact path="/landing-page"></Route>
       <Route exact path="/my-profile/edit">
         <Login />
       </Route>
