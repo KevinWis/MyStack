@@ -6,6 +6,23 @@ import SoftwareDeveloper from "../images/softwareDeveloper.svg";
 import Welcome from "../images/welcome.svg";
 import logo from "../images/logo.svg";
 import ImageComponent from "../components/shared/imageComponent";
+import Accessaccount from "../images/Accessaccount.svg";
+import Undrawsecurelogin from "../images/undrawsecurelogin.svg";
+import Maleavatar from "../images/maleavatar.svg";
+
+
+
+export const AccessaccountImage = ({width,height}) => {
+  return <ImageComponent src={Accessaccount} alt="Accessaccount" width={width} height={height} />;
+};
+export const UndrawsecureloginImage = ({width,height}) => {
+  return <ImageComponent src={Undrawsecurelogin} alt="Undrawsecurelogin" width={width} height={height} />;
+};
+export const MaleavatarImage = ({width,height}) => {
+  return <ImageComponent src={Maleavatar} alt="Maleavatar" width={width} height={height} />;
+};
+
+
 
 export const AnnounceImage = ({ width, smallWidth }) => {
   return (
