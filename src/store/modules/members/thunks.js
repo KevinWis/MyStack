@@ -1,5 +1,7 @@
 import kenzieHub from "../../../services/axios";
+
 import { getUserList, getUserById, registerUser } from "./actions";
+import { userLoginThunk } from "../user/thunks";
 
 export const getUserListThunk = (options) => async (dispatch) => {
   const { page, perPage } = options;
@@ -10,11 +12,10 @@ export const getUserListThunk = (options) => async (dispatch) => {
       `/users?perPage=${perPage}&page=${page}`
     );
     userList = [...response.data];
+    dispatch(getUserList(userList));
   } catch (err) {
     console.log(err);
   }
-
-  dispatch(getUserList(userList));
 };
 
 export const getUserByIdThunk = (userId) => async (dispatch) => {
@@ -23,10 +24,10 @@ export const getUserByIdThunk = (userId) => async (dispatch) => {
   try {
     const response = await kenzieHub.get(`/users/${userId}`);
     fetchedUser = response.data;
+    dispatch(getUserById(fetchedUser));
   } catch (err) {
     console.log(err);
   }
-  dispatch(getUserById(fetchedUser));
 };
 
 export const registerUserThunk = (resisterUserInfo) => async (dispatch) => {
@@ -48,6 +49,13 @@ export const registerUserThunk = (resisterUserInfo) => async (dispatch) => {
       contact: contact,
       course_module: course_module,
     });
+
+    const loginInfo = {
+      email: email,
+      password: password,
+    };
+
+    dispatch(userLoginThunk(loginInfo));
   } catch (err) {
     console.log(err);
   }
