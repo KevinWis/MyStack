@@ -1,6 +1,5 @@
 import { CardImage, ContainerImage } from "./style";
-import Header from "../../components/shared/header";
-import Footer from "../../components/shared/footer";
+
 import RegisterButton from "../../components/shared/buttons/registerButton";
 import { useHistory } from "react-router-dom";
 import {
@@ -16,17 +15,17 @@ const PageSucess = () => {
   const history = useHistory();
   return (
     <>
-      <Header />
       <ContainerImage>
         <RegisterButton
           value={"Junte-se a nos"}
           _onClick={() => history.push("/register/1")}
         ></RegisterButton>
         <CardImage>
-          <SoftwareDeveloperImage width="30rem"></SoftwareDeveloperImage>
-        </CardImage>
+          <SoftwareDeveloperImage
+            width="25rem"
+            smallWidth="22rem"
+          ></SoftwareDeveloperImage>
 
-        <CardImage>
           <p>
             Se conecte com desenvolvedores, empresas, recrutadores e
             especialistas do tech business de todo o mundo
@@ -34,10 +33,8 @@ const PageSucess = () => {
         </CardImage>
 
         <CardImage>
-          <AnnounceImage width="30rem"></AnnounceImage>
-        </CardImage>
+          <AnnounceImage width="25rem" smallWidth="22rem"></AnnounceImage>
 
-        <CardImage>
           <p>
             Monte seu time e tire sua ideia do papel, ou contribua para a maior
             comunidade open source
@@ -45,10 +42,8 @@ const PageSucess = () => {
         </CardImage>
 
         <CardImage>
-          <ColabImage width="30rem"></ColabImage>
-        </CardImage>
+          <ColabImage width="25rem" smallWidth="22rem"></ColabImage>
 
-        <CardImage>
           <p>
             Anúncie seu trabalho, sua empresa ou seu produto, tudo em um só
             lugar!
@@ -56,10 +51,8 @@ const PageSucess = () => {
         </CardImage>
 
         <CardImage>
-          <FreelanceImage width="30rem"></FreelanceImage>
-        </CardImage>
+          <FreelanceImage width="25rem" smallWidth="22rem"></FreelanceImage>
 
-        <CardImage>
           <p>
             Um freela impossível de entregar sozinho? Aqui não precisa fazer
             tudo sozinho, compartilhe o trabalho com quem está procurando ou
@@ -68,9 +61,8 @@ const PageSucess = () => {
         </CardImage>
 
         <CardImage>
-          <OpenSourceImage width="30rem"></OpenSourceImage>
-        </CardImage>
-        <CardImage>
+          <OpenSourceImage width="25rem" smallWidth="22rem"></OpenSourceImage>
+
           <p>
             Está buscando um dev verificado e com ótimos reviews para levar sua
             empresa para o proximo nível? Ou precisa daquela skill específica
@@ -79,10 +71,9 @@ const PageSucess = () => {
         </CardImage>
 
         <CardImage>
-          <WelcomeImage width="30rem"></WelcomeImage>
+          <WelcomeImage width="25rem" smallWidth="22rem"></WelcomeImage>
         </CardImage>
       </ContainerImage>
-      <Footer></Footer>
     </>
   );
 };

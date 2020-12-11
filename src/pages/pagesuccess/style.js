@@ -3,15 +3,35 @@ import styled from "styled-components";
 export const ContainerImage = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  padding: 5rem 5rem 3rem 5rem;
   justify-content: center;
   align-items: center;
-  background-color: #f5f5f5;
+  background-color: whitesmoke;
 `;
 export const CardImage = styled.div`
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   text-align: center;
+
+  margin: 2rem 0;
+
+  p {
+    width: 80%;
+  }
+
+  @media (min-width: 640px) {
+    flex-direction: row;
+    p {
+      width: 40%;
+    }
+    :nth-child(odd) {
+      flex-direction: row-reverse;
+      p {
+        margin-right: auto;
+      }
+    }
+  }
 `;

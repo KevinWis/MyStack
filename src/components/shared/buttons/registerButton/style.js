@@ -2,13 +2,15 @@ import styled from "styled-components";
 import Button from "@material-ui/core/Button";
 
 export const StyledRegisterButton = styled.button`
-  width: 10rem;
-  height: 5rem;
+  width: 8rem;
+  height: 4rem;
   background-color: #43c1d8 !important;
   color: #e4f6f9 !important;
   border: 0 !important;
   border-radius: 3px !important;
   position: fixed;
-  top: 6rem;
-  right: 1%;
+  bottom: 4rem;
+  margin: 0 auto;
+
+  z-index: 100;
 `;
