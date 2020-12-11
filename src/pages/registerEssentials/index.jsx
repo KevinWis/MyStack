@@ -1,20 +1,18 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { TextField } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import DefaultButton from "../../components/shared/buttons/defaultButton";
 import axios from "axios";
-import Header from "../../components/shared/header";
-import Footer from "../../components/shared/footer";
 import { FreelanceImage } from "../../helpers/getImages";
+
 import {
-  ContainerImage,
-  CardImage,
-  ContainerForm,
-  ContainerContentForm,
-  ButtonContainer,
+  ContainerContent,
+  Form,
+  StyledTextField,
   ContainerContentPage,
+  ButtonContainer,
+  HDiv,
 } from "./style";
 const RegisterEssentials = () => {
   const history = useHistory();
@@ -52,68 +50,54 @@ const RegisterEssentials = () => {
   };
 
   return (
-    <>
-      <Header />
-      <ContainerContentPage>
-        <ContainerImage>
-          <CardImage>
-            <FreelanceImage width="32rem" />
-          </CardImage>
-        </ContainerImage>
+    <ContainerContentPage>
+      <HDiv>
+        <h1>Cadastro</h1>
+      </HDiv>
+      <ContainerContent>
+        <FreelanceImage width="25rem" smallWidth="25rem" />
+        <Form onSubmit={handleSubmit(handleForm)}>
+          <StyledTextField
+            margin="normal"
+            label="Usuário"
+            name="name"
+            inputRef={register}
+            error={!!errors.name}
+            helperText={errors.name?.message}
+          />
 
-        <ContainerForm>
-          <form onSubmit={handleSubmit(handleForm)}>
-            <ContainerContentForm>
-              <h1>Cadastro</h1>
-              <div>
-                <TextField
-                  margin="normal"
-                  label="Usuário"
-                  name="name"
-                  inputRef={register}
-                  error={!!errors.name}
-                  helperText={errors.name?.message}
-                />
-              </div>
-              <div>
-                <TextField
-                  margin="normal"
-                  label="Email"
-                  name="email"
-                  inputRef={register}
-                  error={!!errors.email}
-                  helperText={errors.email?.message}
-                />
-              </div>
+          <StyledTextField
+            margin="normal"
+            label="Email"
+            name="email"
+            inputRef={register}
+            error={!!errors.email}
+            helperText={errors.email?.message}
+          />
 
-              <div>
-                <TextField
-                  type="password"
-                  margin="normal"
-                  label="Senha"
-                  name="password"
-                  inputRef={register}
-                  error={!!errors.password}
-                  helperText={errors.password?.message}
-                />
-              </div>
+          <StyledTextField
+            type="password"
+            margin="normal"
+            label="Senha"
+            name="password"
+            inputRef={register}
+            error={!!errors.password}
+            helperText={errors.password?.message}
+          />
 
-              <ButtonContainer>
-                <DefaultButton
-                  aria-controls="customized-menu"
-                  aria-haspopup="true"
-                  variant="contained"
-                  color="primary"
-                  value="Registrar"
-                  _onType="submit"
-                />
-              </ButtonContainer>
-            </ContainerContentForm>
-          </form>
-        </ContainerForm>
-      </ContainerContentPage>
-      <Footer />
-    </>
+          <ButtonContainer>
+            <DefaultButton
+              aria-controls="customized-menu"
+              aria-haspopup="true"
+              variant="contained"
+              color="primary"
+              value="Registrar"
+              _onType="submit"
+            />
+          </ButtonContainer>
+        </Form>
+      </ContainerContent>
+    </ContainerContentPage>
   );
 };
 

@@ -69,7 +69,7 @@ export const HDiv = styled.div`
 `;
 
 export const ButtonContainer = styled.div`
-  margin: 1rem 0;
+  margin: 3rem 0 1rem 0;
   width: 80%;
   button {
     width: 100%;
