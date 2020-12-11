@@ -92,7 +92,7 @@ const RegisterEssentials = () => {
               variant="contained"
               color="primary"
               value="Registrar"
-              _onType="submit"
+              type="submit"
             />
           </ButtonContainer>
         </Form>
