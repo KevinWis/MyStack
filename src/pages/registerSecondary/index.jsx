@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { MdAddAPhoto } from "react-icons/md";
-// import { Fab } from "@material-ui/core";
 import {
   ContainerForm,
   ContainerPersonIcon,
@@ -20,15 +19,14 @@ import { Select, MenuItem, InputLabel, TextField } from "@material-ui/core";
 import DefaultButton from "../../components/shared/buttons/defaultButton";
 import { MaleavatarImage } from "../../helpers/getImages";
 
+import { useState } from "react";
+
 const RegisterSeconddary = () => {
+  const [selectStatus, setSelectStatus] = useState(" ");
   const history = useHistory();
-  const schema = yup.object({
-    techs: yup
-      .object({
-        title: yup.string().required(),
-        status: yup.string().required(),
-      })
-      .required("Campo obrigatório"),
+  const schema = yup.object().shape({
+    title: yup.string().required("Campo obrigatório"),
+    status: yup.string().required("Campo obrigatório"),
     bio: yup
       .string()
       .min(6, "Mínimo de 6 caracteres")
@@ -89,19 +87,28 @@ const RegisterSeconddary = () => {
                 helperText={errors.title?.message}
               />
             </ContainerTitle>
+            <TextField
+              style={{ display: "none" }}
+              name="status"
+              inputRef={register}
+              error={!!errors.title}
+              helperText={errors.title?.message}
+              value={selectStatus}
+            />
             <ContainerStatus>
-              <InputLabel id="demo-simple-select-label">Nivel</InputLabel>
+              <InputLabel id="select-label">Nivel</InputLabel>
               <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                name="status"
+                labelId="select-label"
+                id="select"
                 inputRef={register}
                 error={!!errors.status}
                 helperText={errors.status?.message}
+                value={selectStatus}
+                onChange={(evt) => setSelectStatus(evt.target.value)}
               >
-                <MenuItem value="Basic">Iniciante</MenuItem>
-                <MenuItem value="Medium">Intermédiário</MenuItem>
-                <MenuItem value="Advanced">Avançado</MenuItem>
+                <MenuItem value={"Basic"}>Iniciante</MenuItem>
+                <MenuItem value={"Medium"}>Intermédiário</MenuItem>
+                <MenuItem value={"Advanced"}>Avançado</MenuItem>
               </Select>
             </ContainerStatus>
           </ContainerTechs>
@@ -122,13 +129,7 @@ const RegisterSeconddary = () => {
             />
           </ContainerBio>
           <ContainerButton>
-            <DefaultButton
-              type="submit"
-              value="Ver meu Perfil"
-              _OnClick={() => history.push("")}
-            >
-              Registrar
-            </DefaultButton>
+            <DefaultButton type="submit" value="Registrar" />
           </ContainerButton>
         </form>
       </ContainerForm>
