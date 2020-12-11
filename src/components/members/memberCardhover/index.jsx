@@ -23,8 +23,7 @@ import { TiArrowForwardOutline } from "react-icons/ti";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-const MemberCardhover = () => {
-  
+const MemberCardhover = ({ name, course, id }) => {
   const history = useHistory();
 
   const [medias, setMedias] = useState([
@@ -32,8 +31,7 @@ const MemberCardhover = () => {
     Math.floor((Math.random() + 1) * 10),
   ]);
 
-  const course = course_module.split("(")[1].replace(")","")
-
+  //const course = course_module.split("(")[1].replace(")","")
 
   return (
     <>
@@ -43,7 +41,7 @@ const MemberCardhover = () => {
             <ImageFilter>
               <div className="Dev_Name">
                 <p>{name}</p>
-                <p>{course}</p>
+                <p>{course === "undefined" ? "" : course}</p>
               </div>
             </ImageFilter>
           </ProfileImage>

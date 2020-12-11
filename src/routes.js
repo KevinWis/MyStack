@@ -2,7 +2,10 @@ import { Switch, Route } from "react-router-dom";
 import Landing from "./pages/landing";
 import PageSucess from "./pages/pagesuccess";
 import Login from "./pages/login";
+import Members from "./pages/members";
 import RegisterEssentials from "./pages/registerEssentials";
+import RegisterSecondary from "./pages/registerSecondary";
+import VisitingProfile from "./pages/visitingprofile";
 
 const Routes = () => {
   return (
@@ -11,8 +14,7 @@ const Routes = () => {
         <Landing />
       </Route>
       <Route exact path="/members">
-        <h1>Em construção</h1>
-        <PageSucess />
+        <Members />
       </Route>
       <Route exact path="/login">
         <Login />
@@ -20,14 +22,16 @@ const Routes = () => {
       <Route exact path="/register/1">
         <RegisterEssentials />
       </Route>
-      <Route exact path="/register/2"></Route>
-      <Route exact path="/profile/:id"></Route>
+      <Route exact path="/register/2">
+        <RegisterSecondary />
+      </Route>
+      <Route exact path="/profile/:id">
+        <VisitingProfile />
+      </Route>
       <Route exact path="/page-success">
         <PageSucess />
       </Route>
-      <Route exact path="/my-profile/edit">
-        <Login />
-      </Route>
+      <Route exact path="/my-profile/edit"></Route>
       <Route exact path="/my-profile"></Route>
     </Switch>
   );

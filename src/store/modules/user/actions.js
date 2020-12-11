@@ -1,10 +1,13 @@
 import { USERLOGIN, CREATENEWTECH, UPDATETECH } from "./actionTypes";
-const userLogin = (user) => {
+
+export const userLogin = (user) => {
   return { type: USERLOGIN, user };
 };
-const createNewTech = () => {
+
+export const createNewTech = () => {
   return { type: CREATENEWTECH };
 };
-const updateTech = () => {
+
+export const updateTech = () => {
   return { type: UPDATETECH };
 };
