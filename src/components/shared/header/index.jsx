@@ -50,17 +50,38 @@ const Header = () => {
             </MenuItem>
             <MenuItem
               onClick={() => {
-                handleMenuItemClick("/");
+                handleMenuItemClick("/members");
               }}
             >
-              PlaceHolder2
+              /members
             </MenuItem>
             <MenuItem
               onClick={() => {
-                handleMenuItemClick("/");
+                handleMenuItemClick("/login");
               }}
             >
-              PlaceHolder3
+              /login
+            </MenuItem>
+            <MenuItem
+              onClick={() => {
+                handleMenuItemClick("/register/1");
+              }}
+            >
+              /register/1
+            </MenuItem>
+            <MenuItem
+              onClick={() => {
+                handleMenuItemClick("/register/2");
+              }}
+            >
+              /register/2
+            </MenuItem>
+            <MenuItem
+              onClick={() => {
+                handleMenuItemClick("/profile/8b8e50a6-50c2-4718-b817-2d38cad0c8f4");
+              }}
+            >
+              /profile/:default
             </MenuItem>
           </Menu>
         </div>
