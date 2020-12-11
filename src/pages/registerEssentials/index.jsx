@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import DefaultButton from "../../components/shared/buttons/defaultButton";
 import axios from "axios";
 import { FreelanceImage } from "../../helpers/getImages";
+import { RegisterUser } from "../../store/modules/members/thunks.js";
 
 import {
   ContainerContent,
@@ -26,27 +27,19 @@ const RegisterEssentials = () => {
       .string()
       .min(6, "Mínimo de 6 caracteres")
       .required("Campo obrigatório"),
+    confirmPassword: yup
+      .string()
+      .oneOf([yup.ref("password"), null], "As senhas devem ser iguais!"),
   });
 
   const { register, handleSubmit, errors, setError } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const handleForm = (data) => {
+  const handleForm = async (data) => {
     console.log(data);
-    axios
-      .post("https://kenziehub.me/users", {
-        ...data,
-        bio: "Bio",
-        contact: "111111111",
-        course_module: "Your Course",
-      })
-      .then((res) => {
-        history.push("/register/2");
-      })
-      .catch((err) => {
-        setError("Não enviou");
-      });
+    await RegisterUser(data);
+    history.push("/register/2");
   };
 
   return (
@@ -65,7 +58,6 @@ const RegisterEssentials = () => {
             error={!!errors.name}
             helperText={errors.name?.message}
           />
-
           <StyledTextField
             margin="normal"
             label="Email"
@@ -74,7 +66,6 @@ const RegisterEssentials = () => {
             error={!!errors.email}
             helperText={errors.email?.message}
           />
-
           <StyledTextField
             type="password"
             margin="normal"
@@ -84,7 +75,15 @@ const RegisterEssentials = () => {
             error={!!errors.password}
             helperText={errors.password?.message}
           />
-
+          <StyledTextField
+            type="password"
+            margin="normal"
+            label="Confirmar Senha"
+            name="confirmPassword"
+            inputRef={register}
+            error={!!errors.password}
+            helperText={errors.confirmPassword?.message}
+          />
           <ButtonContainer>
             <DefaultButton
               aria-controls="customized-menu"

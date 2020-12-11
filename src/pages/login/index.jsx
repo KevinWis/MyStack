@@ -78,9 +78,8 @@ const Login = () => {
               aria-haspopup="true"
               variant="contained"
               color="primary"
-              type="submit"
               value={"Se cadastrar"}
-              _onClick={() => history.push("/register")}
+              _onClick={() => history.push("/register/1")}
             ></DefaultButton>
           </ButtonContainer>
         </Form>
