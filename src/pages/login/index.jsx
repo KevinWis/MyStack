@@ -5,7 +5,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import DefaultButton from "../../components/shared/buttons/defaultButton";
 import { WelcomeTwoImage } from "../../helpers/getImages";
-import UserLoginThunk from "../../store/modules/user/thunks";
+import { userLoginThunk } from "../../store/modules/user/thunks.js";
 import {
   Form,
   ContainerForm,
@@ -32,14 +32,9 @@ const Login = () => {
 
   const handleForm = async (data) => {
     console.log(data);
-    try {
-      const res = await axios.post("https://kenziehub.me/sessions", data);
-      window.localStorage.setItem("authToken", res.data.token);
+    await userLoginThunk(data, setError);
+    if (localStorage.authToken) {
       history.push("/page-success");
-    } catch (err) {
-      console.log(err);
-      setError("email", { message: "E-mail invalido!" });
-      setError("password", { message: "Senha ou usuário inválido" });
     }
   };
 
@@ -59,14 +54,12 @@ const Login = () => {
             inputRef={register}
             error={!!errors.user}
           />
-          {errors.email && <p type="warning">{errors.email.message}</p>}
 
           <StyledTextField
             margin="normal"
             label="Senha"
             name="password"
             inputRef={register}
-            error={!!errors.password}
           />
           {errors.password && <p type="warning">{errors.password.message}</p>}
 
@@ -89,6 +82,7 @@ const Login = () => {
               color="primary"
               type="submit"
               value={"Se cadastrar"}
+              _onClick={() => history.push("/register")}
             ></DefaultButton>
           </ButtonContainer>
         </Form>

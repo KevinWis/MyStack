@@ -5,6 +5,7 @@ import {
   DescContainer,
   TechIcons,
   PersonContainer,
+  Media,
 } from "./style";
 import AppleIcon from "@material-ui/icons/Apple";
 import Img from "../../../images/maleavatar.svg";
@@ -28,6 +29,10 @@ const MemberCard = ({ MemberName, MemberWork, _MemberImg }) => {
               <AppleIcon fontSize="large" />
               <AppleIcon fontSize="large" />
               <AppleIcon fontSize="large" />
+              <Media />
+              <Media />
+              <Media />
+              <Media />
             </TechIcons>
           </PersonContainer>
         </CardContainer>

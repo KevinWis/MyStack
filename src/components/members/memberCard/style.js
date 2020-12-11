@@ -61,3 +61,6 @@ export const TechIcons = styled.div`
   justify-content: space-around;
   align-items: center;
 `;
+export const Media = styled.div`
+  display: none;
+`;
