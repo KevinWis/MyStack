@@ -70,6 +70,16 @@ export const WelcomeImage = ({ width, smallWidth }) => {
     />
   );
 };
+export const WelcomeTwoImage = ({ width, smallWidth }) => {
+  return (
+    <ImageComponent
+      src={Welcome}
+      alt="Welcome"
+      width={width}
+      smallWidth={smallWidth}
+    />
+  );
+};
 export const Logo = ({ width, smallWidth, func }) => {
   return (
     <ImageComponent
