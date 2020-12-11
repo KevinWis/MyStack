@@ -33,7 +33,7 @@ const Login = () => {
   const handleForm = async (data) => {
     console.log(data);
     await userLoginThunk(data, setError);
-    if (localStorage.authToken) {
+    if (localStorage.getItem("authToken")) {
       history.push("/page-success");
     }
   };
@@ -54,7 +54,7 @@ const Login = () => {
             inputRef={register}
             error={!!errors.user}
           />
-
+          {errors.email && <p type="warning">{errors.email.message}</p>}
           <StyledTextField
             margin="normal"
             label="Senha"
@@ -73,7 +73,6 @@ const Login = () => {
               value={"Entrar"}
             ></DefaultButton>
           </ButtonContainer>
-
           <ButtonContainer>
             <DefaultButton
               aria-controls="customized-menu"
