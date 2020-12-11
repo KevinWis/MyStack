@@ -27,6 +27,9 @@ const RegisterEssentials = () => {
       .string()
       .min(6, "Mínimo de 6 caracteres")
       .required("Campo obrigatório"),
+    confirmPassword: yup
+      .string()
+      .oneOf([yup.ref("password"), null], "As senhas devem ser iguais!"),
   });
 
   const { register, handleSubmit, errors, setError } = useForm({
@@ -55,7 +58,6 @@ const RegisterEssentials = () => {
             error={!!errors.name}
             helperText={errors.name?.message}
           />
-
           <StyledTextField
             margin="normal"
             label="Email"
@@ -64,7 +66,6 @@ const RegisterEssentials = () => {
             error={!!errors.email}
             helperText={errors.email?.message}
           />
-
           <StyledTextField
             type="password"
             margin="normal"
@@ -74,7 +75,15 @@ const RegisterEssentials = () => {
             error={!!errors.password}
             helperText={errors.password?.message}
           />
-
+          <StyledTextField
+            type="password"
+            margin="normal"
+            label="Confirmar Senha"
+            name="confirmPassword"
+            inputRef={register}
+            error={!!errors.password}
+            helperText={errors.confirmPassword?.message}
+          />
           <ButtonContainer>
             <DefaultButton
               aria-controls="customized-menu"
