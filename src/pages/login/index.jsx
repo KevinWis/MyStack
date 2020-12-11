@@ -5,6 +5,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import DefaultButton from "../../components/shared/buttons/defaultButton";
 import { WelcomeTwoImage } from "../../helpers/getImages";
+import { userLoginThunk } from "../../store/modules/user/thunks.js";
 import {
   Form,
   ContainerForm,
@@ -31,13 +32,9 @@ const Login = () => {
 
   const handleForm = async (data) => {
     console.log(data);
-    try {
-      const res = await axios.post("https://kenziehub.me/sessions", data);
-      window.localStorage.setItem("authToken", res.data.auth_token);
-      console.log(res);
-    } catch (err) {
-      console.log(err);
-      setError("password", { message: "Senha ou usuário inválido" });
+    await userLoginThunk(data, setError);
+    if (localStorage.authToken) {
+      history.push("/page-success");
     }
   };
 
@@ -56,7 +53,6 @@ const Login = () => {
             name="email"
             inputRef={register}
             error={!!errors.user}
-            helperText={errors.user?.message}
           />
 
           <StyledTextField
@@ -64,9 +60,8 @@ const Login = () => {
             label="Senha"
             name="password"
             inputRef={register}
-            error={!!errors.password}
-            helperText={errors.password?.message}
           />
+          {errors.password && <p type="warning">{errors.password.message}</p>}
 
           <ButtonContainer>
             <DefaultButton
@@ -74,7 +69,7 @@ const Login = () => {
               aria-haspopup="true"
               variant="contained"
               color="primary"
-              _onType="submit"
+              type="submit"
               value={"Entrar"}
             ></DefaultButton>
           </ButtonContainer>
@@ -86,8 +81,8 @@ const Login = () => {
               variant="contained"
               color="primary"
               type="submit"
-              _onClick={() => history.push("/register/1")}
               value={"Se cadastrar"}
+              _onClick={() => history.push("/register")}
             ></DefaultButton>
           </ButtonContainer>
         </Form>
