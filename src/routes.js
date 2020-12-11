@@ -5,7 +5,7 @@ import Login from "./pages/login";
 import Members from "./pages/members";
 import RegisterEssentials from "./pages/registerEssentials";
 import RegisterSecondary from "./pages/registerSecondary";
-import Profile from "./pages/profile";
+//import Profile from "./pages/profile";
 
 const Routes = () => {
   return (
@@ -25,9 +25,7 @@ const Routes = () => {
       <Route exact path="/register/2">
         <RegisterSecondary />
       </Route>
-      <Route exact path="/profile/:id">
-        <Profile />
-      </Route>
+      <Route exact path="/profile/:id"></Route>
       <Route exact path="/page-success">
         <PageSucess />
       </Route>
