@@ -29,8 +29,17 @@ const MemberCardhover = ({ name, course, id }) => {
     Math.floor((Math.random() + 1) * 5),
     Math.floor((Math.random() + 1) * 5),
   ]);
+  // if(course) {
+  //   const course_module = course.split("(")[1].replace(")", "");
+  // }
 
-  const course_module = course.split("(")[1].replace(")", "");
+  function getCourseModule(course) {
+    return course === "undefined"
+      ? ""
+      : course.includes("(")
+      ? course.split("(")[1].replace(")", "")
+      : course;
+  }
 
   return (
     <>
@@ -40,7 +49,7 @@ const MemberCardhover = ({ name, course, id }) => {
             <ImageFilter>
               <div className="Dev_Name">
                 <p>{name}</p>
-                <p>{course_module === "undefined" ? "" : course_module}</p>
+                <p>{getCourseModule(course)}</p>
               </div>
             </ImageFilter>
           </ProfileImage>
