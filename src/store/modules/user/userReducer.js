@@ -1,4 +1,5 @@
 import { USERLOGIN, CREATENEWTECH, UPDATETECH } from "./actionTypes";
+
 const userReducer = (state = {}, action) => {
   const { type } = action;
   switch (type) {
