@@ -6,6 +6,7 @@ import { getUserListThunk } from "../../store/modules/members/thunks";
 const Members = () => {
   const dispatch = useDispatch();
   const members = useSelector((state) => state.members.list);
+  console.log(members);
   useEffect(() => {
     dispatch(getUserListThunk({ perPage: 15, page: 1 }));
   }, []);

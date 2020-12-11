@@ -26,9 +26,11 @@ const MemberCardhover = ({ name, course, id }) => {
   const [medias, setMedias] = useState([
     Math.floor((Math.random() + 1) * 10),
     Math.floor((Math.random() + 1) * 10),
+    Math.floor((Math.random() + 1) * 5),
+    Math.floor((Math.random() + 1) * 5),
   ]);
 
-  //const course = course_module.split("(")[1].replace(")","")
+  const course_module = course.split("(")[1].replace(")", "");
 
   return (
     <>
@@ -38,7 +40,7 @@ const MemberCardhover = ({ name, course, id }) => {
             <ImageFilter>
               <div className="Dev_Name">
                 <p>{name}</p>
-                <p>{course === "undefined" ? "" : course}</p>
+                <p>{course_module === "undefined" ? "" : course_module}</p>
               </div>
             </ImageFilter>
           </ProfileImage>
@@ -69,7 +71,7 @@ const MemberCardhover = ({ name, course, id }) => {
           <div className="Icon">
             <FaRegComment size="32px" />
           </div>
-          <p>{`${medias[0]}.${medias[1]}`} k</p>
+          <p>{`${medias[2]}.${medias[3]}`} k</p>
           <div className="Spacer"></div>
           <div className="Icon">
             <TiArrowForwardOutline
