@@ -51,7 +51,7 @@ export const Form = styled.form`
     width: 50%;
   }
   @media (min-width: 1080px) {
-    width: 25%;
+    width: 30%;
   }
   label {
     color: #43c1d8 !important;
@@ -73,5 +73,8 @@ export const ButtonContainer = styled.div`
   width: 80%;
   button {
     width: 100%;
+  }
+  @media (min-width: 1080px) {
+    margin: 1rem 0 1rem 0;
   }
 `;

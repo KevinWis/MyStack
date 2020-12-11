@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import axios from "axios";
 import { useHistory } from "react-router-dom";
 import DefaultButton from "../../components/shared/buttons/defaultButton";
 import { WelcomeTwoImage } from "../../helpers/getImages";
@@ -44,7 +43,7 @@ const Login = () => {
         <h1>Login</h1>
       </HDiv>
       <ContainerContent>
-        <WelcomeTwoImage width={"25rem"} smallWidth={"25rem"} />
+        <WelcomeTwoImage width={"25rem"} smallWidth={"30rem"} />
 
         <Form onSubmit={handleSubmit(handleForm)}>
           <StyledTextField
