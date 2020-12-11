@@ -1,17 +1,15 @@
 import styled from "styled-components";
 import { TextField } from "@material-ui/core";
 
-export const ContainerForm = styled.div`
-  width: 100%;
+export const ContainerContentPage = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
 
+  width: 100%;
   padding: 5rem 0 3rem 0;
   height: calc(100vh - 8rem);
-
-  background-color: whitesmoke;
 
   @media (min-width: 640px) {
     padding: 4rem 0 3rem 0;
@@ -31,6 +29,28 @@ export const ContainerContent = styled.div`
     flex-direction: row;
     justify-content: space-around;
   }
+`;
+
+export const ContainerImage = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  justify-content: center;
+  align-items: center;
+`;
+export const CardImage = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+`;
+
+export const HDiv = styled.div`
+  margin: 1rem;
+`;
+export const StyledTextField = styled(TextField)`
+  width: 80%;
 `;
 
 export const Form = styled.form`
@@ -59,13 +79,6 @@ export const Form = styled.form`
   .MuiInput-underline:after {
     border-color: #43c1d8 !important;
   }
-`;
-export const StyledTextField = styled(TextField)`
-  width: 80%;
-`;
-
-export const HDiv = styled.div`
-  margin: 1rem;
 `;
 
 export const ButtonContainer = styled.div`

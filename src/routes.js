@@ -2,6 +2,7 @@ import { Switch, Route } from "react-router-dom";
 import Landing from "./pages/landing";
 import PageSucess from "./pages/pagesuccess";
 import Login from "./pages/login";
+import RegisterEssentials from "./pages/registerEssentials";
 
 const Routes = () => {
   return (
@@ -16,7 +17,9 @@ const Routes = () => {
       <Route exact path="/login">
         <Login />
       </Route>
-      <Route exact path="/register/1"></Route>
+      <Route exact path="/register/1">
+        <RegisterEssentials />
+      </Route>
       <Route exact path="/register/2"></Route>
       <Route exact path="/profile/:id"></Route>
       <Route exact path="/page-success">
