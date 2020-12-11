@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import DefaultButton from "../../components/shared/buttons/defaultButton";
 import axios from "axios";
 import { FreelanceImage } from "../../helpers/getImages";
+import { RegisterUser } from "../../store/modules/members/thunks.js";
 
 import {
   ContainerContent,
@@ -32,21 +33,10 @@ const RegisterEssentials = () => {
     resolver: yupResolver(schema),
   });
 
-  const handleForm = (data) => {
+  const handleForm = async (data) => {
     console.log(data);
-    axios
-      .post("https://kenziehub.me/users", {
-        ...data,
-        bio: "Bio",
-        contact: "111111111",
-        course_module: "Your Course",
-      })
-      .then((res) => {
-        history.push("/register/2");
-      })
-      .catch((err) => {
-        setError("Não enviou");
-      });
+    await RegisterUser(data);
+    history.push("/register/2");
   };
 
   return (
