@@ -5,10 +5,7 @@ import {
   Medias,
   Footer,
   ImageFilter,
-  MediaGithub,
-  MediaLinkedin,
-  MediaIntragram,
-  MediaYoutube,
+  Media,
 } from "./style";
 
 import {
@@ -46,21 +43,21 @@ const MemberCardhover = () => {
             </ImageFilter>
           </ProfileImage>
           <Medias>
-            <MediaGithub>
+            <Media>
               <AiFillGithub className="Media_Icon" size="2.8rem" />
-            </MediaGithub>
+            </Media>
 
-            <MediaLinkedin>
+            <Media>
               <ImLinkedin className="Media_Icon" size="2.4rem" />
-            </MediaLinkedin>
+            </Media>
 
-            <MediaIntragram>
+            <Media>
               <AiFillInstagram className="Media_Icon" size="2.8rem" />
-            </MediaIntragram>
+            </Media>
 
-            <MediaYoutube>
+            <Media>
               <AiFillYoutube className="Media_Icon" size="2.8rem" />
-            </MediaYoutube>
+            </Media>
           </Medias>
         </Body>
         <Footer>

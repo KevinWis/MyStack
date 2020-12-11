@@ -2,8 +2,12 @@ import styled from "styled-components";
 import Egirl from "./placeholders/e-girl.png";
 
 export const Card = styled.div`
-  width: 344px;
-  height: 372px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 336px;
+  height: 360px;
   margin: auto;
   background-color: whitesmoke;
   box-shadow: 2px 4px 7px rgba(21, 64, 72, 0.6);
@@ -12,13 +16,13 @@ export const Card = styled.div`
 
 export const Body = styled.div`
   width: 100%;
-  height: 288px;
-  display: block;
+  height: 80%;
+  position: relative;
 `;
 
 export const ProfileImage = styled.div`
   width: 100%;
-  height: 288px;
+  height: 100%;
   background-image: url(${Egirl});
   background-size: cover;
 `;
@@ -28,6 +32,7 @@ export const ImageFilter = styled.div`
   background-color: rgba(21, 64, 72, 0.75);
   .Dev_Name {
     display: flex;
+    flex-direction: column;
     position: relative;
     top: 25%;
     justify-content: center;
@@ -35,91 +40,59 @@ export const ImageFilter = styled.div`
     font-size: 24px;
     font-weight: Thin 100;
     color: #e4f6f9;
+    text-align: center;
   }
 `;
 
 export const Medias = styled.div`
   display: flex;
-  width: 100%;
-  height: 372px;
-  margin-top: -340px;
   justify-content: space-evenly;
+  align-content: flex-end;
+  align-items: flex-end;
+
+  width: 100%;
+  height: 120%;
   opacity: 0;
-  transform: translateY(65px);
-  transition: transform 0.8s ease-out;
-  &:hover {
-    transform: translateY(0px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(50px);
+  transition: 1s ease-out;
+  :hover {
+    transform: translateY(-50px);
     opacity: 1;
   }
 `;
 
-export const MediaGithub = styled.div`
+export const Media = styled.div`
   width: 3.7rem;
   height: 3.7rem;
-  margin-top: 250px;
+
   background-color: whitesmoke;
   border-radius: 50%;
   box-shadow: 4px 6px 7px;
   z-index: 100;
   display: flex;
   align-items: center;
-  transition-delay: 1s;
-  .Media_Icon {
-    margin: auto;
+
+  transition: 0.2s ease-in-out;
+
+  :hover {
+    width: 4.2rem;
+    height: 4.2rem;
   }
-`;
-export const MediaLinkedin = styled.div`
-  width: 3.7rem;
-  height: 3.7rem;
-  margin-top: 250px;
-  background-color: whitesmoke;
-  border-radius: 50%;
-  box-shadow: 4px 6px 7px;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  transition-delay: 1s;
-  .Media_Icon {
-    margin: auto;
-  }
-`;
-export const MediaIntragram = styled.div`
-  width: 3.7rem;
-  height: 3.7rem;
-  margin-top: 250px;
-  background-color: whitesmoke;
-  border-radius: 50%;
-  box-shadow: 4px 6px 7px;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  transition-delay: 1s;
-  .Media_Icon {
-    margin: auto;
-  }
-`;
-export const MediaYoutube = styled.div`
-  width: 3.7rem;
-  height: 3.7rem;
-  margin-top: 250px;
-  background-color: whitesmoke;
-  border-radius: 50%;
-  box-shadow: 4px 6px 7px;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  transition-delay: 1s;
   .Media_Icon {
     margin: auto;
   }
 `;
 
 export const Footer = styled.div`
-  margin: 0 auto;
   display: flex;
   align-items: center;
+
+  padding: 0 5%;
   width: 90%;
-  height: 10%;
+  height: 20%;
   justify-content: space-evenly;
   font-size: 16px;
 
