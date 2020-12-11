@@ -6,6 +6,9 @@ import SoftwareDeveloper from "../images/softwareDeveloper.svg";
 import Welcome from "../images/welcome.svg";
 import logo from "../images/logo.svg";
 import ImageComponent from "../components/shared/imageComponent";
+import Accessaccount from "../images/Accessaccount.svg";
+import Undrawsecurelogin from "../images/undrawsecurelogin.svg";
+import Maleavatar from "../images/maleavatar.svg";
 
 export const AnnounceImage = ({ width, smallWidth }) => {
   return (
@@ -17,6 +20,37 @@ export const AnnounceImage = ({ width, smallWidth }) => {
     />
   );
 };
+export const AccessaccountImage = ({ width, smallWidth }) => {
+  return (
+    <ImageComponent
+      src={Accessaccount}
+      alt="Accessaccount"
+      width={width}
+      smallWidth={smallWidth}
+    />
+  );
+};
+export const UndrawsecureloginImage = ({ width, smallWidth }) => {
+  return (
+    <ImageComponent
+      src={Undrawsecurelogin}
+      alt="Undrawsecurelogin"
+      width={width}
+      smallWidth={smallWidth}
+    />
+  );
+};
+export const MaleavatarImage = ({ width, smallWidth }) => {
+  return (
+    <ImageComponent
+      src={Maleavatar}
+      alt="Maleavatar"
+      width={width}
+      smallWidth={smallWidth}
+    />
+  );
+};
+
 export const ColabImage = ({ width, smallWidth }) => {
   return (
     <ImageComponent
