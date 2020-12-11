@@ -20,15 +20,26 @@ import { TiArrowForwardOutline } from "react-icons/ti";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-const MemberCardhover = () => {
+const MemberCardhover = ({ name, course, id }) => {
   const history = useHistory();
 
   const [medias, setMedias] = useState([
     Math.floor((Math.random() + 1) * 10),
     Math.floor((Math.random() + 1) * 10),
+    Math.floor((Math.random() + 1) * 5),
+    Math.floor((Math.random() + 1) * 5),
   ]);
+  // if(course) {
+  //   const course_module = course.split("(")[1].replace(")", "");
+  // }
 
-  //const course = course_module.split("(")[1].replace(")","")
+  function getCourseModule(course) {
+    return course === "undefined"
+      ? ""
+      : course.includes("(")
+      ? course.split("(")[1].replace(")", "")
+      : course;
+  }
 
   return (
     <>
@@ -37,8 +48,8 @@ const MemberCardhover = () => {
           <ProfileImage>
             <ImageFilter>
               <div className="Dev_Name">
-                <p>{"name"}</p>
-                <p>{"course"}</p>
+                <p>{name}</p>
+                <p>{getCourseModule(course)}</p>
               </div>
             </ImageFilter>
           </ProfileImage>
@@ -69,13 +80,13 @@ const MemberCardhover = () => {
           <div className="Icon">
             <FaRegComment size="32px" />
           </div>
-          <p>{`${medias[0]}.${medias[1]}`} k</p>
+          <p>{`${medias[2]}.${medias[3]}`} k</p>
           <div className="Spacer"></div>
           <div className="Icon">
             <TiArrowForwardOutline
               size="32px"
               onClick={() => {
-                history.push(`/profile/${"id"}`);
+                history.push(`/profile/${id}`);
               }}
             />
           </div>
