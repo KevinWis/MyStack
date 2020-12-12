@@ -7,7 +7,6 @@ export const userLoginThunk = (userLoginInfo, _error) => async (dispatch) => {
       email: email,
       password: password,
     });
-
     const { token } = response.data;
 
     localStorage.setItem("authToken", token);
@@ -18,7 +17,6 @@ export const userLoginThunk = (userLoginInfo, _error) => async (dispatch) => {
 
 export const createTech = async (tech) => {
   const { title, status } = tech;
-  let api = "";
 
   try {
     const response = await kenzieHub.post(
@@ -46,8 +44,7 @@ export const updateTech = async (newTech) => {
       `/users/techs/${techId}`,
       {
         status: newStatus,
-      },
-      {
+      },{
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("authToken")}`,

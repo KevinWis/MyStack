@@ -1,6 +1,6 @@
 import kenzieHub from "../../services/axios"
 import axios from 'axios'
-//
+
 //export const getMyProfile =  () => async dispatch => {
 //    
 //    const token = localStorage.getItem("authToken")
@@ -19,7 +19,7 @@ import axios from 'axios'
 //
 //    }
 //}
-//
+
 export const getMyProfile =  async () =>  {
     
     const token = localStorage.getItem("authToken")
