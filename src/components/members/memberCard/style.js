@@ -1,17 +1,11 @@
 import styled from "styled-components";
 import Egirl from "./placeholders/e-girl.png";
 
-
-
 export const Body = styled.div `
   
   width: 100%;
   height: 80%;
   position: relative;
-  
-  :hover{
-
-  }
 `;
 
 export const ProfileImage = styled.div `
@@ -26,16 +20,14 @@ export const ProfileImage = styled.div `
   border: 1px solid rgba(21, 64, 72, 0.6);
   box-shadow: 2px 4px 7px rgba(21, 64, 72, 0.6);
 
-  :hover{
-
-  }
 `;
+
 export const ImageFilter = styled.div `
 
-  width: 100%;
-  height: 288px;
-  background-color: rgba(21, 64, 72, 0.75);
   visibility:hidden;
+  width: 0%;
+  height: 0px;
+  background-color: rgba(21, 64, 72, 0);
 
   .Dev_Name {
     display: flex;
@@ -48,7 +40,6 @@ export const ImageFilter = styled.div `
     font-weight: Thin 100;
     color: #e4f6f9;
     text-align: center;
-    
   }
 `;
 
@@ -59,6 +50,7 @@ export const Medias = styled.div `
   align-content: flex-end;
   align-items: flex-end;
 
+  visibility:hidden;
   width: 100%;
   height: 120%;
   opacity: 0;
@@ -73,6 +65,7 @@ export const Medias = styled.div `
 `;
 
 export const Media = styled.div `
+
   width: 3.7rem;
   height: 3.7rem;
 
@@ -82,22 +75,17 @@ export const Media = styled.div `
   z-index: 100;
   display: flex;
   align-items: center;
-
+  opacity:0;
   transition: 0.2s ease-in-out;
 
-  
   width: 4.2rem;
   height: 4.2rem;
 
   visibility:hidden;
-
   
   .Media_Icon {
     margin: auto;
   }
-
-
-  
 `;
 
 export const Footer = styled.div `
@@ -130,7 +118,9 @@ export const Footer = styled.div `
 `;
 
 export const UnhoveredText = styled.p `
-  
+
+  position:relative;
+
   margin: 0;
 	padding: 0;
 	border: 0;
@@ -138,7 +128,8 @@ export const UnhoveredText = styled.p `
   
   font-size:1.3rem;
   text-align:center;
-  margin-top:-100px;
+  top:-1rem;
+
   
   p:nth-child(2){
     color:#777575;
@@ -148,6 +139,7 @@ export const UnhoveredText = styled.p `
 `
 
 export const TechIcons = styled.div `
+
    width: 60%;
    height: 4rem;
    margin:auto;
@@ -155,6 +147,10 @@ export const TechIcons = styled.div `
    display: flex;
    justify-content: space-around;
    align-items: center;
+
+   div:nth-child(1){
+     visibility:visible;
+   }
 `
 
 export const Card = styled.div `
@@ -163,17 +159,30 @@ export const Card = styled.div `
   flex-direction: column;
   justify-content: center;
   width: 336px;
+  transition: height 0.5s;
   height: 208px;
+  margin: auto;
+  background-color: whitesmoke;
+  box-shadow: 2px 4px 7px rgba(0, 0, 0, 0.6);
+  margin-bottom: 25px;
+
+  margin-top:100px;
+
+&:hover {
+  box-shadow: 2px 4px 7px rgba(21, 64, 72, 0.6);
+  p{
+    visibility:visible;
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 336px;
+  height: 288px;
   margin: auto;
   background-color: whitesmoke;
   box-shadow: 2px 4px 7px rgba(21, 64, 72, 0.6);
   margin-bottom: 25px;
-
-/* remove */
-  margin-top:200px;
-  background-color: whitesmoke;
-
-&:hover {
+  margin-top:100px;
 
 
   ${UnhoveredText}{
@@ -181,21 +190,29 @@ export const Card = styled.div `
   }
 
   ${Body}{
+    transition-delay: 0.5s;
     width: 100%;
     height: 80%;
     position: relative;
   }
 
   ${ProfileImage}{
+
+    transition-delay: 0.5s;
+    transition:width 0.5s;
+    transition:height 0.5s;
+
     width: 100%;
-    height: 100%;
+    height: 288px;
     background-image: url(${({avatar}) => avatar ? avatar:Egirl });
     background-size: cover;
     border-radius:0px;
   }
   
   ${ImageFilter}{
-
+    
+    transition:width 0.5s;
+    transition:height 0.5s;
     width: 100%;
     height: 288px;
     background-color: rgba(21, 64, 72, 0.75);
@@ -205,18 +222,23 @@ export const Card = styled.div `
     display: flex;
     flex-direction: column;
     position: relative;
-    top: 25%;
+    top: 20%;
+    transition: top 1s;
     justify-content: center;
     width: 100%;
     font-size: 24px;
     font-weight: Thin 100;
     color: #e4f6f9;
     text-align: center;
+    p{
+      margin-top:-5px;
+    }
     }
   }
 
   ${Medias}{
-    visibility:visible;
+    transition-delay: 0.5s;
+    
     display: flex;
     justify-content: space-evenly;
     align-content: flex-end;
@@ -230,12 +252,12 @@ export const Card = styled.div `
   }
   
   ${Media}{
-    transform: translateY(50px);
-    transition: 1s ease-out;
-
-    transform: translateY(-50px);
-    opacity: 1;
+    transition-delay: 0.5s;
     visibility:visible;
+    transform: translateY(10px);
+    transition: 1s ease-out;
+    transform: translateY(-10px);
+
     width: 3.7rem;
     height: 3.7rem;
 
@@ -252,15 +274,35 @@ export const Card = styled.div `
     width: 4.2rem;
     height: 4.2rem;
   
+    &:nth-child(1){
+      opacity: 1;
+      transition: opacity 1.5s;
+    }
+    
+    &:nth-child(2){
+      opacity: 1;
+      transition: opacity 2s;
+    }
+    
+    &:nth-child(3){
+      opacity: 1;
+      transition: opacity 2.5s;
+    }
+
+    &:nth-child(4){
+      opacity: 1;
+      transition: opacity 3s;
+    }
   .Media_Icon {
     margin: auto;
     }
   }
 
   ${Footer}{
+    transition-delay: 0.5s;
     display: flex;
     align-items: center;
-
+    visibility:visible;
     padding: 0 5%;
     width: 90%;
     height: 20%;
@@ -273,9 +315,11 @@ export const Card = styled.div `
     height: 40px;
     filter: opacity(0.5);
   }
+
   p {
     margin-top: 8px;
   }
+
   .Icon {
     filter: opacity(0.5);
   }
@@ -284,17 +328,13 @@ export const Card = styled.div `
     position: relative;
     top: 0%;
   }
-  }
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 336px;
-  height: 360px;
-  margin: auto;
-  background-color: whitesmoke;
-  box-shadow: 2px 4px 7px rgba(21, 64, 72, 0.6);
-  margin-bottom: 25px;
-  margin-top:200px;
 
+  }
+
+  ${TechIcons}{
+    div:nth-child(1){
+      display:none;
+    }
+  }
 }
 `;

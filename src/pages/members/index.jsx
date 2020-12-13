@@ -29,34 +29,18 @@ const Members = () => {
       hasMore={true}
       >
         <MemberList>
-          <MemberCard
-          name='Instagram Developer Girl'
-          course='Segundo Módulo'
-          id='asd'
-
-          ></MemberCard>
-        </MemberList>
         {members.map(({ name, id, course_module,avatar_url, techs }, index) => (
-            <MemberCard
-              key={index}
-              MemberName={name}
-              id={id}
-              MemberWork={course_module}
-              _MemberImg={avatar_url}
-              UserTechs={techs}
-            ></MemberCard>
+          <MemberCard
+          key={index}
+          name={name}
+          id={id}
+          course={course_module}
+          _MemberImg={avatar_url}
+          UserTechs={techs}
+          avatar={avatar_url}
+          ></MemberCard>
           ))}
-        {/* 
-          {members.map(({ name, id, course_module,avatar_url }, index) => (
-            <CardHover
-              key={index}
-              name={name}
-              id={id}
-              course={course_module}
-              avatar={avatar_url}
-            ></CardHover>
-          ))}
-        </MemberList> */}
+          </MemberList>
       </InfiniteScroll>
     </>
   );

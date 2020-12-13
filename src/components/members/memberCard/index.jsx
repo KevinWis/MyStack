@@ -28,13 +28,12 @@ import {
 import ImageComponent from "../../shared/imageComponent";
 
 const MemberCard = ({ name, course, id, avatar,UserTechs }) => {
+ 
   const history = useHistory();
  
-
   const [techIcons,setTechIcons] = useState(() => 
     UserTechs?.filter(tech => dictionaryIcons.some(item => item.name == tech.title))
   )
-  console.log(techIcons)
 
   const [medias, setMedias] = useState([
     Math.floor((Math.random() + 1) * 10),
@@ -43,23 +42,23 @@ const MemberCard = ({ name, course, id, avatar,UserTechs }) => {
     Math.floor((Math.random() + 1) * 5),
   ]);
 
-  // function getCourseModule(course) {
-  //   return course === "undefined"
-  //     ? ""
-  //     : course.includes("(")
-  //     ? course.split("(")[1].replace(")", "")
-  //     : course;
-  // }
+  function getCourseModule(course) {
+    return course === "undefined"
+      ? ""
+      : course.includes("(")
+      ? course.split("(")[1].replace(")", "")
+      : course;
+  }
   
   return (
     <>
-      <Card>
+      <Card avatar={avatar}>
         <Body>
         <ProfileImage avatar={avatar}>
             <ImageFilter>
               <div className="Dev_Name">
                 <p>{name}</p>
-                {/* <p>{getCourseModule(course)}</p> */}
+                <p>{getCourseModule(course)}</p>
               </div>
             </ImageFilter>
           </ProfileImage>
@@ -78,14 +77,13 @@ const MemberCard = ({ name, course, id, avatar,UserTechs }) => {
             </Media>
           </Medias>
           </Body>
-            {/* <UnhoveredText><p>{"Instagram Girl Developer"}</p><p>{getCourseModule(course)}</p></UnhoveredText> */}
+            <UnhoveredText><p>{name}</p><p>{getCourseModule(course)}</p></UnhoveredText>
             <TechIcons>
               {
-                techIcons&&
+                techIcons &&
                 dictionaryIcons.filter(dictionaryTech => dictionaryTech.name == techIcons[0]?.title)
-                .map(icon => <ImageComponent src={icon.img}></ImageComponent>)
+                .map(icon => <div><ImageComponent className='Tech_Icon'smallWidth='64px' src={icon.img}></ImageComponent></div>)
               }
-              
             </TechIcons>
           <Footer>
           <div className="Icon">
