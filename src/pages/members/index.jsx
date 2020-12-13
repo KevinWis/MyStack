@@ -28,17 +28,25 @@ const Members = () => {
       loader={<h4>Get a real loader...</h4>}
       hasMore={true}
       >
-        {members.map(({ name, id, course_module,avatar_url }, index) => (
+        <MemberList>
+          <MemberCard
+          name='Instagram Developer Girl'
+          course='Segundo Módulo'
+          id='asd'
+
+          ></MemberCard>
+        </MemberList>
+        {members.map(({ name, id, course_module,avatar_url, techs }, index) => (
             <MemberCard
               key={index}
               MemberName={name}
               id={id}
               MemberWork={course_module}
               _MemberImg={avatar_url}
+              UserTechs={techs}
             ></MemberCard>
           ))}
-        <MemberList>
-          
+        {/* 
           {members.map(({ name, id, course_module,avatar_url }, index) => (
             <CardHover
               key={index}
@@ -48,7 +56,7 @@ const Members = () => {
               avatar={avatar_url}
             ></CardHover>
           ))}
-        </MemberList>
+        </MemberList> */}
       </InfiniteScroll>
     </>
   );
