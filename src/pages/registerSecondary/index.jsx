@@ -14,6 +14,8 @@ import {
   ContainerPersonPhoto,
   ContainerIcon,
   FabComponent,
+  SelectLevel,
+  Form,
 } from "./style";
 import { Select, MenuItem, InputLabel, TextField } from "@material-ui/core";
 import DefaultButton from "../../components/shared/buttons/defaultButton";
@@ -44,14 +46,9 @@ const RegisterSeconddary = () => {
   return (
     <>
       <ContainerForm>
-        <form onSubmit={handleSubmit(handleForm)}>
+        <Form onSubmit={handleSubmit(handleForm)}>
           <ContainerPersonIcon>
-            <ContainerPersonPhoto>
-              <i>
-                <MaleavatarImage width="16rem" />
-              </i>
-            </ContainerPersonPhoto>
-
+            <MaleavatarImage width="16rem" smallWidth="10rem" />
             <ContainerIcon>
               <label htmlFor="upload-photo">
                 <input
@@ -97,7 +94,7 @@ const RegisterSeconddary = () => {
             />
             <ContainerStatus>
               <InputLabel id="select-label">Nivel</InputLabel>
-              <Select
+              <SelectLevel
                 labelId="select-label"
                 id="select"
                 inputRef={register}
@@ -109,7 +106,7 @@ const RegisterSeconddary = () => {
                 <MenuItem value={"Basic"}>Iniciante</MenuItem>
                 <MenuItem value={"Medium"}>Intermédiário</MenuItem>
                 <MenuItem value={"Advanced"}>Avançado</MenuItem>
-              </Select>
+              </SelectLevel>
             </ContainerStatus>
           </ContainerTechs>
 
@@ -131,7 +128,7 @@ const RegisterSeconddary = () => {
           <ContainerButton>
             <DefaultButton type="submit" value="Registrar" />
           </ContainerButton>
-        </form>
+        </Form>
       </ContainerForm>
     </>
   );
