@@ -24,11 +24,12 @@ export const getMyProfile =  async () =>  {
     
     const token = localStorage.getItem("authToken")
     try {
-        const reponse = await axios.get('https://kenziehub.me/profile',{
+        const response = await axios.get('https://kenziehub.me/profile',{
             headers:{
                 Authorization: `Bearer ${token}`
             }
         })
+        return response.data
     } catch (err){
         console.log(err)
     }
