@@ -10,7 +10,7 @@ const PageProfile = () => {
       name: "Bruno Gehlen",
       email: "tousepc@gmail.com",
       course_module: "Your Course",
-      bio: "Bio",
+      bio: "Bio teste",
       contact: "0000-0000",
       techs: [
         {
@@ -152,10 +152,13 @@ const PageProfile = () => {
   return (
     <>
       <Container>
-        <CardProfile imageUrl={userMock.user.avatar_url}></CardProfile>
+        <CardProfile imageUrl={userMock.user.avatar_url}  bio={userMock.user.bio} name={userMock.user.name}></CardProfile>
 
         {userMock.user.techs.map(({ status, title }, index) => {
           return (
+
+           
+            
             <ContainerCard>
               <Carteditprofile
                 key={index}
