@@ -1,4 +1,5 @@
 import styled  from "styled-components";
+import Egirl from "./placeholders/e-girl.png";
 
 export const Container = styled.div`
  width:100%;
@@ -11,12 +12,15 @@ export const Cardmain = styled.div`
  text-align:center;
 `;
 export const Cardimage = styled.div`
-  width: 15rem;
-  height:  15rem;
-  margin-top: 20px;
-  background-color: gray;
+  width: 128px;
+  height: 128px;
   border-radius: 50%;
-  filter: drop-shadow(3px 3px 3px #A8A8A8);
+  background-image: url(${({ avatar }) => (avatar ? avatar : Egirl)});
+  background-size: cover;
+  margin: auto;
+  margin-top: -64px;
+  border: 1px solid rgba(21, 64, 72, 0.6);
+  box-shadow: 2px 4px 7px rgba(21, 64, 72, 0.6);
 `;
 export const ContainerBio = styled.div`
  width:80%;
@@ -39,3 +43,4 @@ export const ContainerBios = styled.div`
  justify-content:center;
  text-align:left;
 `;
+
