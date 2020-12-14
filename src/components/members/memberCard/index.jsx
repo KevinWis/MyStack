@@ -27,13 +27,15 @@ import {
 }from '../../../helpers/geticons'
 import ImageComponent from "../../shared/imageComponent";
 
-const MemberCard = ({ name, course, id, avatar,UserTechs }) => {
+const MemberCard = ({ name, course, id, avatar,userTechs }) => {
  
   const history = useHistory();
- 
+  console.log(userTechs)
   const [techIcons,setTechIcons] = useState(() => 
-    UserTechs?.filter(tech => dictionaryIcons.some(item => item.name == tech.title))
+    userTechs?.flatMap(tech => dictionaryIcons[tech.title.toLowerCase()] ? dictionaryIcons[tech.title.toLowerCase()] : '')
+    
   )
+  console.log(techIcons)
 
   const [medias, setMedias] = useState([
     Math.floor((Math.random() + 1) * 10),
@@ -80,9 +82,17 @@ const MemberCard = ({ name, course, id, avatar,UserTechs }) => {
             <UnhoveredText><p>{name}</p><p>{getCourseModule(course)}</p></UnhoveredText>
             <TechIcons>
               {
-                techIcons &&
-                dictionaryIcons.filter(dictionaryTech => dictionaryTech.name == techIcons[0]?.title)
-                .map(icon => <div><ImageComponent className='Tech_Icon'smallWidth='64px' src={icon.img}></ImageComponent></div>)
+                techIcons.map(techIcon => 
+                  techIcon != '' ?
+                <div>
+                  <ImageComponent 
+                    className='Tech_Icon' 
+                    smallWidth='64px' 
+                    src={techIcon}>
+                  </ImageComponent>
+                </div>:
+                 <></>
+                )
               }
             </TechIcons>
           <Footer>
