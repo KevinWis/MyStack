@@ -38,9 +38,8 @@ const RegisterEssentials = () => {
   });
 
   const handleForm = (data) => {
-    //console.log(data);
     dispatch(registerUserThunk(data));
-    //history.push("/register/2");
+    history.push("/register/2");
   };
 
   return (
