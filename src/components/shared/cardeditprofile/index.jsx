@@ -11,11 +11,11 @@ import { FaRegEdit } from "react-icons/fa";
 import { Select, MenuItem, InputLabel } from "@material-ui/core";
 import DefaultButton from "../../shared/buttons/defaultButton";
 import {updateTech} from "../../../kenzieHub/techs/updateTech";
-import {getMyProfile} from "../../../kenzieHub/user/myProfile";
 
 
-const Carteditprofile = () => {
-  const [user, setuser] = useState([]);
+
+const Carteditprofile = ({status,title}) => {
+
 
   const [show, setshow] = useState(false);
   const [techUpdateInfo, settechUpdateInfo] = useState({
@@ -24,11 +24,7 @@ const Carteditprofile = () => {
 
   console.log(techUpdateInfo);
 
-  const userstatus = async() =>{
-      const myuser = await getMyProfile()
-      setuser(myuser)
-      console.log(user)
-  }
+  
 
   const handclick = () => {
     setshow(!show);
@@ -36,12 +32,11 @@ const Carteditprofile = () => {
   
   return (
     <>
-      <ContainerTech opens={show}>
-    <button onClick={userstatus}>ENviar novo</button>
+      <ContainerTech opens={show}>    
         <CardIcons></CardIcons>
         <CardTitulo>
-          <h2> React </h2>
-          <p> Iniciante</p>   
+          <h2> {title} </h2>
+          <p> {status}</p>   
           {show ? (
             <div>
               <InputLabel id="select-label">Nivel</InputLabel>

@@ -1,11 +1,11 @@
 import { Container, Cardmain, Cardimage, ContainerBio,Containertitle,ContainerBios} from "./style";
 
-const CardProfile = () => {
+const CardProfile = ({imageUrl}) => {
   return (
     <>
       <Container>
-        <Cardmain>
-          <Cardimage>
+          <Cardmain avatar={imageUrl}>
+          <Cardimage >
           </Cardimage>
           <ContainerBio>
             <Containertitle>Instragram Girl Developer</Containertitle>
