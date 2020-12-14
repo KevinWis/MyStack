@@ -6,6 +6,7 @@ import Members from "./pages/members";
 import RegisterEssentials from "./pages/registerEssentials";
 import RegisterSecondary from "./pages/registerSecondary";
 import VisitingProfile from "./pages/visitingprofile";
+import PageProfile from "./pages/pageprofile/";
 
 const Routes = () => {
   return (
@@ -31,8 +32,10 @@ const Routes = () => {
       <Route exact path="/page-success">
         <PageSucess />
       </Route>
-      <Route exact path="/my-profile/edit"></Route>
-      <Route exact path="/my-profile"></Route>
+      <Route exact path="/my-profile/edit"></Route>      
+      <Route exact path="/my-profile">
+      <PageProfile />
+      </Route>
     </Switch>
   );
 };

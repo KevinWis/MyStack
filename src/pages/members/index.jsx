@@ -2,7 +2,7 @@ import CardHover from "../../components/members/memberCardhover";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState, useMemo } from "react";
 import { getUserListThunk } from "../../store/modules/members/thunks";
-import InfiniteScroll from 'react-infinite-scroll-component';
+// import InfiniteScroll from 'react-infinite-scroll-component';
 import { MemberList } from './style'
 import MemberCard from "../../components/members/memberCard";
 
@@ -21,13 +21,13 @@ const Members = () => {
   
   return (
     <>
-    <InfiniteScroll
+    {/* <InfiniteScroll
       style={{height: "auto", overflow: "hidden"}}
       dataLength={members.length}
       next={updatePage}
       loader={<h4>Get a real loader...</h4>}
       hasMore={true}
-      >
+      > */}
         <MemberList>
         {members.map(({ name, id, course_module,avatar_url, techs }, index) => (
           <MemberCard
@@ -41,7 +41,7 @@ const Members = () => {
           ></MemberCard>
           ))}
           </MemberList>
-      </InfiniteScroll>
+      {/* </InfiniteScroll> */}
     </>
   );
 };
