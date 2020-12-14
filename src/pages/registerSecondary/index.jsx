@@ -44,19 +44,21 @@ const RegisterSeconddary = () => {
   });
 
   const handleForm = (data) => {
-    console.log(data);
-    const newData = new FormData();
-    const { title, status, bio } = data;
-    const tech = { title, status };
-    const profileImage = image;
-    updateUserProfilePicture(profileImage);
-    console.log(data);
+    // console.log(data);
+    
+    // const { title, status, bio } = data;
+    // const tech = { title, status };
+    // const profileImage = image;
+    // console.log(data);
   };
 
   const handleImage = (evt) => {
-    console.log(evt.target.files);
+    const newData = new FormData();
+    newData.append('avatar', evt.target.files[0])
+
+    updateUserProfilePicture(newData);
+
     setimage(evt.target.files[0]);
-    updateUserProfilePicture(evt.target.files[0]);
   };
 
   return (
