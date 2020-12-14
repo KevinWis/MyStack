@@ -151,6 +151,14 @@ export const TechIcons = styled.div `
    div:nth-child(1){
      visibility:visible;
    }
+
+   div:nth-child(2){
+     visibility:visible;
+   }
+
+   div:nth-child(3){
+     visibility:visible;
+   }
 `
 
 export const Card = styled.div `
@@ -333,7 +341,16 @@ export const Card = styled.div `
 
   ${TechIcons}{
     div:nth-child(1){
-      display:none;
+      -webkit-filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+      filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+    }
+    div:nth-child(2){
+      -webkit-filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+      filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+    }
+    div:nth-child(3){
+      -webkit-filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+      filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
     }
   }
 }
