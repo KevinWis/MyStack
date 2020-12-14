@@ -105,7 +105,7 @@ const RegisterSeconddary = () => {
               <TextField
                 fullWidth
                 margin="normal"
-                label="Tecnologia"
+                label="Contato"
                 name="title"
                 inputRef={register}
                 error={!!errors.title}
@@ -121,7 +121,7 @@ const RegisterSeconddary = () => {
               value={selectStatus}
             />
             <ContainerStatus>
-              <InputLabel id="select-label">Nivel</InputLabel>
+              <InputLabel id="select-label">Módulo</InputLabel>
               <SelectLevel
                 labelId="select-label"
                 id="select"
@@ -131,9 +131,16 @@ const RegisterSeconddary = () => {
                 value={selectStatus}
                 onChange={(evt) => setSelectStatus(evt.target.value)}
               >
-                <MenuItem value={"Basic"}>Iniciante</MenuItem>
-                <MenuItem value={"Medium"}>Intermédiário</MenuItem>
-                <MenuItem value={"Advanced"}>Avançado</MenuItem>
+                <MenuItem value={"Módulo 1 - Front-end Iniciante"}>
+                  Módulo 1 - Front-end Iniciante
+                </MenuItem>
+                <MenuItem value={"Módulo 2 - Front-end Avançado"}>
+                  Módulo 2 - Front-end Avançado
+                </MenuItem>
+                <MenuItem value={"Módulo 3 - Back-end Iniciante"}>
+                  Módulo 3 - Back-end Iniciante
+                </MenuItem>
+                <MenuItem value={"Módulo 4 - Back-end Avançado"}>Módulo 4 - Back-end Avançado</MenuItem>
               </SelectLevel>
             </ContainerStatus>
           </ContainerTechs>
