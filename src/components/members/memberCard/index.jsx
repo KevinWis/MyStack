@@ -83,7 +83,7 @@ const MemberCard = ({ name, course, id, avatar,userTechs }) => {
             <TechIcons>
               {
                 techIcons.map(techIcon => 
-                  techIcon != '' ?
+                  techIcon !== '' ?
                 <div>
                   <ImageComponent 
                     className='Tech_Icon' 
