@@ -58,6 +58,12 @@ export const ContainerPersonIcon = styled.div`
   text-align: center;
   width: 100%;
   margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  position: relative;
 `;
 
 export const ContainerPersonPhoto = styled.div`
@@ -68,9 +74,19 @@ export const ContainerPersonPhoto = styled.div`
 
 export const ContainerIcon = styled.div`
   text-align: center;
-  width: 5rem;
-  margin: 0 auto;
-  transform: translate(60px, -55px);
+  width: 100%;
+  height: 100%;
+  top: 12rem;
+  left: 6rem;
+  position: absolute;
+  @media (min-width: 640px) {
+    top: 6rem;
+    left: 4rem;
+  }
+  @media (min-width: 1080px) {
+    top: 6rem;
+    left: 4rem;
+  }
 `;
 
 export const ContainerTechs = styled.div`

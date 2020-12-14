@@ -19,6 +19,7 @@ import {
 } from "./style";
 import { Select, MenuItem, InputLabel, TextField } from "@material-ui/core";
 import DefaultButton from "../../components/shared/buttons/defaultButton";
+import { useDispatch } from "react-redux";
 import { MaleavatarImage } from "../../helpers/getImages";
 
 import { useState } from "react";
@@ -48,7 +49,9 @@ const RegisterSeconddary = () => {
       <ContainerForm>
         <Form onSubmit={handleSubmit(handleForm)}>
           <ContainerPersonIcon>
-            <MaleavatarImage width="16rem" smallWidth="10rem" />
+            <ContainerPersonPhoto>
+              <MaleavatarImage width="16rem" smallWidth="9rem" />
+            </ContainerPersonPhoto>
             <ContainerIcon>
               <label htmlFor="upload-photo">
                 <input
@@ -113,7 +116,7 @@ const RegisterSeconddary = () => {
           <ContainerBio>
             <TextField
               fullWidth
-              rows={8}
+              rows={6}
               multiline
               placeholder="Bio"
               aria-label=""
