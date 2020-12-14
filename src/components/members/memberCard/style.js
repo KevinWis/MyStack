@@ -205,8 +205,8 @@ export const Card = styled.div`
     }
 
     ${ImageFilter} {
-      transition: width 0.5s cubic-bezier(0.55, 0.77, 0.89, -0.22);
-      transition: height 0.5s cubic-bezier(0.55, 0.77, 0.89, -0.22);
+      transition: width 0.5s ease-in-out;
+      transition: height 0.5s ease-in-out;
       width: 100%;
       height: 288px;
       background-color: rgba(21, 64, 72, 0.75);
