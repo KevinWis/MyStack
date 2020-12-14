@@ -17,12 +17,12 @@ import {
   SelectLevel,
   Form,
 } from "./style";
-import { Select, MenuItem, InputLabel, TextField } from "@material-ui/core";
+import { MenuItem, InputLabel, TextField } from "@material-ui/core";
 import DefaultButton from "../../components/shared/buttons/defaultButton";
 import ImageComponent from "../../components/shared/imageComponent";
-import { useDispatch } from "react-redux";
 import { updateUserProfilePicture } from "../../kenzieHub/user/updateProfileInfo";
 import { MaleavatarImage } from "../../helpers/getImages";
+import { updateUserInfo } from "../../kenzieHub/user/updateUser";
 
 import { useState } from "react";
 
@@ -31,8 +31,8 @@ const RegisterSeconddary = () => {
   const [selectStatus, setSelectStatus] = useState(" ");
   const history = useHistory();
   const schema = yup.object().shape({
-    title: yup.string().required("Campo obrigatório"),
-    status: yup.string().required("Campo obrigatório"),
+    contact: yup.string().required("Campo obrigatório"),
+    course_module: yup.string().required("Campo obrigatório"),
     bio: yup
       .string()
       .min(6, "Mínimo de 6 caracteres")
@@ -44,16 +44,13 @@ const RegisterSeconddary = () => {
   });
 
   const handleForm = (data) => {
-    console.log(data);
+    // const newData = new FormData();
+    // newData.append("avatar", image);
+    // updateUserProfilePicture(newData);
 
-    const { title, status } = data;
-    const tech = { title, status };
+    updateUserInfo(data);
 
-    const newData = new FormData();
-    newData.append("avatar", image);
-    updateUserProfilePicture(newData);
-
-    console.log(data);
+    history.push("/my-profile");
   };
 
   const handleImage = (evt) => {
@@ -106,18 +103,18 @@ const RegisterSeconddary = () => {
                 fullWidth
                 margin="normal"
                 label="Contato"
-                name="title"
+                name="contact"
                 inputRef={register}
-                error={!!errors.title}
-                helperText={errors.title?.message}
+                error={!!errors.contact}
+                helperText={errors.contact?.message}
               />
             </ContainerTitle>
             <TextField
               style={{ display: "none" }}
-              name="status"
+              name="course_module"
               inputRef={register}
-              error={!!errors.title}
-              helperText={errors.title?.message}
+              error={!!errors.contact}
+              helperText={errors.contact?.message}
               value={selectStatus}
             />
             <ContainerStatus>
@@ -126,8 +123,8 @@ const RegisterSeconddary = () => {
                 labelId="select-label"
                 id="select"
                 inputRef={register}
-                error={!!errors.status}
-                helperText={errors.status?.message}
+                error={!!errors.course_module}
+                helperText={errors.course_module?.message}
                 value={selectStatus}
                 onChange={(evt) => setSelectStatus(evt.target.value)}
               >
@@ -140,7 +137,9 @@ const RegisterSeconddary = () => {
                 <MenuItem value={"Módulo 3 - Back-end Iniciante"}>
                   Módulo 3 - Back-end Iniciante
                 </MenuItem>
-                <MenuItem value={"Módulo 4 - Back-end Avançado"}>Módulo 4 - Back-end Avançado</MenuItem>
+                <MenuItem value={"Módulo 4 - Back-end Avançado"}>
+                  Módulo 4 - Back-end Avançado
+                </MenuItem>
               </SelectLevel>
             </ContainerStatus>
           </ContainerTechs>

@@ -7,7 +7,7 @@ export const updateUserInfo = async(newUserInfo) => {
     const reponse = await kenzieHub.put(
         "/profile", {
             "name": name ? name : "",
-            "contact ": contact ? contact : "",
+            "contact": contact ? contact : "",
             "bio": bio ? bio : "",
             "course_module": course_module ? course_module : "",
             "old_password": currentPassword ? currentPassword : "",
