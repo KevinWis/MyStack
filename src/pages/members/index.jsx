@@ -31,13 +31,13 @@ const Members = () => {
         <MemberList>
         {members.map(({ name, id, course_module,avatar_url, techs }, index) => (
           <MemberCard
-          key={index}
-          name={name}
-          id={id}
-          course={course_module}
-          _MemberImg={avatar_url}
-          UserTechs={techs}
-          avatar={avatar_url}
+            key={index}
+            name={name}
+            id={id}
+            course={course_module}
+            _MemberImg={avatar_url}
+            userTechs={techs}
+            avatar={avatar_url}
           ></MemberCard>
           ))}
           </MemberList>
