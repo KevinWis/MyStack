@@ -48,13 +48,12 @@ const RegisterSeconddary = () => {
     const newData = new FormData();
     const { title, status, bio } = data;
     const tech = { title, status };
-    const profileImage = image;
-    updateUserProfilePicture(profileImage);
+    updateUserProfilePicture(image);
     console.log(data);
   };
 
   const handleImage = (evt) => {
-    console.log(evt.target.files);
+    console.log(evt.target.files[0]);
     setimage(evt.target.files[0]);
     updateUserProfilePicture(evt.target.files[0]);
   };
