@@ -19,12 +19,15 @@ import {
 } from "./style";
 import { Select, MenuItem, InputLabel, TextField } from "@material-ui/core";
 import DefaultButton from "../../components/shared/buttons/defaultButton";
+import ImageComponent from "../../components/shared/imageComponent";
 import { useDispatch } from "react-redux";
+import { updateUserProfilePicture } from "../../kenzieHub/user/updateProfileInfo";
 import { MaleavatarImage } from "../../helpers/getImages";
 
 import { useState } from "react";
 
 const RegisterSeconddary = () => {
+  const [image, setimage] = useState();
   const [selectStatus, setSelectStatus] = useState(" ");
   const history = useHistory();
   const schema = yup.object().shape({
@@ -42,6 +45,18 @@ const RegisterSeconddary = () => {
 
   const handleForm = (data) => {
     console.log(data);
+    const newData = new FormData();
+    const { title, status, bio } = data;
+    const tech = { title, status };
+    const profileImage = image;
+    updateUserProfilePicture(profileImage);
+    console.log(data);
+  };
+
+  const handleImage = (evt) => {
+    console.log(evt.target.files);
+    setimage(evt.target.files[0]);
+    updateUserProfilePicture(evt.target.files[0]);
   };
 
   return (
@@ -50,18 +65,27 @@ const RegisterSeconddary = () => {
         <Form onSubmit={handleSubmit(handleForm)}>
           <ContainerPersonIcon>
             <ContainerPersonPhoto>
-              <MaleavatarImage width="16rem" smallWidth="9rem" />
+              {image ? (
+                <ImageComponent
+                  src={URL.createObjectURL(image)}
+                  width="16rem"
+                  smallWidth="9rem"
+                />
+              ) : (
+                <MaleavatarImage width="16rem" smallWidth="9rem" />
+              )}
             </ContainerPersonPhoto>
             <ContainerIcon>
-              <label htmlFor="upload-photo">
+              <label htmlFor="avatar">
                 <input
                   style={{ display: "none" }}
-                  id="upload-photo"
+                  id="avatar"
                   name="avatar_url"
-                  inputRef={register}
+                  ref={register}
                   error={!!errors.avatar_url}
                   helperText={errors.avatar_url?.message}
                   type="file"
+                  onChange={handleImage}
                 />
                 <FabComponent
                   color="primary"
