@@ -18,8 +18,8 @@ function CardProfileWorks({ title, content }) {
   return (
     <>
       <Card>
-        <ContainerCardTitle gutterBottom variant="h5" component="h2">
-          <h1> Works </h1>
+        <ContainerCardTitle>
+          <h1> {title} </h1>
         </ContainerCardTitle>
         <ContainerCardContent>{content}</ContainerCardContent>
         <ContainerButton>

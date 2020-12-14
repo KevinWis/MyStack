@@ -8,8 +8,8 @@ function WorksPage() {
       <ContainerWorks>
         <CardProfile />
         <ContainerWorkCard>
-          <WorkCard content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non metus vel diam dapibus congue. Suspendisse semper tu"></WorkCard>
-          <WorkCard content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non metus vel diam dapibus congue. Suspendisse semper tu"></WorkCard>
+          <WorkCard title="Works" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non metus vel diam dapibus congue. Suspendisse semper tu"></WorkCard>
+          <WorkCard title="Works" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non metus vel diam dapibus congue. Suspendisse semper tu"></WorkCard>
         </ContainerWorkCard>
       </ContainerWorks>
     </>
