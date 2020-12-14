@@ -30,24 +30,26 @@ export const getUserByIdThunk = (userId) => async (dispatch) => {
   }
 };
 
-export const RegisterUser = async (resisterUserInfo) => {
+export const registerUserThunk = (resisterUserInfo) => async (dispatch) => {
   const { email, password, name } = resisterUserInfo;
 
   try {
+    console.log(resisterUserInfo);
     const response = await kenzieHub.post(`/users`, {
       email: email,
       password: password,
       name: name,
-      bio: "sem bio",
-      contact: "sem contato",
-      course_module: "sem curse_module",
+      bio: " ",
+      contact: " ",
+      course_module: " ",
     });
 
     const loginInfo = {
       email: email,
       password: password,
     };
-    userLoginThunk(loginInfo);
+
+    dispatch(userLoginThunk(loginInfo));
   } catch (err) {
     console.log(err);
   }

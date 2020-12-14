@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import DefaultButton from "../../components/shared/buttons/defaultButton";
 import { WelcomeTwoImage } from "../../helpers/getImages";
 import { userLoginThunk } from "../../store/modules/user/thunks.js";
+import { useDispatch } from "react-redux";
 import {
   Form,
   ContainerForm,
@@ -15,8 +16,8 @@ import {
 } from "./style";
 
 const Login = () => {
+  const dispatch = useDispatch();
   const history = useHistory();
-
   const schema = yup.object({
     email: yup.string().email("Tipo inválido").required("Campo obrigatório"),
     password: yup
@@ -30,8 +31,7 @@ const Login = () => {
   });
 
   const handleForm = async (data) => {
-    console.log(data);
-    await userLoginThunk(data, setError);
+    await dispatch(userLoginThunk(data, setError));
     if (localStorage.getItem("authToken")) {
       history.push("/page-success");
     }

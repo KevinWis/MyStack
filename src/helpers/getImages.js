@@ -20,6 +20,7 @@ export const AnnounceImage = ({ width, smallWidth }) => {
     />
   );
 };
+
 export const AccessaccountImage = ({ width, smallWidth }) => {
   return (
     <ImageComponent
@@ -30,6 +31,7 @@ export const AccessaccountImage = ({ width, smallWidth }) => {
     />
   );
 };
+
 export const UndrawsecureloginImage = ({ width, smallWidth }) => {
   return (
     <ImageComponent
@@ -40,6 +42,7 @@ export const UndrawsecureloginImage = ({ width, smallWidth }) => {
     />
   );
 };
+
 export const MaleavatarImage = ({ width, smallWidth }) => {
   return (
     <ImageComponent

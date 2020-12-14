@@ -1,24 +1,23 @@
 import kenzieHub from "../../../services/axios";
 
-export const userLoginThunk = async (userLoginInfo, _error) => {
+export const userLoginThunk = (userLoginInfo, _error) => async (dispatch) => {
   const { email, password } = userLoginInfo;
   try {
     const response = await kenzieHub.post(`/sessions`, {
       email: email,
       password: password,
     });
-
+    console.log(response.data);
     const { token } = response.data;
 
     localStorage.setItem("authToken", token);
   } catch (err) {
-    _error("password", { message: "Senha ou usuário inválido" });
+    console.log(err);
   }
 };
 
 export const createTech = async (tech) => {
   const { title, status } = tech;
-  let api = "";
 
   try {
     const response = await kenzieHub.post(

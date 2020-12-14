@@ -3,9 +3,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useHistory } from "react-router-dom";
 import DefaultButton from "../../components/shared/buttons/defaultButton";
-import axios from "axios";
+import { useDispatch } from "react-redux";
 import { FreelanceImage } from "../../helpers/getImages";
-import { RegisterUser } from "../../store/modules/members/thunks.js";
+import { registerUserThunk } from "../../store/modules/members/thunks.js";
 
 import {
   ContainerContent,
@@ -16,6 +16,7 @@ import {
   HDiv,
 } from "./style";
 const RegisterEssentials = () => {
+  const dispatch = useDispatch();
   const history = useHistory();
   const schema = yup.object({
     name: yup
@@ -36,10 +37,10 @@ const RegisterEssentials = () => {
     resolver: yupResolver(schema),
   });
 
-  const handleForm = async (data) => {
-    console.log(data);
-    await RegisterUser(data);
-    history.push("/register/2");
+  const handleForm = (data) => {
+    //console.log(data);
+    dispatch(registerUserThunk(data));
+    //history.push("/register/2");
   };
 
   return (
