@@ -13,13 +13,16 @@ import {
 
 const PageSucess = () => {
   const history = useHistory();
+  const token = localStorage.getItem("authToken");
   return (
     <>
       <ContainerImage>
-        <RegisterButton
-          value={"Junte-se a nos"}
-          _onClick={() => history.push("/register/1")}
-        ></RegisterButton>
+        {!token && (
+          <RegisterButton
+            value={"Junte-se a nos"}
+            _onClick={() => history.push("/register/1")}
+          ></RegisterButton>
+        )}
         <CardImage>
           <SoftwareDeveloperImage
             width="25rem"

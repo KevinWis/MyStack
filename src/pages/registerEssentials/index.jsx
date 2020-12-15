@@ -19,8 +19,8 @@ const RegisterEssentials = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  if(localStorage.authToken){
-    history.push('/members')
+  if (localStorage.authToken) {
+    history.push("/members");
   }
 
   const schema = yup.object({
@@ -42,9 +42,11 @@ const RegisterEssentials = () => {
     resolver: yupResolver(schema),
   });
 
-  const handleForm = (data) => {
-    dispatch(registerUserThunk(data));
-    history.push("/register/2");
+  const handleForm = async (data) => {
+    await dispatch(registerUserThunk(data));
+    setTimeout(() => {
+      history.push("/register/2");
+    }, 500);
   };
 
   return (
