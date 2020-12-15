@@ -1,4 +1,5 @@
 import CardProfile from "../../components/shared/cardprofile";
+import CardEditProfile from "../../components/shared/cardeditprofile"
 import { ContainerProfile, Container } from "./style";
 import CartProfileTech from "../../components/shared/cartprofiletech";
 import Header from "../../components/shared/header";
@@ -7,6 +8,7 @@ import { useParams } from "react-router-dom";
 import { getUserByIdThunk } from "../../store/modules/members/thunks";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+
 const VisitingProfile = () => {
   const dispatch = useDispatch();
   const { profileId } = useParams();
@@ -26,8 +28,8 @@ const VisitingProfile = () => {
         <CardProfile imageUrl={avatar_url} name={name} bio={bio}></CardProfile>
         <ContainerProfile>
           {searchedMember.techs ? (
-            searchedMember.techs?.map(({ title, status }, index) => (
-              <CartProfileTech title={title} status={status} />
+            searchedMember.techs?.map(({ title, status, id }, index) => (
+              <CardEditProfile title={title} status={status} id={id} />
             ))
           ) : (
             <h1>Ainda não possui habilidades</h1>

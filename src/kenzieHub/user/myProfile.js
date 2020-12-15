@@ -1,26 +1,9 @@
 import kenzieHub from "../../services/axios"
-import axios from 'axios'
+import axios from 'axios';
+import {getUserById} from "../../store/modules/members/actions"
 
-//export const getMyProfile =  () => async dispatch => {
-//    
-//    const token = localStorage.getItem("authToken")
-//    try {
-//        const reponse = await kenzieHub.get('/profile',
-//        dispatch({
-//            type: MY_PROFILE_INFO,
-//            payload: Response.data
-//        }),{
-//            headers:{
-//                Authorization: `Bearer ${token}`
-//            }
-//        })
-//        console.log(reponse.data)
-//    } catch {
-//
-//    }
-//}
 
-export const getMyProfile =  async () =>  {
+export const getMyProfile =  () =>  async dispatch => {
     
     const token = localStorage.getItem("authToken")
     try {
@@ -29,7 +12,7 @@ export const getMyProfile =  async () =>  {
                 Authorization: `Bearer ${token}`
             }
         })
-        return response.data
+        dispatch(getUserById(response.data));
     } catch (err){
         console.log(err)
     }

@@ -13,6 +13,7 @@ export const ContainerTech = styled.div`
   height: ${({ opens }) => (opens ? "18rem" : "9rem")};
   box-shadow: 0px 4px 2px #c5c5c5;
   background-color: #f5f5f5;
+  margin-bottom: 2rem;
 `;
 export const CardIcons = styled.div`
   width: 50px;
