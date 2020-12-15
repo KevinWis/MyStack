@@ -93,6 +93,7 @@ const Header = () => {
               <MenuItem
                 onClick={() => {
                   localStorage.removeItem("authToken");
+                  localStorage.removeItem("userId");
                   handleMenuItemClick("/login");
                 }}
               >
