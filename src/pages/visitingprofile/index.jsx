@@ -15,13 +15,23 @@ const VisitingProfile = () => {
   }, []);
   const { searchedMember } = useSelector((state) => state.members);
   console.log(searchedMember);
+  const { techs, name, bio, avatar_url } = searchedMember;
+  console.log(techs, name, bio, avatar_url);
+  // history.push(`/profile/${profileId}/tech`)
+  // history.push(`/profile/${profileId}/works`)
   return (
     <>
       <Header />
       <Container>
-        <CardProfile></CardProfile>
+        <CardProfile imageUrl={avatar_url} name={name} bio={bio}></CardProfile>
         <ContainerProfile>
-          <CartProfileTech> </CartProfileTech>
+          {searchedMember.techs ? (
+            searchedMember.techs?.map(({ title, status }, index) => (
+              <CartProfileTech title={title} status={status} />
+            ))
+          ) : (
+            <h1>Ainda não possui habilidades</h1>
+          )}
         </ContainerProfile>
         <Footer />
       </Container>

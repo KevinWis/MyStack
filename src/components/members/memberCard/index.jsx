@@ -9,7 +9,7 @@ import {
   ImageFilter,
   Media,
   UnhoveredText,
-  TechIcons
+  TechIcons,
 } from "./style";
 import {
   AiOutlineHeart,
@@ -22,20 +22,20 @@ import { FaRegComment } from "react-icons/fa";
 import { TiArrowForwardOutline } from "react-icons/ti";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import {
-  dictionaryIcons
-}from '../../../helpers/geticons'
+import { dictionaryIcons } from "../../../helpers/geticons";
 import ImageComponent from "../../shared/imageComponent";
 
-const MemberCard = ({ name, course, id, avatar,userTechs }) => {
- 
+const MemberCard = ({ name, course, id, avatar, userTechs }) => {
   const history = useHistory();
-  console.log(userTechs)
-  const [techIcons,setTechIcons] = useState(() => 
-    userTechs?.flatMap(tech => dictionaryIcons[tech.title.toLowerCase()] ? dictionaryIcons[tech.title.toLowerCase()] : '')
-    
-  )
-  console.log(techIcons)
+  console.log(userTechs);
+  const [techIcons, setTechIcons] = useState(() =>
+    userTechs?.flatMap((tech) =>
+      dictionaryIcons[tech.title.toLowerCase()]
+        ? dictionaryIcons[tech.title.toLowerCase()]
+        : ""
+    )
+  );
+  console.log(techIcons);
 
   const [medias, setMedias] = useState([
     Math.floor((Math.random() + 1) * 10),
@@ -51,12 +51,12 @@ const MemberCard = ({ name, course, id, avatar,userTechs }) => {
       ? course.split("(")[1].replace(")", "")
       : course;
   }
-  
+
   return (
     <>
       <Card avatar={avatar}>
         <Body>
-        <ProfileImage avatar={avatar}>
+          <ProfileImage avatar={avatar}>
             <ImageFilter>
               <div className="Dev_Name">
                 <p>{name}</p>
@@ -78,24 +78,27 @@ const MemberCard = ({ name, course, id, avatar,userTechs }) => {
               <AiFillYoutube className="Media_Icon" size="2.8rem" />
             </Media>
           </Medias>
-          </Body>
-            <UnhoveredText><p>{name}</p><p>{getCourseModule(course)}</p></UnhoveredText>
-            <TechIcons>
-              {
-                techIcons.map(techIcon => 
-                  techIcon !== '' ?
-                <div>
-                  <ImageComponent 
-                    className='Tech_Icon' 
-                    smallWidth='64px' 
-                    src={techIcon}>
-                  </ImageComponent>
-                </div>:
-                 <></>
-                )
-              }
-            </TechIcons>
-          <Footer>
+        </Body>
+        <UnhoveredText>
+          <p>{name}</p>
+          <p>{getCourseModule(course)}</p>
+        </UnhoveredText>
+        <TechIcons>
+          {techIcons.map((techIcon) =>
+            techIcon !== "" ? (
+              <div>
+                <ImageComponent
+                  className="Tech_Icon"
+                  smallWidth="64px"
+                  src={techIcon}
+                ></ImageComponent>
+              </div>
+            ) : (
+              <></>
+            )
+          )}
+        </TechIcons>
+        <Footer>
           <div className="Icon">
             <AiOutlineHeart size="32px" />
           </div>
@@ -110,7 +113,7 @@ const MemberCard = ({ name, course, id, avatar,userTechs }) => {
             <TiArrowForwardOutline
               size="32px"
               onClick={() => {
-                history.push(`/profile/${id}`);
+                history.push(`/profile/${id}/tech`);
               }}
             />
           </div>

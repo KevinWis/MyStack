@@ -35,7 +35,9 @@ const Routes = () => {
       <Route exact path="/page-success">
         <PageSucess />
       </Route>
-      <Route exact path="/my-profile/edit"></Route>
+      <Route exact path="/my-profile/edit">
+        
+      </Route>
       <Route exact path="/my-profile">
         <PageProfile />
       </Route>

@@ -1,13 +1,13 @@
 import { ContainerTech, CardIcons, CardTitulo } from "./style";
 
-const CartProfileTech = () => {
+const CartProfileTech = ({title, status}) => {
   return (
     <>    
         <ContainerTech>
           <CardIcons></CardIcons>
           <CardTitulo>
-         <h2> React </h2>
-         <p> Iniciante</p>
+         <h2> {title} </h2>
+         <p> {status}</p>
           </CardTitulo>
         </ContainerTech>
     </>
