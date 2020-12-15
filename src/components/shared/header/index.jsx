@@ -76,18 +76,14 @@ const Header = () => {
             </MenuItem>
             <MenuItem
               onClick={() => {
-                handleMenuItemClick(
-                  "/page-success"
-                );
+                handleMenuItemClick("/page-success");
               }}
             >
               Conheça
             </MenuItem>
-              <MenuItem
+            <MenuItem
               onClick={() => {
-                handleMenuItemClick(
-                  "/my-profile"
-                );
+                handleMenuItemClick("/my-profile");
               }}
             >
               Meu Perfil
