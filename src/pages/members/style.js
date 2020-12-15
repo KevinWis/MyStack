@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { TextField, Select } from "@material-ui/core";
+import Pagination from "@material-ui/lab/Pagination";
 
 export const MemberList = styled.div`
   width: 80%;
@@ -19,6 +20,11 @@ export const StyledTextField = styled(TextField)`
     width: 20rem;
   }
 `;
+
+export const StyledPagination = styled(Pagination)`
+  margin: 5rem 0 1rem 0;
+`;
+
 export const StyledSelect = styled(Select)`
   width: 12rem;
   @media (min-width: 640px) {
