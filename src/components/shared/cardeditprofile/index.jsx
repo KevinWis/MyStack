@@ -10,33 +10,52 @@ import { BsTrash } from "react-icons/bs";
 import { FaRegEdit } from "react-icons/fa";
 import { Select, MenuItem, InputLabel } from "@material-ui/core";
 import DefaultButton from "../../shared/buttons/defaultButton";
-import {updateTech} from "../../../kenzieHub/techs/updateTech";
+import { updateTech } from "../../../kenzieHub/techs/updateTech";
+import { useLocation } from "react-router-dom";
+import {getMyProfile} from "../../../kenzieHub/user/myProfile";
+import {useDispatch} from "react-redux";
+import { deleteTech} from "../../../kenzieHub/techs/deleteTech" 
+import {dictionaryIcons} from "../../../helpers/geticons";
+import ImageComponent from "../../shared/imageComponent";
+
+const Carteditprofile = ({ status, title ,id}) => {
 
 
 
-const Carteditprofile = ({status,title}) => {
-
+  const dispatch = useDispatch();
+  const { pathname } = useLocation();
+  const [editable, seteditable] = useState(() => {
+    return pathname.includes("/my-profile");
+  });
 
   const [show, setshow] = useState(false);
   const [techUpdateInfo, settechUpdateInfo] = useState({
     status: " ",
   });
 
-  console.log(techUpdateInfo);
-
-  
 
   const handclick = () => {
     setshow(!show);
   };
+  const sendUpateDispach = async() =>{
+    await updateTech(id,techUpdateInfo.status);
+    dispatch(getMyProfile())
+    setshow(false);
+  }
+  const sendDeleteDispach = async() =>{
+    await deleteTech(id);
+    dispatch(getMyProfile())
+    setshow(false);
+  }
+
   
   return (
     <>
-      <ContainerTech opens={show}>    
-        <CardIcons></CardIcons>
+      <ContainerTech opens={show}>
+      <ImageComponent src={dictionaryIcons[title.toLowerCase()] || dictionaryIcons["default"]}   width={"7rem"}></ImageComponent>
         <CardTitulo>
           <h2> {title} </h2>
-          <p> {status}</p>   
+          <p> {status}</p>
           {show ? (
             <div>
               <InputLabel id="select-label">Nivel</InputLabel>
@@ -57,15 +76,23 @@ const Carteditprofile = ({status,title}) => {
           ) : (
             ""
           )}
-          {
-            show ? <DefaultButton onClick={()=>{updateTech(techUpdateInfo)}} value={"Enviar"} />: ""
-          }
+          {show ? (
+            <DefaultButton
+              _onClick={() => {
+                sendUpateDispach()                
+              }}
+              value={"Enviar"}
+            >ENviar</DefaultButton>
+          ) : (
+            ""
+          )}
         </CardTitulo>
-
-        <CardEdit>
-          <FaRegEdit size={20} onClick={handclick} />
-          <BsTrash color={"#ff0000"} size={20} />
-        </CardEdit>
+        {editable && (
+          <CardEdit>
+            <FaRegEdit size={20} onClick={handclick} />
+            <BsTrash color={"#ff0000"} size={20} onClick={sendDeleteDispach}/>
+          </CardEdit>
+        )}
       </ContainerTech>
     </>
   );

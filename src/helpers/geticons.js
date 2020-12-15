@@ -8,6 +8,9 @@ import Ruby from "../helpers/icons/icons8-ruby-programming-language.svg";
 import Typescript from "../helpers/icons/icons8-typescript.svg";
 import Vue from "../helpers/icons/icons8-vue-js.svg";
 import React from "../helpers/icons/icons8-react.svg";
+import Javascript  from "../helpers/icons/icons8-javascript.svg";
+import Git  from "../helpers/icons/icons8-git.svg";
+import Default  from "../helpers/icons/logo.svg";
 
 export const dictionaryIcons = {
     bootstrap: Bootstrap,
@@ -20,4 +23,7 @@ export const dictionaryIcons = {
     ruby: Ruby,        
     typescript: Typescript,        
     vue: Vue,
+    javascript:Javascript,
+    git:Git,
+    default:Default,
 }

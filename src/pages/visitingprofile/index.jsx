@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import { getUserByIdThunk } from "../../store/modules/members/thunks";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+
 const VisitingProfile = () => {
   const dispatch = useDispatch();
   const { profileId } = useParams();
@@ -14,7 +15,7 @@ const VisitingProfile = () => {
     dispatch(getUserByIdThunk(profileId));
   }, []);
   const { searchedMember } = useSelector((state) => state.members);
-  console.log(searchedMember);
+  
   return (
     <>
       <Header />
