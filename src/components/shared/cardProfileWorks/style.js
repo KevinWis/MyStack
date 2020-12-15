@@ -8,22 +8,25 @@ export const Card = styled.div`
   background-color: #f5f5f5;
   margin: 0 auto;
   text-align: center;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 6px 12px rgba(0, 0, 0, 0.3);
   margin-bottom: 4vh;
+  background-color:whitesmoke;
 `;
+
 export const ContainerCardTitle = styled.div`
   height: 23.5%;
   padding-top: 2%;
-  /* background-color: aqua; */
 `;
+
 export const ContainerCardContent = styled.div`
   padding-top: 5%;
   height: 50%;
-  /* background-color: chocolate; */
+  width:80%;
+  margin:auto;
 `;
+
 export const ContainerButton = styled.div`
   height: 20%;
-  /* background-color: black;     */
   button {
     width: 99%;
     height: 100%;
