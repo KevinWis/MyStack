@@ -45,7 +45,6 @@ const VisitingProfile = () => {
 
   return (
     <>
-      <Header />
       <Container>
         <CardProfile imageUrl={avatar_url} name={name} bio={bio}></CardProfile>
         <DefaultButton
@@ -76,7 +75,6 @@ const VisitingProfile = () => {
             )}
           </ContainerProfile>
         )}
-        <Footer />
       </Container>
     </>
   );

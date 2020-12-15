@@ -8,7 +8,6 @@ function App() {
       <main>
         <Header />
         <Routes />
-        <Footer />
       </main>
     </div>
   );

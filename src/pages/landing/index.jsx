@@ -10,9 +10,9 @@ import { useHistory } from "react-router-dom";
 
 const Landing = () => {
   const history = useHistory();
-  
-  if(localStorage.authToken){
-    history.push('/members')
+
+  if (localStorage.authToken) {
+    history.push("/page-success");
   }
 
   return (
