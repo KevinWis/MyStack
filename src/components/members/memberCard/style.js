@@ -165,6 +165,8 @@ export const Card = styled.div`
 
   margin-top: 100px;
 
+  cursor: pointer;
+
   &:hover {
     box-shadow: 2px 4px 7px rgba(21, 64, 72, 0.6);
     p {
