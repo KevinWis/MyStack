@@ -6,13 +6,6 @@ import {
   ContainerButton,
 } from "./style";
 import Button from "../buttons/defaultButton";
-// import {
-//   Card,
-//   CardActionArea,
-//   CardActions,
-//   CardContent,
-//   Typography,
-// } from "@material-ui/core";
 
 function CardProfileWorks({ title, content }) {
   return (
