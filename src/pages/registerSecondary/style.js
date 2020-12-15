@@ -64,7 +64,6 @@ export const ContainerPersonIcon = styled.div`
   flex-direction: column;
 
   position: relative;
-  overflow: hidden;
 `;
 
 export const ContainerPersonPhoto = styled.div`
@@ -77,16 +76,14 @@ export const ContainerIcon = styled.div`
   text-align: center;
   width: 100%;
   height: 100%;
-  top: 12rem;
-  left: 6rem;
+  top: 14rem;
+
   position: absolute;
   @media (min-width: 640px) {
-    top: 6rem;
-    left: 4rem;
+    top: 7rem;
   }
   @media (min-width: 1080px) {
-    top: 6rem;
-    left: 4rem;
+    top: 8rem;
   }
 `;
 
