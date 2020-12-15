@@ -19,8 +19,8 @@ const Login = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  if(localStorage.authToken){
-    history.push('/members')
+  if (localStorage.authToken) {
+    history.push("/members");
   }
 
   const schema = yup.object({
@@ -63,6 +63,7 @@ const Login = () => {
             margin="normal"
             label="Senha"
             name="password"
+            type="password"
             inputRef={register}
           />
           {errors.password && <p type="warning">{errors.password.message}</p>}
