@@ -2,14 +2,12 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
+import { Accordion, Typography, TextField } from "@material-ui/core";
 import {
-  Accordion,
-  AccordionSummary,
-  Typography,
-  TextField,
-  TextareaAutosize,
-} from "@material-ui/core";
-import { StyledAccordionDetails, FormGroup } from "./style";
+  StyledAccordionSummary,
+  StyledAccordionDetails,
+  FormGroup,
+} from "./style";
 import { AiFillPlusCircle } from "react-icons/ai";
 import DefaultButton from "../../shared/buttons/defaultButton";
 import { createWork } from "../../../kenzieHub/works/createWork";
@@ -20,12 +18,13 @@ const WorkForm = ({ sendDispatch }) => {
     deploy_url: yup.string().required("Campo obrigatório"),
   });
 
-  const { register, handleSubmit, errors } = useForm({
+  const { register, handleSubmit, errors, reset } = useForm({
     resolver: yupResolver(schema),
   });
 
   const handleForm = (data) => {
     createWork(data);
+    reset();
     sendDispatch();
     console.log(data);
   };
@@ -33,13 +32,13 @@ const WorkForm = ({ sendDispatch }) => {
   return (
     <>
       <Accordion>
-        <AccordionSummary
+        <StyledAccordionSummary
           expandIcon={<AiFillPlusCircle />}
           aria-controls="workAdd"
           id="workAdd"
         >
           <Typography>Adicionar Projeto</Typography>
-        </AccordionSummary>
+        </StyledAccordionSummary>
         <StyledAccordionDetails>
           <form onSubmit={handleSubmit(handleForm)}>
             <FormGroup>

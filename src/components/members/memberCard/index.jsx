@@ -54,7 +54,12 @@ const MemberCard = ({ name, course, id, avatar, userTechs }) => {
 
   return (
     <>
-      <Card avatar={avatar}>
+      <Card
+        onClick={() => {
+          history.push(`/profile/${id}/tech`);
+        }}
+        avatar={avatar}
+      >
         <Body>
           <ProfileImage avatar={avatar}>
             <ImageFilter>
@@ -110,12 +115,7 @@ const MemberCard = ({ name, course, id, avatar, userTechs }) => {
           <p>{`${medias[2]}.${medias[3]}`} k</p>
           <div className="Spacer"></div>
           <div className="Icon">
-            <TiArrowForwardOutline
-              size="32px"
-              onClick={() => {
-                history.push(`/profile/${id}/tech`);
-              }}
-            />
+            <TiArrowForwardOutline size="32px" />
           </div>
           <p>Profile</p>
         </Footer>

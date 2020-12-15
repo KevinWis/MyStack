@@ -4,14 +4,17 @@ import { useState } from "react";
 import * as yup from "yup";
 import {
   Accordion,
-  AccordionSummary,
   Typography,
   TextField,
   Select,
   MenuItem,
   InputLabel,
 } from "@material-ui/core";
-import { StyledAccordionDetails, FormGroup } from "./style";
+import {
+  StyledAccordionSummary,
+  StyledAccordionDetails,
+  FormGroup,
+} from "./style";
 import { AiFillPlusCircle } from "react-icons/ai";
 import DefaultButton from "../../shared/buttons/defaultButton";
 import { createTech } from "../../../kenzieHub/techs/createTech";
@@ -21,12 +24,13 @@ const TechForm = ({ sendDispatch }) => {
     title: yup.string().required("Campo obrigatório"),
   });
 
-  const { register, handleSubmit, errors } = useForm({
+  const { register, handleSubmit, errors, reset } = useForm({
     resolver: yupResolver(schema),
   });
 
   const handleForm = (data) => {
     createTech(data);
+    reset();
     sendDispatch();
     console.log(data);
   };
@@ -34,13 +38,13 @@ const TechForm = ({ sendDispatch }) => {
   return (
     <>
       <Accordion>
-        <AccordionSummary
+        <StyledAccordionSummary
           expandIcon={<AiFillPlusCircle />}
           aria-controls="techAdd"
           id="techAdd"
         >
           <Typography>Adicionar Tech</Typography>
-        </AccordionSummary>
+        </StyledAccordionSummary>
         <StyledAccordionDetails>
           <form onSubmit={handleSubmit(handleForm)}>
             <FormGroup>
