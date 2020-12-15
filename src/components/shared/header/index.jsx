@@ -61,13 +61,7 @@ const Header = () => {
             >
               Membros
             </MenuItem>
-            <MenuItem
-              onClick={() => {
-                handleMenuItemClick("/login");
-              }}
-            >
-              Entrar
-            </MenuItem>
+
             <MenuItem
               onClick={() => {
                 handleMenuItemClick("/register/1");
@@ -89,7 +83,7 @@ const Header = () => {
             >
               Meu Perfil
             </MenuItem>
-            {token && (
+            {token ? (
               <MenuItem
                 onClick={() => {
                   localStorage.removeItem("authToken");
@@ -98,6 +92,14 @@ const Header = () => {
                 }}
               >
                 Logout
+              </MenuItem>
+            ) : (
+              <MenuItem
+                onClick={() => {
+                  handleMenuItemClick("/login");
+                }}
+              >
+                Login
               </MenuItem>
             )}
           </Menu>
