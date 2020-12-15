@@ -71,13 +71,15 @@ const Header = () => {
                 Registrar-se
               </MenuItem>
             )}
-            <MenuItem
-              onClick={() => {
-                handleMenuItemClick("/page-success");
-              }}
-            >
-              Conheça
-            </MenuItem>
+            {!token && (
+              <MenuItem
+                onClick={() => {
+                  handleMenuItemClick("/page-success");
+                }}
+              >
+                Conheça
+              </MenuItem>
+            )}
             {token && (
               <MenuItem
                 onClick={() => {
