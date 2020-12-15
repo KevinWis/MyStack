@@ -12,16 +12,19 @@ export const Card = styled.div`
   margin-bottom: 4vh;
   background-color:whitesmoke;
 `;
+
 export const ContainerCardTitle = styled.div`
   height: 23.5%;
   padding-top: 2%;
 `;
+
 export const ContainerCardContent = styled.div`
   padding-top: 5%;
   height: 50%;
   width:80%;
   margin:auto;
 `;
+
 export const ContainerButton = styled.div`
   height: 20%;
   button {

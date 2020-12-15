@@ -47,7 +47,7 @@ const VisitingProfile = () => {
           pathname.includes('/works') && 
           <ContainerProfile>
           {
-            searchedMember.works ? (
+            searchedMember.works && (
               searchedMember.works?.map(({title,description},index) => (
                 <WorkCard 
                   key={index}
@@ -55,7 +55,7 @@ const VisitingProfile = () => {
                   content={description}
                 />
               ))
-            ) : ''
+            )
           }
           </ContainerProfile>
         }
