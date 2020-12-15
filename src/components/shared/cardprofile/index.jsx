@@ -4,8 +4,8 @@ const CardProfile = ({imageUrl, name,bio}) => {
   return (
     <>
       <Container>
-          <Cardmain avatar={imageUrl}>
-          <Cardimage >
+          <Cardmain>
+          <Cardimage avatar={imageUrl}>
           </Cardimage>
           <ContainerBio>
             <Containertitle>{name}</Containertitle>

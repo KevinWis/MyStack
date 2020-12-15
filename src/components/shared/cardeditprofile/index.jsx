@@ -15,8 +15,13 @@ import { useLocation } from "react-router-dom";
 import {getMyProfile} from "../../../kenzieHub/user/myProfile";
 import {useDispatch} from "react-redux";
 import { deleteTech} from "../../../kenzieHub/techs/deleteTech" 
+import {dictionaryIcons} from "../../../helpers/geticons";
+import ImageComponent from "../../shared/imageComponent";
 
 const Carteditprofile = ({ status, title ,id}) => {
+
+
+
   const dispatch = useDispatch();
   const { pathname } = useLocation();
   const [editable, seteditable] = useState(() => {
@@ -47,7 +52,7 @@ const Carteditprofile = ({ status, title ,id}) => {
   return (
     <>
       <ContainerTech opens={show}>
-        <CardIcons></CardIcons>
+      <ImageComponent src={dictionaryIcons[title.toLowerCase()] || dictionaryIcons["default"]}   width={"7rem"}></ImageComponent>
         <CardTitulo>
           <h2> {title} </h2>
           <p> {status}</p>
@@ -72,12 +77,12 @@ const Carteditprofile = ({ status, title ,id}) => {
             ""
           )}
           {show ? (
-            <button
-              onClick={() => {
+            <DefaultButton
+              _onClick={() => {
                 sendUpateDispach()                
               }}
               value={"Enviar"}
-            >ENviar</button>
+            >ENviar</DefaultButton>
           ) : (
             ""
           )}
