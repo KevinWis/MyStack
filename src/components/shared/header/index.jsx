@@ -27,6 +27,7 @@ const Header = () => {
     history.push(url);
   };
 
+  const token = localStorage.getItem("authToken");
   return (
     <>
       <HeaderDiv>
@@ -76,22 +77,28 @@ const Header = () => {
             </MenuItem>
             <MenuItem
               onClick={() => {
-                handleMenuItemClick(
-                  "/page-success"
-                );
+                handleMenuItemClick("/page-success");
               }}
             >
               Conheça
             </MenuItem>
-              <MenuItem
+            <MenuItem
               onClick={() => {
-                handleMenuItemClick(
-                  "/my-profile"
-                );
+                handleMenuItemClick("/my-profile");
               }}
             >
               Meu Perfil
             </MenuItem>
+            {token && (
+              <MenuItem
+                onClick={() => {
+                  localStorage.removeItem("authToken");
+                  handleMenuItemClick("/login");
+                }}
+              >
+                Logout
+              </MenuItem>
+            )}
           </Menu>
         </div>
       </HeaderDiv>
