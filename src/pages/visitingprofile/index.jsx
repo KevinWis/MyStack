@@ -10,11 +10,15 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import DefaultButton from '../../components/shared/buttons/defaultButton'
 
+import WorkCard from "../../components/shared/cardProfileWorks";
+
 const VisitingProfile = () => {
+
   const history = useHistory()
   const dispatch = useDispatch();
   const { profileId } = useParams();
   const { pathname } = useLocation()
+
   useEffect(() => {
     dispatch(getUserByIdThunk(profileId));
   }, []);
@@ -23,8 +27,7 @@ const VisitingProfile = () => {
   // console.log(searchedMember);
   const { techs, name, bio, avatar_url } = searchedMember;
   // console.log(techs, name, bio, avatar_url);
-  // 
-  // 
+
   const redirect = () => {
     if(pathname.includes('/tech')){
       history.push(`/profile/${profileId}/works`)
@@ -40,7 +43,24 @@ const VisitingProfile = () => {
       <Container>
         <CardProfile imageUrl={avatar_url} name={name} bio={bio}></CardProfile>
         <DefaultButton _onClick={redirect} value={pathname.includes('/tech') ? 'Trabalhos':'Tecnologias'}/>
-        <ContainerProfile>
+        {
+          pathname.includes('/works') && 
+          <ContainerProfile>
+          {
+            searchedMember.works ? (
+              searchedMember.works?.map(({title,description},index) => (
+                <WorkCard 
+                  key={index}
+                  title={title} 
+                  content={description}
+                />
+              ))
+            ) : ''
+          }
+          </ContainerProfile>
+        }
+        {pathname.includes('/tech') &&
+          <ContainerProfile>
           {searchedMember.techs ? (
             searchedMember.techs?.map(({ title, status, id }, index) => (
               <CardEditProfile key={index} title={title} status={status} id={id} />
@@ -49,6 +69,7 @@ const VisitingProfile = () => {
             <h1>Ainda não possui habilidades</h1>
           )}
         </ContainerProfile>
+        }
         <Footer />
       </Container>
     </>
