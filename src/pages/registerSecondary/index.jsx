@@ -3,6 +3,9 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { MdAddAPhoto } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+
+import { getMyProfile } from "../../kenzieHub/user/myProfile";
 import {
   ContainerForm,
   ContainerPersonIcon,
@@ -28,8 +31,13 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 const RegisterSeconddary = () => {
+  const dispatch = useDispatch();
   const [image, setimage] = useState();
+  const [avatarUrl, setAvatarUrl] = useState();
   const [selectStatus, setSelectStatus] = useState(" ");
+  const [contactValue, setContactValue] = useState(" ");
+  const [bioValue, setBioValue] = useState(" ");
+
   const history = useHistory();
   const schema = yup.object().shape({
     contact: yup.string().required("Campo obrigatório"),
@@ -44,12 +52,21 @@ const RegisterSeconddary = () => {
     resolver: yupResolver(schema),
   });
 
+  useEffect(() => {
+    localStorage.getItem("authToken") || history.push("/");
+    dispatch(getMyProfile());
+  }, []);
+  const { searchedMember } = useSelector((state) => state.members);
+
   const handleForm = async (data) => {
     updateUserInfo(data);
-    const newData = new FormData();
-    newData.append("avatar", image);
-    await updateUserProfilePicture(newData);
-
+    console.log(avatarUrl);
+    if (image) {
+      const newData = new FormData();
+      newData.append("avatar", image);
+      console.log(newData);
+      await updateUserProfilePicture(newData);
+    }
     setTimeout(() => {
       history.push("/my-profile");
     }, 500);
@@ -60,8 +77,11 @@ const RegisterSeconddary = () => {
   };
 
   useEffect(() => {
-    localStorage.getItem("authToken") || history.push("/");
-  }, []);
+    setSelectStatus(searchedMember.course_module || "");
+    setContactValue(searchedMember.contact || "");
+    setBioValue(searchedMember.bio || "");
+    setAvatarUrl(searchedMember.avatar_url || "");
+  }, [searchedMember]);
   return (
     <>
       <ContainerForm>
@@ -71,6 +91,15 @@ const RegisterSeconddary = () => {
               {image ? (
                 <ImageComponent
                   src={URL.createObjectURL(image)}
+                  width="16rem"
+                  smallWidth="9rem"
+                  height="16rem"
+                  smallHeight="9rem"
+                  round
+                />
+              ) : avatarUrl ? (
+                <ImageComponent
+                  src={avatarUrl}
                   width="16rem"
                   smallWidth="9rem"
                   height="16rem"
@@ -118,6 +147,10 @@ const RegisterSeconddary = () => {
                 margin="normal"
                 label="Contato"
                 name="contact"
+                value={contactValue}
+                onChange={(evt) => {
+                  setContactValue(evt.target.value);
+                }}
                 inputRef={register}
                 error={!!errors.contact}
                 helperText={errors.contact?.message}
@@ -164,10 +197,13 @@ const RegisterSeconddary = () => {
               rows={6}
               multiline
               placeholder="Bio"
-              aria-label=""
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               name="bio"
+              value={bioValue}
+              onChange={(evt) => {
+                setBioValue(evt.target.value);
+              }}
               inputRef={register}
               error={!!errors.bio}
               helperText={errors.bio?.message}

@@ -40,7 +40,6 @@ const Members = () => {
         .filter((el) => {
           return el.name.toLowerCase().includes(search.toLowerCase());
         });
-      console.log("filtered", newFiltered);
       setFilteredMembers(newFiltered);
     }
     if (type === "tech") {
@@ -51,13 +50,11 @@ const Members = () => {
             return tech.title.toLowerCase().includes(search.toLowerCase());
           });
         });
-      console.log("filtered", newFiltered);
       setFilteredMembers(newFiltered);
     }
   }, [members, search, type]);
 
   useEffect(() => {
-    console.log(page);
     const begin = (page - 1) * 12;
     const end = begin + 11;
     const newArr = filteredMembers.filter((el, index) => {
