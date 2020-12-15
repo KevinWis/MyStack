@@ -3,16 +3,21 @@ import Carteditprofile from "../../components/shared/cardeditprofile";
 import React, { useEffect, useState } from "react";
 import { Container, ContainerCard } from "./style";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams,useHistory } from "react-router-dom";
 import { getMyProfile } from "../../kenzieHub/user/myProfile";
 
 import TechForm from "../../components/forms/techForm";
 import WorkForm from "../../components/forms/workForm";
 
 const PageProfile = () => {
+  const history = useHistory()
+  if(!localStorage.authToken){
+    history.push('/login')
+  }
   const [techs, settechs] = useState([]);
 
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getMyProfile());
   }, []);

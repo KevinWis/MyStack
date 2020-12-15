@@ -18,6 +18,11 @@ import {
 const Login = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+
+  if(localStorage.authToken){
+    history.push('/members')
+  }
+
   const schema = yup.object({
     email: yup.string().email("Tipo inválido").required("Campo obrigatório"),
     password: yup
