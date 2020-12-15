@@ -1,7 +1,15 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { getUserListThunk } from "../../store/modules/members/thunks";
-import { MemberList } from "./style";
+import { InputLabel } from "@material-ui/core";
+
+import {
+  MemberList,
+  MainContainer,
+  FormContainer,
+  StyledSelect,
+  StyledTextField,
+} from "./style";
 import MemberCard from "../../components/members/memberCard";
 
 const Members = () => {
@@ -9,7 +17,7 @@ const Members = () => {
   const members = useSelector((state) => state.members.list);
 
   const [search, setSearch] = useState("");
-  const [type, setType] = useState("tech");
+  const [type, setType] = useState("name");
   const [filteredMembers, setFilteredMembers] = useState([]);
 
   useEffect(() => {
@@ -40,28 +48,29 @@ const Members = () => {
   }, [members, search, type]);
 
   return (
-    <div style={{ marginTop: "25rem" }}>
-      <div>
-        <label htmlFor="">search</label>
-        <input
-          type="text"
+    <MainContainer>
+      <FormContainer>
+        <StyledTextField
+          label={type === "name" ? "user name" : "tech name"}
           value={search}
           onChange={(evt) => {
             setSearch(evt.target.value);
           }}
         />
-
-        <label htmlFor="">tipo</label>
-        <select
-          value={type}
-          onChange={(evt) => {
-            setType(evt.target.value);
-          }}
-        >
-          <option value="name">nome</option>
-          <option value="tech">tech</option>
-        </select>
-      </div>
+        <div>
+          <InputLabel htmlFor="type">Type</InputLabel>
+          <StyledSelect
+            id="type"
+            value={type}
+            onChange={(evt) => {
+              setType(evt.target.value);
+            }}
+          >
+            <option value="name">nome</option>
+            <option value="tech">tech</option>
+          </StyledSelect>
+        </div>
+      </FormContainer>
       <MemberList>
         {filteredMembers.length === 0 && <h2>Loading...</h2>}
         {filteredMembers
@@ -78,7 +87,7 @@ const Members = () => {
             ></MemberCard>
           ))}
       </MemberList>
-    </div>
+    </MainContainer>
   );
 };
 
