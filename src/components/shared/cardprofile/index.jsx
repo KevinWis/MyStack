@@ -1,6 +1,6 @@
 import { Container, Cardmain, Cardimage, ContainerBio,Containertitle,ContainerBios} from "./style";
 
-const CardProfile = ({imageUrl, name,bio}) => {
+const CardProfile = ({imageUrl, name, bio}) => {
   return (
     <>
       <Container>

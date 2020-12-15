@@ -1,5 +1,6 @@
 import CardProfile from "../../components/shared/cardprofile";
 import Carteditprofile from "../../components/shared/cardeditprofile";
+import CardWorksEdit from "../../components/shared/cardProfileWorksEdit";
 import React, { useEffect, useState } from "react";
 import { Container, ContainerCard, StyledRadioGroup } from "./style";
 import { useDispatch, useSelector } from "react-redux";
@@ -75,14 +76,15 @@ const PageProfile = () => {
         ) : (
           <>
             <WorkForm sendDispatch={sendDispatch} />
-            {works?.map(({ status, title, id }, index) => {
+            {works?.map(({ description, title, id, deploy_url}, index) => {
               return (
                 <ContainerCard key={index}>
-                  <Carteditprofile
-                    status={status}
+                  <CardWorksEdit
+                    description={description}
                     title={title}
                     id={id}
-                  ></Carteditprofile>
+                    url={deploy_url}
+                  ></CardWorksEdit>
                 </ContainerCard>
               );
             })}
