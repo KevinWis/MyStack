@@ -4,6 +4,8 @@ import React from "react";
 import { Container, ContainerCard } from "./style";
 
 const PageProfile = () => {
+
+  
   const userMock = {
     user: {
       id: "c92d0549-c36c-4e99-b822-f0e23a292cc1",
@@ -155,10 +157,7 @@ const PageProfile = () => {
         <CardProfile imageUrl={userMock.user.avatar_url}  bio={userMock.user.bio} name={userMock.user.name}></CardProfile>
 
         {userMock.user.techs.map(({ status, title }, index) => {
-          return (
-
-           
-            
+          return (            
             <ContainerCard>
               <Carteditprofile
                 key={index}

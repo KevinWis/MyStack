@@ -10,12 +10,14 @@ import { BsTrash } from "react-icons/bs";
 import { FaRegEdit } from "react-icons/fa";
 import { Select, MenuItem, InputLabel } from "@material-ui/core";
 import DefaultButton from "../../shared/buttons/defaultButton";
-import {updateTech} from "../../../kenzieHub/techs/updateTech";
+import { updateTech } from "../../../kenzieHub/techs/updateTech";
+import { useLocation } from "react-router-dom";
 
-
-
-const Carteditprofile = ({status,title}) => {
-
+const Carteditprofile = ({ status, title }) => {
+  const { pathname } = useLocation();
+  const [editable, seteditable] = useState(() => {
+    return pathname.includes("/my-profile");
+  });
 
   const [show, setshow] = useState(false);
   const [techUpdateInfo, settechUpdateInfo] = useState({
@@ -24,19 +26,17 @@ const Carteditprofile = ({status,title}) => {
 
   console.log(techUpdateInfo);
 
-  
-
   const handclick = () => {
     setshow(!show);
   };
-  
+
   return (
     <>
-      <ContainerTech opens={show}>    
+      <ContainerTech opens={show}>
         <CardIcons></CardIcons>
         <CardTitulo>
           <h2> {title} </h2>
-          <p> {status}</p>   
+          <p> {status}</p>
           {show ? (
             <div>
               <InputLabel id="select-label">Nivel</InputLabel>
@@ -57,15 +57,23 @@ const Carteditprofile = ({status,title}) => {
           ) : (
             ""
           )}
-          {
-            show ? <DefaultButton onClick={()=>{updateTech(techUpdateInfo)}} value={"Enviar"} />: ""
-          }
+          {show ? (
+            <DefaultButton
+              onClick={() => {
+                updateTech(techUpdateInfo);
+              }}
+              value={"Enviar"}
+            />
+          ) : (
+            ""
+          )}
         </CardTitulo>
-
-        <CardEdit>
-          <FaRegEdit size={20} onClick={handclick} />
-          <BsTrash color={"#ff0000"} size={20} />
-        </CardEdit>
+        {editable && (
+          <CardEdit>
+            <FaRegEdit size={20} onClick={handclick} />
+            <BsTrash color={"#ff0000"} size={20} />
+          </CardEdit>
+        )}
       </ContainerTech>
     </>
   );

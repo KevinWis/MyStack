@@ -33,7 +33,7 @@ const Routes = () => {
         <PageSucess />
       </Route>
       <Route exact path="/my-profile/edit"></Route>      
-      <Route exact path="/my-profile">
+      <Route exact path="/my-profile/:id">
       <PageProfile />
       </Route>
     </Switch>
