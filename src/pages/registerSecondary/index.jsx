@@ -25,6 +25,7 @@ import { MaleavatarImage } from "../../helpers/getImages";
 import { updateUserInfo } from "../../kenzieHub/user/updateUser";
 
 import { useState } from "react";
+import { useEffect } from "react";
 
 const RegisterSeconddary = () => {
   const [image, setimage] = useState();
