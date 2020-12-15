@@ -12,8 +12,11 @@ import { Select, MenuItem, InputLabel } from "@material-ui/core";
 import DefaultButton from "../../shared/buttons/defaultButton";
 import { updateTech } from "../../../kenzieHub/techs/updateTech";
 import { useLocation } from "react-router-dom";
+import {getMyProfile} from "../../../kenzieHub/user/myProfile";
+import {useDispatch} from "react-redux";
 
-const Carteditprofile = ({ status, title }) => {
+const Carteditprofile = ({ status, title ,id}) => {
+  const dispatch = useDispatch();
   const { pathname } = useLocation();
   const [editable, seteditable] = useState(() => {
     return pathname.includes("/my-profile");
@@ -24,11 +27,15 @@ const Carteditprofile = ({ status, title }) => {
     status: " ",
   });
 
-  console.log(techUpdateInfo);
 
   const handclick = () => {
     setshow(!show);
   };
+  const sendUpateDispach = async() =>{
+    await updateTech(id,techUpdateInfo.status);
+    dispatch(getMyProfile())
+    setshow(false);
+  }
 
   return (
     <>
@@ -58,12 +65,12 @@ const Carteditprofile = ({ status, title }) => {
             ""
           )}
           {show ? (
-            <DefaultButton
+            <button
               onClick={() => {
-                updateTech(techUpdateInfo);
+                sendUpateDispach()                
               }}
               value={"Enviar"}
-            />
+            >ENviar</button>
           ) : (
             ""
           )}
