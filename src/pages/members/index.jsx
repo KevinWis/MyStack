@@ -64,8 +64,9 @@ const Members = () => {
       </div>
       <MemberList>
         {filteredMembers.length === 0 && <h2>Loading...</h2>}
-        {filteredMembers.map(
-          ({ name, id, course_module, avatar_url, techs }, index) => (
+        {filteredMembers
+          .sort((a, b) => (a.avatar_url ? -1 : 1))
+          .map(({ name, id, course_module, avatar_url, techs }, index) => (
             <MemberCard
               key={index}
               name={name}
@@ -75,8 +76,7 @@ const Members = () => {
               userTechs={techs}
               avatar={avatar_url}
             ></MemberCard>
-          )
-        )}
+          ))}
       </MemberList>
     </div>
   );
