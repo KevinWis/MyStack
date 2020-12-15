@@ -14,6 +14,7 @@ import { updateTech } from "../../../kenzieHub/techs/updateTech";
 import { useLocation } from "react-router-dom";
 import {getMyProfile} from "../../../kenzieHub/user/myProfile";
 import {useDispatch} from "react-redux";
+import { deleteTech} from "../../../kenzieHub/techs/deleteTech" 
 
 const Carteditprofile = ({ status, title ,id}) => {
   const dispatch = useDispatch();
@@ -36,7 +37,13 @@ const Carteditprofile = ({ status, title ,id}) => {
     dispatch(getMyProfile())
     setshow(false);
   }
+  const sendDeleteDispach = async() =>{
+    await deleteTech(id);
+    dispatch(getMyProfile())
+    setshow(false);
+  }
 
+  
   return (
     <>
       <ContainerTech opens={show}>
@@ -78,7 +85,7 @@ const Carteditprofile = ({ status, title ,id}) => {
         {editable && (
           <CardEdit>
             <FaRegEdit size={20} onClick={handclick} />
-            <BsTrash color={"#ff0000"} size={20} />
+            <BsTrash color={"#ff0000"} size={20} onClick={sendDeleteDispach}/>
           </CardEdit>
         )}
       </ContainerTech>
