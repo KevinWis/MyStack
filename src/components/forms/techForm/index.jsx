@@ -15,10 +15,10 @@ import { StyledAccordionDetails, FormGroup } from "./style";
 import { AiFillPlusCircle } from "react-icons/ai";
 import DefaultButton from "../../shared/buttons/defaultButton";
 import { createTech } from "../../../kenzieHub/techs/createTech";
-const TechForm = () => {
+const TechForm = ({ sendDispatch }) => {
   const [level, setLevel] = useState("Iniciante");
   const schema = yup.object({
-    name: yup.string().required("Campo obrigatório"),
+    title: yup.string().required("Campo obrigatório"),
   });
 
   const { register, handleSubmit, errors } = useForm({
@@ -27,6 +27,7 @@ const TechForm = () => {
 
   const handleForm = (data) => {
     createTech(data);
+    sendDispatch();
     console.log(data);
   };
 
@@ -44,12 +45,12 @@ const TechForm = () => {
           <form onSubmit={handleSubmit(handleForm)}>
             <FormGroup>
               <TextField
-                label="Nome"
-                name="name"
-                placeholder="Nome da Tecnologia"
+                label="Titulo"
+                name="title"
+                placeholder="Titulo da Tecnologia"
                 inputRef={register}
-                error={!!errors.name}
-                helperText={errors.name?.message}
+                error={!!errors.title}
+                helperText={errors.title?.message}
               />
             </FormGroup>
             <FormGroup>

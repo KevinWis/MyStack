@@ -23,6 +23,10 @@ const PageProfile = () => {
     settechs(searchedMember.techs);
   }, [searchedMember]);
 
+  const sendDispatch = () => {
+    dispatch(getMyProfile());
+  };
+
   return (
     <>
       <Container>
@@ -31,8 +35,8 @@ const PageProfile = () => {
           bio={searchedMember.bio}
           name={searchedMember.name}
         ></CardProfile>
-        <TechForm />
-        <WorkForm />
+        <TechForm sendDispatch={sendDispatch} />
+        <WorkForm sendDispatch={sendDispatch} />
         {techs?.map(({ status, title, id }, index) => {
           return (
             <ContainerCard key={index}>

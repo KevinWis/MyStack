@@ -13,7 +13,7 @@ import { StyledAccordionDetails, FormGroup } from "./style";
 import { AiFillPlusCircle } from "react-icons/ai";
 import DefaultButton from "../../shared/buttons/defaultButton";
 import { createWork } from "../../../kenzieHub/works/createWork";
-const WorkForm = () => {
+const WorkForm = ({ sendDispatch }) => {
   const schema = yup.object({
     title: yup.string().required("Campo obrigatório"),
     description: yup.string().required("Campo obrigatório"),
@@ -26,6 +26,7 @@ const WorkForm = () => {
 
   const handleForm = (data) => {
     createWork(data);
+    sendDispatch();
     console.log(data);
   };
 
