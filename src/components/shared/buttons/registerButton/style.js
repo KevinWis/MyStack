@@ -8,7 +8,7 @@ export const StyledRegisterButton = styled.button`
   border: 0 !important;
   border-radius: 3px !important;
   position: fixed;
-  bottom: 4rem;
+  bottom: 1rem;
   margin: 0 auto;
 
   z-index: 100;

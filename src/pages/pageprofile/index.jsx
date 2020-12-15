@@ -1,7 +1,12 @@
 import CardProfile from "../../components/shared/cardprofile";
 import Carteditprofile from "../../components/shared/cardeditprofile";
 import React, { useEffect, useState } from "react";
-import { Container, ContainerCard, StyledRadioGroup } from "./style";
+import {
+  Container,
+  ContainerCard,
+  StyledRadioGroup,
+  ContainerProfile,
+} from "./style";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { getMyProfile } from "../../kenzieHub/user/myProfile";
@@ -36,30 +41,30 @@ const PageProfile = () => {
     dispatch(getMyProfile());
   };
   return (
-    <>
-      <Container>
-        <CardProfile
-          imageUrl={searchedMember.avatar_url}
-          bio={searchedMember.bio}
-          name={searchedMember.name}
-        ></CardProfile>
-        <StyledRadioGroup
-          row
-          aria-label="view"
-          name="view"
-          value={radioValue}
-          onChange={(evt) => setRadioValue(evt.target.value)}
-        >
-          <FormControlLabel
-            value="Tech"
-            control={<Radio />}
-            label="Tecnologias"
-          />
-          <FormControlLabel value="Work" control={<Radio />} label="Projetos" />
-        </StyledRadioGroup>
-        {radioValue === "Tech" ? (
-          <>
-            <TechForm sendDispatch={sendDispatch} />
+    <Container>
+      <CardProfile
+        imageUrl={searchedMember.avatar_url}
+        bio={searchedMember.bio}
+        name={searchedMember.name}
+      ></CardProfile>
+      <StyledRadioGroup
+        row
+        aria-label="view"
+        name="view"
+        value={radioValue}
+        onChange={(evt) => setRadioValue(evt.target.value)}
+      >
+        <FormControlLabel
+          value="Tech"
+          control={<Radio />}
+          label="Tecnologias"
+        />
+        <FormControlLabel value="Work" control={<Radio />} label="Projetos" />
+      </StyledRadioGroup>
+      {radioValue === "Tech" ? (
+        <>
+          <TechForm sendDispatch={sendDispatch} />
+          <ContainerProfile>
             {techs?.map(({ status, title, id }, index) => {
               return (
                 <ContainerCard key={index}>
@@ -71,25 +76,25 @@ const PageProfile = () => {
                 </ContainerCard>
               );
             })}
-          </>
-        ) : (
-          <>
-            <WorkForm sendDispatch={sendDispatch} />
-            {works?.map(({ status, title, id }, index) => {
-              return (
-                <ContainerCard key={index}>
-                  <Carteditprofile
-                    status={status}
-                    title={title}
-                    id={id}
-                  ></Carteditprofile>
-                </ContainerCard>
-              );
-            })}
-          </>
-        )}
-      </Container>
-    </>
+          </ContainerProfile>
+        </>
+      ) : (
+        <>
+          <WorkForm sendDispatch={sendDispatch} />
+          {works?.map(({ status, title, id }, index) => {
+            return (
+              <ContainerCard key={index}>
+                <Carteditprofile
+                  status={status}
+                  title={title}
+                  id={id}
+                ></Carteditprofile>
+              </ContainerCard>
+            );
+          })}
+        </>
+      )}
+    </Container>
   );
 };
 

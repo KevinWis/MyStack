@@ -12,7 +12,11 @@ const Landing = () => {
   const history = useHistory();
 
   if (localStorage.authToken) {
+<<<<<<< HEAD
     history.push("/members");
+=======
+    history.push("/page-success");
+>>>>>>> f7d8b21ce41617c49ab6875bde3908cc9513520e
   }
 
   return (
