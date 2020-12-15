@@ -64,6 +64,7 @@ export const ContainerPersonIcon = styled.div`
   flex-direction: column;
 
   position: relative;
+  overflow: hidden;
 `;
 
 export const ContainerPersonPhoto = styled.div`
