@@ -44,20 +44,24 @@ const RegisterSeconddary = () => {
     resolver: yupResolver(schema),
   });
 
-  const handleForm = (data) => {
-    // const newData = new FormData();
-    // newData.append("avatar", image);
-    // updateUserProfilePicture(newData);
-
+  const handleForm = async (data) => {
     updateUserInfo(data);
+    const newData = new FormData();
+    newData.append("avatar", image);
+    await updateUserProfilePicture(newData);
 
-    history.push("/my-profile");
+    setTimeout(() => {
+      history.push("/my-profile");
+    }, 500);
   };
 
   const handleImage = (evt) => {
     setimage(evt.target.files[0]);
   };
 
+  useEffect(() => {
+    localStorage.getItem("authToken") || history.push("/");
+  }, []);
   return (
     <>
       <ContainerForm>
