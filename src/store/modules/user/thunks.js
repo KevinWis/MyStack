@@ -9,8 +9,9 @@ export const userLoginThunk = (userLoginInfo, _error) => async (dispatch) => {
     });
     console.log(response.data);
     const { token } = response.data;
-
+    const { id } = response.data.user;
     localStorage.setItem("authToken", token);
+    localStorage.setItem("userId", id);
   } catch (err) {
     console.log(err);
   }

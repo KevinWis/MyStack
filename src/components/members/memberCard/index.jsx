@@ -27,7 +27,7 @@ import ImageComponent from "../../shared/imageComponent";
 
 const MemberCard = ({ name, course, id, avatar, userTechs }) => {
   const history = useHistory();
-  console.log(userTechs);
+  console.log(name, userTechs);
   const [techIcons, setTechIcons] = useState(() =>
     userTechs?.flatMap((tech) =>
       dictionaryIcons[tech.title.toLowerCase()]

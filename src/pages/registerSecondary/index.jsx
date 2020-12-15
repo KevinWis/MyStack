@@ -69,9 +69,18 @@ const RegisterSeconddary = () => {
                   src={URL.createObjectURL(image)}
                   width="16rem"
                   smallWidth="9rem"
+                  height="16rem"
+                  smallHeight="9rem"
+                  round
                 />
               ) : (
-                <MaleavatarImage width="16rem" smallWidth="9rem" />
+                <MaleavatarImage
+                  width="16rem"
+                  smallWidth="9rem"
+                  height="16rem"
+                  smallHeight="9rem"
+                  round
+                />
               )}
             </ContainerPersonPhoto>
             <ContainerIcon>
