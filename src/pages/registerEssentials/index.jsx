@@ -18,6 +18,11 @@ import {
 const RegisterEssentials = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+
+  if(localStorage.authToken){
+    history.push('/members')
+  }
+
   const schema = yup.object({
     name: yup
       .string()
