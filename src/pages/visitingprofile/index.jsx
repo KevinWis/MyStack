@@ -14,6 +14,7 @@ const VisitingProfile = () => {
     dispatch(getUserByIdThunk(profileId));
   }, []);
   const { searchedMember } = useSelector((state) => state.members);
+  console.log(searchedMember);
   return (
     <>
       <Header />

@@ -7,7 +7,6 @@ import RegisterEssentials from "./pages/registerEssentials";
 import RegisterSecondary from "./pages/registerSecondary";
 import VisitingProfile from "./pages/visitingprofile";
 import PageProfile from "./pages/pageprofile/";
-import Works from "./pages/pageWorks";
 
 const Routes = () => {
   return (
@@ -27,7 +26,10 @@ const Routes = () => {
       <Route exact path="/register/2">
         <RegisterSecondary />
       </Route>
-      <Route exact path="/profile/:profileId">
+      <Route exact path="/profile/:profileId/tech">
+        <VisitingProfile />
+      </Route>
+      <Route exact path="/profile/:profileId/works">
         <VisitingProfile />
       </Route>
       <Route exact path="/page-success">
@@ -36,9 +38,6 @@ const Routes = () => {
       <Route exact path="/my-profile/edit"></Route>
       <Route exact path="/my-profile">
         <PageProfile />
-      </Route>
-      <Route exact path="/works">
-        <Works />
       </Route>
       <Route exact path="/works/edit"></Route>
     </Switch>
