@@ -29,7 +29,7 @@ const VisitingProfile = () => {
         <ContainerProfile>
           {searchedMember.techs ? (
             searchedMember.techs?.map(({ title, status, id }, index) => (
-              <CardEditProfile title={title} status={status} id={id} />
+              <CardEditProfile key={index} title={title} status={status} id={id} />
             ))
           ) : (
             <h1>Ainda não possui habilidades</h1>
