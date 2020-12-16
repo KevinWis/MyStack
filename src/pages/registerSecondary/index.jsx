@@ -7,12 +7,12 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { getMyProfile } from "../../kenzieHub/user/myProfile";
 import {
+  StyledAccordionSummary,
+  StyledAccordionDetails,
+  StyledAccordion,
   ContainerForm,
   ContainerPersonIcon,
-  ContainerTechs,
-  ContainerTitle,
-  ContainerStatus,
-  ContainerBio,
+  ContainerDefault,
   ContainerButton,
   ContainerPersonPhoto,
   ContainerIcon,
@@ -25,10 +25,7 @@ import {
   InputLabel,
   TextField,
   Checkbox,
-  Accordion,
-  AccordionSummary,
   Typography,
-  AccordionDetails,
 } from "@material-ui/core";
 
 import DefaultButton from "../../components/shared/buttons/defaultButton";
@@ -42,7 +39,7 @@ import { useState, useEffect } from "react";
 const RegisterSeconddary = () => {
   const dispatch = useDispatch();
   const [image, setimage] = useState();
-  const [checkChangePass, setCheckChangePass] = useState();
+  const [checkChangePass, setCheckChangePass] = useState(false);
 
   const [avatarUrl, setAvatarUrl] = useState();
   const [selectStatus, setSelectStatus] = useState(" ");
@@ -89,6 +86,10 @@ const RegisterSeconddary = () => {
 
   const handleImage = (evt) => {
     setimage(evt.target.files[0]);
+  };
+
+  const handleCheckChangePass = (value) => {
+    setCheckChangePass(value);
   };
 
   useEffect(() => {
@@ -155,62 +156,63 @@ const RegisterSeconddary = () => {
             </ContainerIcon>
           </ContainerPersonIcon>
 
-          <ContainerTechs>
-            <ContainerTitle>
-              <TextField
-                fullWidth
-                margin="normal"
-                label="Contato"
-                name="contact"
-                value={contactValue}
-                onChange={(evt) => {
-                  setContactValue(evt.target.value);
-                }}
-                inputRef={register}
-                error={!!errors.contact}
-                helperText={errors.contact?.message}
-              />
-            </ContainerTitle>
+          <ContainerDefault>
             <TextField
-              style={{ display: "none" }}
-              name="course_module"
+              fullWidth
+              margin="normal"
+              label="Contato"
+              name="contact"
+              value={contactValue}
+              onChange={(evt) => {
+                setContactValue(evt.target.value);
+              }}
               inputRef={register}
               error={!!errors.contact}
               helperText={errors.contact?.message}
-              value={selectStatus}
             />
-            <ContainerStatus>
-              <InputLabel id="select-label">Módulo</InputLabel>
-              <SelectLevel
-                labelId="select-label"
-                id="select"
-                inputRef={register}
-                error={!!errors.course_module}
-                helperText={errors.course_module?.message}
-                value={selectStatus}
-                onChange={(evt) => setSelectStatus(evt.target.value)}
-              >
-                <MenuItem value={"Módulo 1 - Front-end Iniciante"}>
-                  Módulo 1 - Front-end Iniciante
-                </MenuItem>
-                <MenuItem value={"Módulo 2 - Front-end Avançado"}>
-                  Módulo 2 - Front-end Avançado
-                </MenuItem>
-                <MenuItem value={"Módulo 3 - Back-end Iniciante"}>
-                  Módulo 3 - Back-end Iniciante
-                </MenuItem>
-                <MenuItem value={"Módulo 4 - Back-end Avançado"}>
-                  Módulo 4 - Back-end Avançado
-                </MenuItem>
-              </SelectLevel>
-            </ContainerStatus>
-          </ContainerTechs>
+          </ContainerDefault>
 
-          <ContainerBio>
+          <TextField
+            style={{ display: "none" }}
+            name="course_module"
+            inputRef={register}
+            error={!!errors.contact}
+            helperText={errors.contact?.message}
+            value={selectStatus}
+          />
+
+          <ContainerDefault>
+            <InputLabel id="select-label">Módulo</InputLabel>
+            <SelectLevel
+              labelId="select-label"
+              id="select"
+              inputRef={register}
+              error={!!errors.course_module}
+              helperText={errors.course_module?.message}
+              value={selectStatus}
+              onChange={(evt) => setSelectStatus(evt.target.value)}
+            >
+              <MenuItem value={"Módulo 1 - Front-end Iniciante"}>
+                Módulo 1 - Front-end Iniciante
+              </MenuItem>
+              <MenuItem value={"Módulo 2 - Front-end Avançado"}>
+                Módulo 2 - Front-end Avançado
+              </MenuItem>
+              <MenuItem value={"Módulo 3 - Back-end Iniciante"}>
+                Módulo 3 - Back-end Iniciante
+              </MenuItem>
+              <MenuItem value={"Módulo 4 - Back-end Avançado"}>
+                Módulo 4 - Back-end Avançado
+              </MenuItem>
+            </SelectLevel>
+          </ContainerDefault>
+
+          <ContainerDefault>
             <TextField
               fullWidth
               rows={6}
               multiline
+              label="Bio"
               placeholder="Bio"
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -223,57 +225,60 @@ const RegisterSeconddary = () => {
               error={!!errors.bio}
               helperText={errors.bio?.message}
             />
-          </ContainerBio>
-          <Accordion>
-            <AccordionSummary
-              expandIcon={""}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-            >
-              <InputLabel id="checkPass">Change password</InputLabel>
-              <Checkbox
-                labelId="checkPass"
-                checked={checkChangePass}
-                onChange={(evt) => {
-                  setCheckChangePass(evt.target.checked);
-                }}
-                color="primary"
-                inputProps={{ "aria-label": "Alterar senha" }}
-              />
-            </AccordionSummary>
-            <AccordionDetails>
-              <TextField
-                type="password"
-                margin="normal"
-                label="Senha anterior"
-                name="old_password"
-                inputRef={register}
-                error={!!errors.password}
-                helperText={errors.password?.message}
-                disabled={!checkChangePass}
-              />
-              <TextField
-                type="password"
-                margin="normal"
-                label="Senha"
-                name="password"
-                inputRef={register}
-                error={!!errors.password}
-                helperText={errors.password?.message}
-                disabled={!checkChangePass}
-              />
-              <TextField
-                type="password"
-                margin="normal"
-                label="Confirmar Senha"
-                name="confirmPassword"
-                inputRef={register}
-                error={!!errors.password}
-                helperText={errors.confirmPassword?.message}
-                disabled={!checkChangePass}
-              />
-            </AccordionDetails>
-          </Accordion>
+          </ContainerDefault>
+
+          <StyledAccordion
+            expanded={checkChangePass}
+            onChange={(evt, expanded) => {
+              handleCheckChangePass(expanded);
+            }}
+          >
+            <StyledAccordionSummary>
+              <Typography id="checkPass">Change password</Typography>
+              <div>
+                <Checkbox
+                  checked={checkChangePass}
+                  value={checkChangePass}
+                  onChange={(evt) => {
+                    handleCheckChangePass(evt.target.value);
+                  }}
+                  color="primary"
+                  inputProps={{ "aria-label": "Alterar senha" }}
+                />
+              </div>
+            </StyledAccordionSummary>
+            {checkChangePass && (
+              <StyledAccordionDetails>
+                <TextField
+                  type="password"
+                  margin="normal"
+                  label="Senha anterior"
+                  name="old_password"
+                  inputRef={register}
+                  error={!!errors.password}
+                  helperText={errors.password?.message}
+                />
+                <TextField
+                  type="password"
+                  margin="normal"
+                  label="Senha"
+                  name="password"
+                  inputRef={register}
+                  error={!!errors.password}
+                  helperText={errors.password?.message}
+                />
+                <TextField
+                  type="password"
+                  margin="normal"
+                  label="Confirmar Senha"
+                  name="confirmPassword"
+                  inputRef={register}
+                  error={!!errors.password}
+                  helperText={errors.confirmPassword?.message}
+                />
+              </StyledAccordionDetails>
+            )}
+          </StyledAccordion>
 
           <ContainerButton>
             <DefaultButton type="submit" value="Enviar" />

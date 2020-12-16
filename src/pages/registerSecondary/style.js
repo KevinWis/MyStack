@@ -1,9 +1,41 @@
 import styled from "styled-components";
-import { Fab } from "@material-ui/core";
-import { Select } from "@material-ui/core";
+import {
+  Fab,
+  Select,
+  AccordionSummary,
+  AccordionDetails,
+  Accordion,
+} from "@material-ui/core";
 
 export const SelectLevel = styled(Select)`
   width: 100%;
+`;
+export const StyledAccordion = styled(Accordion)`
+  width: 100%;
+  margin-bottom: 1rem;
+`;
+export const StyledAccordionSummary = styled(AccordionSummary)`
+  width: 100%;
+  display: flex;
+  padding: 0 !important;
+  margin: 0 !important;
+  align-items: center;
+  p {
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    width: calc(50% - 1rem);
+  }
+  div {
+    width: 50%;
+
+    text-align: right;
+  }
+`;
+export const StyledAccordionDetails = styled(AccordionDetails)`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const ContainerForm = styled.div`
@@ -44,7 +76,7 @@ export const Form = styled.form`
     width: 50%;
   }
   @media (min-width: 1080px) {
-    width: 30%;
+    width: 40%;
   }
   label {
     color: #43c1d8 !important;
@@ -87,22 +119,7 @@ export const ContainerIcon = styled.div`
   }
 `;
 
-export const ContainerTechs = styled.div`
-  width: 100%;
-`;
-
-export const ContainerTitle = styled.div`
-  width: 100%;
-  margin-bottom: 1rem;
-`;
-
-export const ContainerStatus = styled.div`
-  width: 100%;
-  margin-bottom: 1rem;
-`;
-
-export const ContainerBio = styled.div`
-  text-align: center;
+export const ContainerDefault = styled.div`
   width: 100%;
   margin-bottom: 1rem;
 `;
