@@ -33,6 +33,8 @@ const PageProfile = () => {
 
   const { searchedMember } = useSelector((state) => state.members);
 
+  console.log("teste",searchedMember)
+
   useEffect(() => {
     setTechs(searchedMember.techs);
     setWorks(searchedMember.works);

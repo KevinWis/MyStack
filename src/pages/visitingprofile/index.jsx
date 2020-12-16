@@ -53,15 +53,24 @@ const VisitingProfile = () => {
         />
         {pathname.includes("/works") && (
           <ContainerProfile>
-            {searchedMember.works &&
+            {
+            searchedMember.works 
+            &&
               searchedMember.works?.map(({ title, description }, index) => (
                 <WorkCard key={index} title={title} content={description} />
-              ))}
+              ))              
+              
+              }
+               {
+               searchedMember.works?.length  ===  0  && <h1>Ainda não possui Trabalhos</h1>
+            }
           </ContainerProfile>
         )}
         {pathname.includes("/tech") && (
+
           <ContainerProfile>
-            {searchedMember.techs ? (
+            {searchedMember.techs 
+             && (
               searchedMember.techs?.map(({ title, status, id }, index) => (
                 <CardEditProfile
                   key={index}
@@ -70,9 +79,11 @@ const VisitingProfile = () => {
                   id={id}
                 />
               ))
-            ) : (
-              <h1>Ainda não possui habilidades</h1>
-            )}
+            )            
+            }
+            {
+               searchedMember.techs?.length  ===  0  && <h1>Ainda não possui Tecnologias</h1>
+            }
           </ContainerProfile>
         )}
       </Container>
