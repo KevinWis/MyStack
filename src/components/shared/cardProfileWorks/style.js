@@ -10,7 +10,7 @@ export const Card = styled.div`
   text-align: center;
   box-shadow: 2px 6px 12px rgba(0, 0, 0, 0.3);
   margin-bottom: 4vh;
-  background-color:whitesmoke;
+  background-color: whitesmoke;
 `;
 
 export const ContainerCardTitle = styled.div`
@@ -21,8 +21,8 @@ export const ContainerCardTitle = styled.div`
 export const ContainerCardContent = styled.div`
   padding-top: 5%;
   height: 50%;
-  width:80%;
-  margin:auto;
+  width: 80%;
+  margin: auto;
 `;
 
 export const ContainerButton = styled.div`
@@ -32,4 +32,8 @@ export const ContainerButton = styled.div`
     height: 100%;
     box-shadow: 0 !important;
   }
+`;
+
+export const DemoLink = styled.a`
+  text-decoration: none;
 `;

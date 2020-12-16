@@ -32,6 +32,9 @@ export const ContainerButton = styled.div`
     height: 100%;
     box-shadow: 0 !important;
   }
+  a {
+    text-decoration: none;
+  }
 `;
 
 export const ContainerEditButtons = styled.div`
