@@ -119,6 +119,13 @@ const Members = () => {
           )
         )}
       </MemberList>
+      <StyledPagination
+        size="small"
+        count={pages}
+        page={page}
+        defaultPage={page}
+        onChange={(evt, value) => handleSetPage(value)}
+      />
     </MainContainer>
   );
 };
