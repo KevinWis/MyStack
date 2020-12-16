@@ -22,6 +22,7 @@ const Carteditprofile = ({ status, title ,id }) => {
 
   const dispatch = useDispatch();
   const { pathname } = useLocation();
+  
   const [editable, seteditable] = useState(() => {
     return pathname.includes("/my-profile");
   });
