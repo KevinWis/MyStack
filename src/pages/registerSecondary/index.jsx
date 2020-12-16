@@ -3,6 +3,9 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { MdAddAPhoto } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+
+import { getMyProfile } from "../../kenzieHub/user/myProfile";
 import {
   ContainerForm,
   ContainerPersonIcon,
@@ -17,7 +20,7 @@ import {
   SelectLevel,
   Form,
 } from "./style";
-import { MenuItem, InputLabel, TextField } from "@material-ui/core";
+import { MenuItem, InputLabel, TextField, Checkbox } from "@material-ui/core";
 import DefaultButton from "../../components/shared/buttons/defaultButton";
 import ImageComponent from "../../components/shared/imageComponent";
 import { updateUserProfilePicture } from "../../kenzieHub/user/updateProfileInfo";
@@ -28,8 +31,15 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 const RegisterSeconddary = () => {
+  const dispatch = useDispatch();
   const [image, setimage] = useState();
+  const [checkChangePass, setCheckChangePass] = useState();
+
+  const [avatarUrl, setAvatarUrl] = useState();
   const [selectStatus, setSelectStatus] = useState(" ");
+  const [contactValue, setContactValue] = useState(" ");
+  const [bioValue, setBioValue] = useState(" ");
+
   const history = useHistory();
   const schema = yup.object().shape({
     contact: yup.string().required("Campo obrigatório"),
@@ -38,26 +48,46 @@ const RegisterSeconddary = () => {
       .string()
       .min(6, "Mínimo de 6 caracteres")
       .required("Campo obrigatório"),
+    password: yup.string().min(6, "Mínimo de 6 caracteres"),
+    confirmPassword: yup
+      .string()
+      .oneOf([yup.ref("password"), null], "As senhas devem ser iguais!"),
   });
 
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const handleForm = (data) => {
-    // const newData = new FormData();
-    // newData.append("avatar", image);
-    // updateUserProfilePicture(newData);
+  useEffect(() => {
+    localStorage.getItem("authToken") || history.push("/");
+    dispatch(getMyProfile());
+  }, []);
+  const { searchedMember } = useSelector((state) => state.members);
 
+  const handleForm = async (data) => {
+    console.log(data);
     updateUserInfo(data);
-
-    history.push("/my-profile");
+    if (image) {
+      const newData = new FormData();
+      newData.append("avatar", image);
+      console.log(newData);
+      await updateUserProfilePicture(newData);
+    }
+    setTimeout(() => {
+      history.push("/my-profile");
+    }, 500);
   };
 
   const handleImage = (evt) => {
     setimage(evt.target.files[0]);
   };
 
+  useEffect(() => {
+    setSelectStatus(searchedMember.course_module || "");
+    setContactValue(searchedMember.contact || "");
+    setBioValue(searchedMember.bio || "");
+    setAvatarUrl(searchedMember.avatar_url || "");
+  }, [searchedMember]);
   return (
     <>
       <ContainerForm>
@@ -69,9 +99,27 @@ const RegisterSeconddary = () => {
                   src={URL.createObjectURL(image)}
                   width="16rem"
                   smallWidth="9rem"
+                  height="16rem"
+                  smallHeight="9rem"
+                  round
+                />
+              ) : avatarUrl ? (
+                <ImageComponent
+                  src={avatarUrl}
+                  width="16rem"
+                  smallWidth="9rem"
+                  height="16rem"
+                  smallHeight="9rem"
+                  round
                 />
               ) : (
-                <MaleavatarImage width="16rem" smallWidth="9rem" />
+                <MaleavatarImage
+                  width="16rem"
+                  smallWidth="9rem"
+                  height="16rem"
+                  smallHeight="9rem"
+                  round
+                />
               )}
             </ContainerPersonPhoto>
             <ContainerIcon>
@@ -105,6 +153,10 @@ const RegisterSeconddary = () => {
                 margin="normal"
                 label="Contato"
                 name="contact"
+                value={contactValue}
+                onChange={(evt) => {
+                  setContactValue(evt.target.value);
+                }}
                 inputRef={register}
                 error={!!errors.contact}
                 helperText={errors.contact?.message}
@@ -151,17 +203,59 @@ const RegisterSeconddary = () => {
               rows={6}
               multiline
               placeholder="Bio"
-              aria-label=""
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               name="bio"
+              value={bioValue}
+              onChange={(evt) => {
+                setBioValue(evt.target.value);
+              }}
               inputRef={register}
               error={!!errors.bio}
               helperText={errors.bio?.message}
             />
           </ContainerBio>
+          <Checkbox
+            checked={checkChangePass}
+            onChange={(evt) => {
+              setCheckChangePass(evt.target.checked);
+            }}
+            color="primary"
+            inputProps={{ "aria-label": "Alterar senha" }}
+          />
+          <TextField
+            type="password"
+            margin="normal"
+            label="Senha anterior"
+            name="old_password"
+            inputRef={register}
+            error={!!errors.password}
+            helperText={errors.password?.message}
+            disabled={!checkChangePass}
+          />
+          <TextField
+            type="password"
+            margin="normal"
+            label="Senha"
+            name="password"
+            inputRef={register}
+            error={!!errors.password}
+            helperText={errors.password?.message}
+            disabled={!checkChangePass}
+          />
+          <TextField
+            type="password"
+            margin="normal"
+            label="Confirmar Senha"
+            name="confirmPassword"
+            inputRef={register}
+            error={!!errors.password}
+            helperText={errors.confirmPassword?.message}
+            disabled={!checkChangePass}
+          />
+
           <ContainerButton>
-            <DefaultButton type="submit" value="Registrar" />
+            <DefaultButton type="submit" value="Enviar" />
           </ContainerButton>
         </Form>
       </ContainerForm>

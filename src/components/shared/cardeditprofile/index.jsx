@@ -18,9 +18,7 @@ import { deleteTech} from "../../../kenzieHub/techs/deleteTech"
 import {dictionaryIcons} from "../../../helpers/geticons";
 import ImageComponent from "../../shared/imageComponent";
 
-const Carteditprofile = ({ status, title ,id}) => {
-
-
+const Carteditprofile = ({ status, title ,id }) => {
 
   const dispatch = useDispatch();
   const { pathname } = useLocation();

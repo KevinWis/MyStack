@@ -27,6 +27,7 @@ const Header = () => {
     history.push(url);
   };
 
+  const token = localStorage.getItem("authToken");
   return (
     <>
       <HeaderDiv>
@@ -53,6 +54,7 @@ const Header = () => {
             >
               Home
             </MenuItem>
+
             <MenuItem
               onClick={() => {
                 handleMenuItemClick("/members");
@@ -60,38 +62,52 @@ const Header = () => {
             >
               Membros
             </MenuItem>
-            <MenuItem
-              onClick={() => {
-                handleMenuItemClick("/login");
-              }}
-            >
-              Entrar
-            </MenuItem>
-            <MenuItem
-              onClick={() => {
-                handleMenuItemClick("/register/1");
-              }}
-            >
-              Registrar-se
-            </MenuItem>
-            <MenuItem
-              onClick={() => {
-                handleMenuItemClick(
-                  "/page-success"
-                );
-              }}
-            >
-              Conheça
-            </MenuItem>
+            {!token && (
               <MenuItem
-              onClick={() => {
-                handleMenuItemClick(
-                  "/my-profile"
-                );
-              }}
-            >
-              Meu Perfil
-            </MenuItem>
+                onClick={() => {
+                  handleMenuItemClick("/register/1");
+                }}
+              >
+                Registrar-se
+              </MenuItem>
+            )}
+            {!token && (
+              <MenuItem
+                onClick={() => {
+                  handleMenuItemClick("/page-success");
+                }}
+              >
+                Conheça
+              </MenuItem>
+            )}
+            {token && (
+              <MenuItem
+                onClick={() => {
+                  handleMenuItemClick("/my-profile");
+                }}
+              >
+                Meu Perfil
+              </MenuItem>
+            )}
+            {token ? (
+              <MenuItem
+                onClick={() => {
+                  localStorage.removeItem("authToken");
+                  localStorage.removeItem("userId");
+                  handleMenuItemClick("/login");
+                }}
+              >
+                Logout
+              </MenuItem>
+            ) : (
+              <MenuItem
+                onClick={() => {
+                  handleMenuItemClick("/login");
+                }}
+              >
+                Login
+              </MenuItem>
+            )}
           </Menu>
         </div>
       </HeaderDiv>
