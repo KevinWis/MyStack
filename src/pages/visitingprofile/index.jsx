@@ -54,9 +54,16 @@ const VisitingProfile = () => {
         {pathname.includes("/works") && (
           <ContainerProfile>
             {searchedMember.works &&
-              searchedMember.works?.map(({ title, description }, index) => (
-                <WorkCard key={index} title={title} content={description} />
-              ))}
+              searchedMember.works?.map(
+                ({ title, description, deploy_url }, index) => (
+                  <WorkCard
+                    key={index}
+                    title={title}
+                    content={description}
+                    deployUrl={deploy_url}
+                  />
+                )
+              )}
           </ContainerProfile>
         )}
         {pathname.includes("/tech") && (

@@ -89,9 +89,11 @@ function CardProfileWorksEdit({ title, description, id, url }) {
             {!showEdit ? <p>{description}</p> : ""}
           </ContainerCardContent>
           <ContainerButton>
-           {url && <a href={url}>
-              <Button value="DEMO"></Button>
-            </a>}
+            {url && (
+              <a target="blank" href={url}>
+                <Button value="DEMO"></Button>
+              </a>
+            )}
           </ContainerButton>
         </ContainerCardSumary>
 

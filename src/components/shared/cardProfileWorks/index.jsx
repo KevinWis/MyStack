@@ -4,10 +4,11 @@ import {
   ContainerCardTitle,
   ContainerCardContent,
   ContainerButton,
+  DemoLink,
 } from "./style";
 import Button from "../buttons/defaultButton";
 
-function CardProfileWorks({ title, content }) {
+function CardProfileWorks({ title, content, deployUrl }) {
   return (
     <>
       <Card>
@@ -16,7 +17,9 @@ function CardProfileWorks({ title, content }) {
         </ContainerCardTitle>
         <ContainerCardContent>{content}</ContainerCardContent>
         <ContainerButton>
-          <Button value="DEMO"></Button>
+          <DemoLink target="blank" href={deployUrl}>
+            <Button value="DEMO"></Button>
+          </DemoLink>
         </ContainerButton>
       </Card>
     </>
