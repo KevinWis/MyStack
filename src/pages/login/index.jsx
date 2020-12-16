@@ -25,10 +25,7 @@ const Login = () => {
 
   const schema = yup.object({
     email: yup.string().email("Tipo inválido").required("Campo obrigatório"),
-    password: yup
-      .string()
-      .min(3, "Mínimo 3 caractéres")
-      .required("Campo obrigatório"),
+    password: yup.string().required("Campo obrigatório"),
   });
 
   const { register, handleSubmit, errors, setError } = useForm({
@@ -56,7 +53,7 @@ const Login = () => {
             label="Email"
             name="email"
             inputRef={register}
-            error={!!errors.user}
+            error={!!errors.email}
           />
           {errors.email && <p type="warning">{errors.email.message}</p>}
           <StyledTextField
@@ -64,6 +61,7 @@ const Login = () => {
             label="Senha"
             name="password"
             type="password"
+            error={!!errors.password}
             inputRef={register}
           />
           {errors.password && <p type="warning">{errors.password.message}</p>}

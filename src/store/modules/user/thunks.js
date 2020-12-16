@@ -1,6 +1,6 @@
 import kenzieHub from "../../../services/axios";
 
-export const userLoginThunk = (userLoginInfo, _error) => async (dispatch) => {
+export const userLoginThunk = (userLoginInfo, error) => async (dispatch) => {
   const { email, password } = userLoginInfo;
   try {
     const response = await kenzieHub.post(`/sessions`, {
@@ -14,6 +14,7 @@ export const userLoginThunk = (userLoginInfo, _error) => async (dispatch) => {
     localStorage.setItem("userId", id);
   } catch (err) {
     console.log(err);
+    error("password", { message: "Senha ou usuário inválido" })
   }
 };
 
