@@ -1,39 +1,35 @@
 import CardProfile from "../../components/shared/cardprofile";
 import CardEditProfile from "../../components/shared/cardeditprofile";
 import { ContainerProfile, Container } from "./style";
-import { useParams, useLocation, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { getUserByIdThunk } from "../../store/modules/members/thunks";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import DefaultButton from "../../components/shared/buttons/defaultButton";
+import RadioGroup from "../../components/shared/buttons/radioGroup";
 
 import WorkCard from "../../components/shared/cardProfileWorks";
 
 const VisitingProfile = () => {
-  const [currentUserId, setCurrentUserId] = useState(
-    localStorage.getItem("userId") || ""
-  );
+  const currentUserId = localStorage.getItem("userId") || "";
 
   const history = useHistory();
   const dispatch = useDispatch();
   const { profileId } = useParams();
-  const { pathname } = useLocation();
 
-  useEffect(() => {
-    dispatch(getUserByIdThunk(profileId));
-  }, []);
+  const [techs, setTechs] = useState([]);
+  const [works, setWorks] = useState([]);
+  const [radioValue, setRadioValue] = useState("Tech");
 
   const { searchedMember } = useSelector((state) => state.members);
-
-  const { techs, name, bio, avatar_url } = searchedMember;
+  const { name, bio, avatar_url } = searchedMember;
+  useEffect(() => {
+    dispatch(getUserByIdThunk(profileId));
+    setTechs(searchedMember.techs);
+    setWorks(searchedMember.works);
+    redirect();
+  }, [searchedMember]);
 
   const redirect = () => {
-    if (pathname.includes("/tech")) {
-      history.push(`/profile/${profileId}/works`);
-    }
-    if (pathname.includes("/works")) {
-      history.push(`/profile/${profileId}/tech`);
-    }
     if (currentUserId === profileId) {
       history.push(`/my-profile`);
     }
@@ -43,22 +39,12 @@ const VisitingProfile = () => {
     <>
       <Container>
         <CardProfile imageUrl={avatar_url} name={name} bio={bio}></CardProfile>
-        <DefaultButton
-          _onClick={redirect}
-          value={pathname.includes("/tech") ? "Trabalhos" : "Tecnologias"}
-        />
-        {pathname.includes("/works") && (
+        <RadioGroup radioValue={radioValue} setRadioValue={setRadioValue} />
+
+        {radioValue === "Tech" && (
           <ContainerProfile>
-            {searchedMember.works &&
-              searchedMember.works?.map(({ title, description }, index) => (
-                <WorkCard key={index} title={title} content={description} />
-              ))}
-          </ContainerProfile>
-        )}
-        {pathname.includes("/tech") && (
-          <ContainerProfile>
-            {searchedMember.techs ? (
-              searchedMember.techs?.map(({ title, status, id }, index) => (
+            {techs && techs.length > 0 ? (
+              techs?.map(({ title, status, id }, index) => (
                 <CardEditProfile
                   key={index}
                   title={title}
@@ -67,7 +53,18 @@ const VisitingProfile = () => {
                 />
               ))
             ) : (
-              <h1>Ainda não possui habilidades</h1>
+              <h1>Ainda não possui tecnologias registradas</h1>
+            )}
+          </ContainerProfile>
+        )}
+        {radioValue === "Work" && (
+          <ContainerProfile>
+            {works && works.length > 0 ? (
+              works?.map(({ title, description }, index) => (
+                <WorkCard key={index} title={title} content={description} />
+              ))
+            ) : (
+              <h1>Ainda não possui projetos registrados</h1>
             )}
           </ContainerProfile>
         )}

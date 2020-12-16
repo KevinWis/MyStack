@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Egirl from "./placeholders/e-girl.png";
+import BlankProfile from "./placeholders/blankProfilePic.png";
 
 export const Card = styled.div`
   display: flex;
@@ -23,7 +23,7 @@ export const Body = styled.div`
 export const ProfileImage = styled.div`
   width: 100%;
   height: 100%;
-  background-image: url(${Egirl});
+  background-image: url(${BlankProfile});
   background-size: cover;
 `;
 export const ImageFilter = styled.div`

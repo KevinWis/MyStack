@@ -41,6 +41,7 @@ const Members = () => {
           return el.name.toLowerCase().includes(search.toLowerCase());
         });
       setFilteredMembers(newFiltered);
+      setPage(1);
     }
     if (type === "tech") {
       const newFiltered = members
@@ -51,6 +52,7 @@ const Members = () => {
           });
         });
       setFilteredMembers(newFiltered);
+      handleSetPage(1);
     }
   }, [members, search, type]);
 
@@ -65,6 +67,10 @@ const Members = () => {
     setPages(Math.ceil(filteredMembers.length / 12));
     setSelectedMembers(newArr);
   }, [filteredMembers, page]);
+
+  const handleSetPage = (value) => {
+    setPage(value);
+  };
 
   return (
     <MainContainer>
@@ -93,8 +99,9 @@ const Members = () => {
       <StyledPagination
         size="small"
         count={pages}
-        value={page}
-        onChange={(evt, value) => setPage(value)}
+        page={page}
+        defaultPage={page}
+        onChange={(evt, value) => handleSetPage(value)}
       />
       <MemberList>
         {filteredMembers.length === 0 && <h2>Loading...</h2>}

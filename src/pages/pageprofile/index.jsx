@@ -2,19 +2,15 @@ import CardProfile from "../../components/shared/cardprofile";
 import Carteditprofile from "../../components/shared/cardeditprofile";
 import CardWorksEdit from "../../components/shared/cardProfileWorksEdit";
 import React, { useEffect, useState } from "react";
-import {
-  Container,
-  ContainerCard,
-  StyledRadioGroup,
-  ContainerProfile,
-} from "./style";
+import { Container, ContainerCard, ContainerProfile } from "./style";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getMyProfile } from "../../kenzieHub/user/myProfile";
 
 import TechForm from "../../components/forms/techForm";
 import WorkForm from "../../components/forms/workForm";
-import { FormControlLabel, Radio } from "@material-ui/core";
+
+import RadioGroup from "../../components/shared/buttons/radioGroup";
 
 const PageProfile = () => {
   const history = useHistory();
@@ -22,18 +18,16 @@ const PageProfile = () => {
     history.push("/login");
   }
 
+  const dispatch = useDispatch();
+
   const [techs, setTechs] = useState([]);
   const [works, setWorks] = useState([]);
   const [radioValue, setRadioValue] = useState("Tech");
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getMyProfile());
-  }, []);
 
   const { searchedMember } = useSelector((state) => state.members);
-
+  const { name, bio, avatar_url } = searchedMember;
   useEffect(() => {
+    dispatch(getMyProfile());
     setTechs(searchedMember.techs);
     setWorks(searchedMember.works);
   }, [searchedMember]);
@@ -43,57 +37,48 @@ const PageProfile = () => {
   };
   return (
     <Container>
-      <CardProfile
-        imageUrl={searchedMember.avatar_url}
-        bio={searchedMember.bio}
-        name={searchedMember.name}
-      ></CardProfile>
-      <StyledRadioGroup
-        row
-        aria-label="view"
-        name="view"
-        value={radioValue}
-        onChange={(evt) => setRadioValue(evt.target.value)}
-      >
-        <FormControlLabel
-          value="Tech"
-          control={<Radio />}
-          label="Tecnologias"
-        />
-        <FormControlLabel value="Work" control={<Radio />} label="Projetos" />
-      </StyledRadioGroup>
+      <CardProfile imageUrl={avatar_url} bio={bio} name={name}></CardProfile>
+      <RadioGroup radioValue={radioValue} setRadioValue={setRadioValue} />
       {radioValue === "Tech" ? (
         <>
           <TechForm sendDispatch={sendDispatch} />
-          <ContainerProfile>
-            {techs?.map(({ status, title, id }, index) => {
-              return (
-                <ContainerCard key={index}>
-                  <Carteditprofile
-                    status={status}
-                    title={title}
-                    id={id}
-                  ></Carteditprofile>
-                </ContainerCard>
-              );
-            })}
-          </ContainerProfile>
+          {techs && techs.length > 0 ? (
+            <ContainerProfile>
+              {techs?.map(({ status, title, id }, index) => {
+                return (
+                  <ContainerCard key={index}>
+                    <Carteditprofile
+                      status={status}
+                      title={title}
+                      id={id}
+                    ></Carteditprofile>
+                  </ContainerCard>
+                );
+              })}
+            </ContainerProfile>
+          ) : (
+            <h1>Ainda não possui tecnologias registradas</h1>
+          )}
         </>
       ) : (
         <>
           <WorkForm sendDispatch={sendDispatch} />
-          {works?.map(({ description, title, id, deploy_url }, index) => {
-            return (
-              <ContainerCard key={index}>
-                <CardWorksEdit
-                  description={description}
-                  title={title}
-                  id={id}
-                  url={deploy_url}
-                ></CardWorksEdit>
-              </ContainerCard>
-            );
-          })}
+          {works && works.length > 0 ? (
+            works?.map(({ description, title, id, deploy_url }, index) => {
+              return (
+                <ContainerCard key={index}>
+                  <CardWorksEdit
+                    description={description}
+                    title={title}
+                    id={id}
+                    url={deploy_url}
+                  ></CardWorksEdit>
+                </ContainerCard>
+              );
+            })
+          ) : (
+            <h1>Ainda não possui projetos registrados</h1>
+          )}
         </>
       )}
     </Container>

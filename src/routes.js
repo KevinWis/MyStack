@@ -26,10 +26,7 @@ const Routes = () => {
       <Route exact path="/register/2">
         <RegisterSecondary />
       </Route>
-      <Route exact path="/profile/:profileId/tech">
-        <VisitingProfile />
-      </Route>
-      <Route exact path="/profile/:profileId/works">
+      <Route exact path="/profile/:profileId">
         <VisitingProfile />
       </Route>
       <Route exact path="/page-success">

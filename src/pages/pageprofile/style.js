@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { RadioGroup } from "@material-ui/core";
 
 export const Container = styled.div`
   display: flex;
@@ -20,14 +19,6 @@ export const ContainerCard = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
-`;
-
-export const StyledRadioGroup = styled(RadioGroup)`
-  margin: 1rem 0;
-  padding: 1rem;
-
-  box-shadow: 0px 4px 2px #c5c5c5;
-  background-color: #f5f5f5;
 `;
 
 export const ContainerProfile = styled.div`

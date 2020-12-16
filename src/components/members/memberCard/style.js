@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Egirl from "./placeholders/e-girl.png";
+import BlankProfile from "./placeholders/blankProfilePic.png";
 
 export const Body = styled.div`
   width: 100%;
@@ -11,7 +11,7 @@ export const ProfileImage = styled.div`
   width: 128px;
   height: 128px;
   border-radius: 50%;
-  background-image: url(${({ avatar }) => (avatar ? avatar : Egirl)});
+  background-image: url(${({ avatar }) => (avatar ? avatar : BlankProfile)});
   background-size: cover;
   margin: auto;
   margin-top: -64px;
@@ -201,7 +201,8 @@ export const Card = styled.div`
 
       width: 100%;
       height: 288px;
-      background-image: url(${({ avatar }) => (avatar ? avatar : Egirl)});
+      background-image: url(${({ avatar }) =>
+        avatar ? avatar : BlankProfile});
       background-size: cover;
       border-radius: 0px;
     }

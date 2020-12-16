@@ -57,7 +57,7 @@ const MemberCard = ({ name, course, id, avatar, userTechs }) => {
     <>
       <Card
         onClick={() => {
-          history.push(`/profile/${id}/tech`);
+          history.push(`/profile/${id}`);
         }}
         avatar={avatar}
       >
