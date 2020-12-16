@@ -20,7 +20,7 @@ import {
   SelectLevel,
   Form,
 } from "./style";
-import { MenuItem, InputLabel, TextField } from "@material-ui/core";
+import { MenuItem, InputLabel, TextField, Checkbox } from "@material-ui/core";
 import DefaultButton from "../../components/shared/buttons/defaultButton";
 import ImageComponent from "../../components/shared/imageComponent";
 import { updateUserProfilePicture } from "../../kenzieHub/user/updateProfileInfo";
@@ -33,6 +33,8 @@ import { useEffect } from "react";
 const RegisterSeconddary = () => {
   const dispatch = useDispatch();
   const [image, setimage] = useState();
+  const [checkChangePass, setCheckChangePass] = useState();
+
   const [avatarUrl, setAvatarUrl] = useState();
   const [selectStatus, setSelectStatus] = useState(" ");
   const [contactValue, setContactValue] = useState(" ");
@@ -46,6 +48,10 @@ const RegisterSeconddary = () => {
       .string()
       .min(6, "Mínimo de 6 caracteres")
       .required("Campo obrigatório"),
+    password: yup.string().min(6, "Mínimo de 6 caracteres"),
+    confirmPassword: yup
+      .string()
+      .oneOf([yup.ref("password"), null], "As senhas devem ser iguais!"),
   });
 
   const { register, handleSubmit, errors } = useForm({
@@ -59,8 +65,8 @@ const RegisterSeconddary = () => {
   const { searchedMember } = useSelector((state) => state.members);
 
   const handleForm = async (data) => {
+    console.log(data);
     updateUserInfo(data);
-    console.log(avatarUrl);
     if (image) {
       const newData = new FormData();
       newData.append("avatar", image);
@@ -68,7 +74,7 @@ const RegisterSeconddary = () => {
       await updateUserProfilePicture(newData);
     }
     setTimeout(() => {
-      history.push("/my-profile");
+      //history.push("/my-profile");
     }, 500);
   };
 
@@ -209,8 +215,47 @@ const RegisterSeconddary = () => {
               helperText={errors.bio?.message}
             />
           </ContainerBio>
+          <Checkbox
+            checked={checkChangePass}
+            onChange={(evt) => {
+              setCheckChangePass(evt.target.checked);
+            }}
+            color="primary"
+            inputProps={{ "aria-label": "Alterar senha" }}
+          />
+          <TextField
+            type="password"
+            margin="normal"
+            label="Senha anterior"
+            name="old_password"
+            inputRef={register}
+            error={!!errors.password}
+            helperText={errors.password?.message}
+            disabled={!checkChangePass}
+          />
+          <TextField
+            type="password"
+            margin="normal"
+            label="Senha"
+            name="password"
+            inputRef={register}
+            error={!!errors.password}
+            helperText={errors.password?.message}
+            disabled={!checkChangePass}
+          />
+          <TextField
+            type="password"
+            margin="normal"
+            label="Confirmar Senha"
+            name="confirmPassword"
+            inputRef={register}
+            error={!!errors.password}
+            helperText={errors.confirmPassword?.message}
+            disabled={!checkChangePass}
+          />
+
           <ContainerButton>
-            <DefaultButton type="submit" value="Registrar" />
+            <DefaultButton type="submit" value="Enviar" />
           </ContainerButton>
         </Form>
       </ContainerForm>
