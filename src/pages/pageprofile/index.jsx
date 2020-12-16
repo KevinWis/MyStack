@@ -9,7 +9,7 @@ import {
   ContainerProfile,
 } from "./style";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { getMyProfile } from "../../kenzieHub/user/myProfile";
 
 import TechForm from "../../components/forms/techForm";

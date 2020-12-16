@@ -19,10 +19,6 @@ const RegisterEssentials = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  if (localStorage.authToken) {
-    history.push("/members");
-  }
-
   const schema = yup.object({
     name: yup
       .string()
@@ -48,7 +44,6 @@ const RegisterEssentials = () => {
       history.push("/register/2");
     }, 500);
   };
-
   return (
     <ContainerContentPage>
       <HDiv>

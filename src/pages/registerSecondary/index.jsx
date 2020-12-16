@@ -39,6 +39,7 @@ import { useState, useEffect } from "react";
 const RegisterSeconddary = () => {
   const dispatch = useDispatch();
   const [image, setimage] = useState();
+  const [token, setToken] = useState(localStorage.getItem("authToken"));
   const [checkChangePass, setCheckChangePass] = useState(false);
 
   const [avatarUrl, setAvatarUrl] = useState();
@@ -59,29 +60,33 @@ const RegisterSeconddary = () => {
       .string()
       .oneOf([yup.ref("password"), null], "As senhas devem ser iguais!"),
   });
-
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   });
 
   useEffect(() => {
-    localStorage.getItem("authToken") || history.push("/");
+    setToken(localStorage.getItem("authToken"));
+    console.log(token);
+    setTimeout(() => {
+      if (!token) {
+        history.push("/");
+      }
+    }, 1000);
     dispatch(getMyProfile());
   }, []);
+
   const { searchedMember } = useSelector((state) => state.members);
 
   const handleForm = async (data) => {
     console.log(data);
-    updateUserInfo(data);
+    await updateUserInfo(data);
     if (image) {
       const newData = new FormData();
       newData.append("avatar", image);
       console.log(newData);
       await updateUserProfilePicture(newData);
     }
-    setTimeout(() => {
-      history.push("/my-profile");
-    }, 500);
+    history.push("/my-profile");
   };
 
   const handleImage = (evt) => {
@@ -98,7 +103,7 @@ const RegisterSeconddary = () => {
     setBioValue(searchedMember.bio || "");
     setAvatarUrl(searchedMember.avatar_url || "");
   }, [searchedMember]);
-  return (
+  return token ? (
     <>
       <ContainerForm>
         <Form onSubmit={handleSubmit(handleForm)}>
@@ -286,6 +291,8 @@ const RegisterSeconddary = () => {
         </Form>
       </ContainerForm>
     </>
+  ) : (
+    <></>
   );
 };
 export default RegisterSeconddary;

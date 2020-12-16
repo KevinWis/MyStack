@@ -1,9 +1,6 @@
 import CardProfile from "../../components/shared/cardprofile";
 import CardEditProfile from "../../components/shared/cardeditprofile";
 import { ContainerProfile, Container } from "./style";
-import CartProfileTech from "../../components/shared/cartprofiletech";
-import Header from "../../components/shared/header";
-import Footer from "../../components/shared/footer";
 import { useParams, useLocation, useHistory } from "react-router-dom";
 import { getUserByIdThunk } from "../../store/modules/members/thunks";
 import { useEffect, useState } from "react";
@@ -24,7 +21,6 @@ const VisitingProfile = () => {
 
   useEffect(() => {
     dispatch(getUserByIdThunk(profileId));
-    redirect();
   }, []);
 
   const { searchedMember } = useSelector((state) => state.members);
