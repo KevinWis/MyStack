@@ -74,7 +74,7 @@ const RegisterSeconddary = () => {
       await updateUserProfilePicture(newData);
     }
     setTimeout(() => {
-      //history.push("/my-profile");
+      history.push("/my-profile");
     }, 500);
   };
 
