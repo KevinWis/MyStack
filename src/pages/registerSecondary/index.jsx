@@ -20,15 +20,24 @@ import {
   SelectLevel,
   Form,
 } from "./style";
-import { MenuItem, InputLabel, TextField, Checkbox } from "@material-ui/core";
+import {
+  MenuItem,
+  InputLabel,
+  TextField,
+  Checkbox,
+  Accordion,
+  AccordionSummary,
+  Typography,
+  AccordionDetails,
+} from "@material-ui/core";
+
 import DefaultButton from "../../components/shared/buttons/defaultButton";
 import ImageComponent from "../../components/shared/imageComponent";
 import { updateUserProfilePicture } from "../../kenzieHub/user/updateProfileInfo";
 import { MaleavatarImage } from "../../helpers/getImages";
 import { updateUserInfo } from "../../kenzieHub/user/updateUser";
 
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const RegisterSeconddary = () => {
   const dispatch = useDispatch();
@@ -74,7 +83,7 @@ const RegisterSeconddary = () => {
       await updateUserProfilePicture(newData);
     }
     setTimeout(() => {
-      //history.push("/my-profile");
+      history.push("/my-profile");
     }, 500);
   };
 
@@ -215,44 +224,56 @@ const RegisterSeconddary = () => {
               helperText={errors.bio?.message}
             />
           </ContainerBio>
-          <Checkbox
-            checked={checkChangePass}
-            onChange={(evt) => {
-              setCheckChangePass(evt.target.checked);
-            }}
-            color="primary"
-            inputProps={{ "aria-label": "Alterar senha" }}
-          />
-          <TextField
-            type="password"
-            margin="normal"
-            label="Senha anterior"
-            name="old_password"
-            inputRef={register}
-            error={!!errors.password}
-            helperText={errors.password?.message}
-            disabled={!checkChangePass}
-          />
-          <TextField
-            type="password"
-            margin="normal"
-            label="Senha"
-            name="password"
-            inputRef={register}
-            error={!!errors.password}
-            helperText={errors.password?.message}
-            disabled={!checkChangePass}
-          />
-          <TextField
-            type="password"
-            margin="normal"
-            label="Confirmar Senha"
-            name="confirmPassword"
-            inputRef={register}
-            error={!!errors.password}
-            helperText={errors.confirmPassword?.message}
-            disabled={!checkChangePass}
-          />
+          <Accordion>
+            <AccordionSummary
+              expandIcon={""}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <InputLabel id="checkPass">Change password</InputLabel>
+              <Checkbox
+                labelId="checkPass"
+                checked={checkChangePass}
+                onChange={(evt) => {
+                  setCheckChangePass(evt.target.checked);
+                }}
+                color="primary"
+                inputProps={{ "aria-label": "Alterar senha" }}
+              />
+            </AccordionSummary>
+            <AccordionDetails>
+              <TextField
+                type="password"
+                margin="normal"
+                label="Senha anterior"
+                name="old_password"
+                inputRef={register}
+                error={!!errors.password}
+                helperText={errors.password?.message}
+                disabled={!checkChangePass}
+              />
+              <TextField
+                type="password"
+                margin="normal"
+                label="Senha"
+                name="password"
+                inputRef={register}
+                error={!!errors.password}
+                helperText={errors.password?.message}
+                disabled={!checkChangePass}
+              />
+              <TextField
+                type="password"
+                margin="normal"
+                label="Confirmar Senha"
+                name="confirmPassword"
+                inputRef={register}
+                error={!!errors.password}
+                helperText={errors.confirmPassword?.message}
+                disabled={!checkChangePass}
+              />
+            </AccordionDetails>
+          </Accordion>
 
           <ContainerButton>
             <DefaultButton type="submit" value="Enviar" />
