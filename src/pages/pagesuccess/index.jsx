@@ -20,7 +20,7 @@ const PageSucess = () => {
         {!token && (
           <RegisterButton
             value={"Junte-se a nos"}
-            _onClick={() => history.push("/register/1")}
+            _onClick={() => history.push("/register")}
           ></RegisterButton>
         )}
         <CardImage>

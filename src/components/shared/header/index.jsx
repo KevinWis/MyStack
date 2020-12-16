@@ -65,7 +65,7 @@ const Header = () => {
             {!token && (
               <MenuItem
                 onClick={() => {
-                  handleMenuItemClick("/register/1");
+                  handleMenuItemClick("/register");
                 }}
               >
                 Registrar-se
@@ -87,6 +87,15 @@ const Header = () => {
                 }}
               >
                 Meu Perfil
+              </MenuItem>
+            )}
+            {token && (
+              <MenuItem
+                onClick={() => {
+                  handleMenuItemClick("/edit");
+                }}
+              >
+                Editar perfil
               </MenuItem>
             )}
             {token ? (

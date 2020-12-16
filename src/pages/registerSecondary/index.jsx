@@ -64,18 +64,19 @@ const RegisterSeconddary = () => {
     resolver: yupResolver(schema),
   });
 
+  const { searchedMember } = useSelector((state) => state.members);
+
   useEffect(() => {
+    dispatch(getMyProfile());
+
     setToken(localStorage.getItem("authToken"));
-    console.log(token);
+
     setTimeout(() => {
       if (!token) {
         history.push("/");
       }
-    }, 1000);
-    dispatch(getMyProfile());
-  }, []);
-
-  const { searchedMember } = useSelector((state) => state.members);
+    }, 2000);
+  }, [token]);
 
   const handleForm = async (data) => {
     console.log(data);

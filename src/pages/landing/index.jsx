@@ -29,7 +29,7 @@ const Landing = () => {
               ></DefaultButton>
               <DefaultButton
                 value={"Se cadastrar"}
-                _onClick={() => history.push("/register/1")}
+                _onClick={() => history.push("/register")}
               ></DefaultButton>
             </ButtonsContainer>
           </InnerContainer>

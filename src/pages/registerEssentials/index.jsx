@@ -41,7 +41,7 @@ const RegisterEssentials = () => {
   const handleForm = async (data) => {
     await dispatch(registerUserThunk(data));
     setTimeout(() => {
-      history.push("/register/2");
+      history.push("/edit");
     }, 500);
   };
   return (

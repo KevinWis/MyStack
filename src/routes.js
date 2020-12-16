@@ -20,10 +20,10 @@ const Routes = () => {
       <Route exact path="/login">
         <Login />
       </Route>
-      <Route exact path="/register/1">
+      <Route exact path="/register">
         <RegisterEssentials />
       </Route>
-      <Route exact path="/register/2">
+      <Route exact path="/edit">
         <RegisterSecondary />
       </Route>
       <Route exact path="/profile/:profileId">
