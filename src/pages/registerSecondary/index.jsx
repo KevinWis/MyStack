@@ -51,10 +51,7 @@ const RegisterSeconddary = () => {
   const schema = yup.object().shape({
     contact: yup.string().required("Campo obrigatório"),
     course_module: yup.string().required("Campo obrigatório"),
-    bio: yup
-      .string()
-      .min(6, "Mínimo de 6 caracteres")
-      .required("Campo obrigatório"),
+    bio: yup.string().required("Campo obrigatório"),
     password: yup.string().min(6, "Mínimo de 6 caracteres"),
     confirmPassword: yup
       .string()
@@ -220,8 +217,6 @@ const RegisterSeconddary = () => {
               multiline
               label="Bio"
               placeholder="Bio"
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
               name="bio"
               value={bioValue}
               onChange={(evt) => {

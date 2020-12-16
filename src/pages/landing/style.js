@@ -3,11 +3,12 @@ import styled from "styled-components";
 export const MainContainer = styled.div`
   width: 100%;
   padding: 5rem 0 3rem 0;
-  height: calc(100vh - 8rem);
+  min-height: calc(100vh - 8rem);
   @media (min-width: 640px) {
     padding: 4rem 0 3rem 0;
-    height: calc(100vh - 7rem);
+    min-height: calc(100vh - 7rem);
   }
+  background-color: whitesmoke;
 `;
 
 export const Container = styled.div`
