@@ -12,6 +12,9 @@ export const Container = styled.div`
   @media (min-width: 640px) {
     margin: 10rem 0 3rem 0;
   }
+  h1 {
+    text-align: center;
+  }
 `;
 
 export const ContainerCard = styled.div`
