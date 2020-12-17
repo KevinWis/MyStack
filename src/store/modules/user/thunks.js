@@ -7,14 +7,14 @@ export const userLoginThunk = (userLoginInfo, error) => async (dispatch) => {
       email: email,
       password: password,
     });
-    console.log(response.data);
+    //console.log(response.data);
     const { token } = response.data;
     const { id } = response.data.user;
     localStorage.setItem("authToken", token);
     localStorage.setItem("userId", id);
   } catch (err) {
-    console.log(err);
-    error("password", { message: "Senha ou usuário inválido" })
+    //console.log(err);
+    error("password", { message: "Senha ou usuário inválido" });
   }
 };
 
@@ -36,7 +36,7 @@ export const createTech = async (tech) => {
       }
     );
   } catch (err) {
-    console.log(err);
+    //console.log(err);
   }
 };
 
@@ -56,6 +56,6 @@ export const updateTech = async (newTech) => {
       }
     );
   } catch (err) {
-    console.log(err);
+    //console.log(err);
   }
 };

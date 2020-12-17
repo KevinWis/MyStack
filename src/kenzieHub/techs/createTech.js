@@ -18,6 +18,6 @@ export const createTech = async (tech) => {
       }
     );
   } catch (error) {
-    console.log(error);
+    //console.log(error);
   }
 };

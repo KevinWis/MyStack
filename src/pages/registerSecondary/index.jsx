@@ -76,12 +76,12 @@ const RegisterSeconddary = () => {
   }, [token]);
 
   const handleForm = async (data) => {
-    console.log(data);
+    //console.log(data);
     await updateUserInfo(data);
     if (image) {
       const newData = new FormData();
       newData.append("avatar", image);
-      console.log(newData);
+      //console.log(newData);
       await updateUserProfilePicture(newData);
     }
     history.push("/my-profile");

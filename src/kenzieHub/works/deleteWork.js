@@ -1,7 +1,7 @@
 import kenzieHub from "../../services/axios";
 
 export const deleteWork = async (workID) => {
-  console.log(workID);
+  //console.log(workID);
   const token = localStorage.getItem("authToken");
 
   try {
@@ -9,6 +9,6 @@ export const deleteWork = async (workID) => {
       headers: { Authorization: `Bearer ${token}` },
     });
   } catch (error) {
-    console.log(error);
+    //console.log(error);
   }
 };

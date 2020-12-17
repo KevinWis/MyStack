@@ -104,7 +104,7 @@ const Members = () => {
         onChange={(evt, value) => handleSetPage(value)}
       />
       <MemberList>
-        {filteredMembers.length === 0 && <h2>Loading...</h2>}
+        {filteredMembers.length === 0 && <h2>Nenhum membro encontrado</h2>}
         {selectedMembers.map(
           ({ name, id, course_module, avatar_url, techs }, index) => (
             <MemberCard

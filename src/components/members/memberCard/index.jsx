@@ -28,7 +28,7 @@ import ImageComponent from "../../shared/imageComponent";
 const MemberCard = ({ name, course, id, avatar, userTechs }) => {
   avatar = avatar?.split(" ").join("%20");
   const history = useHistory();
-  console.log(name, userTechs);
+  //console.log(name, userTechs);
   const [techIcons, setTechIcons] = useState(() =>
     userTechs?.flatMap((tech) =>
       dictionaryIcons[tech.title.toLowerCase()]
@@ -36,7 +36,7 @@ const MemberCard = ({ name, course, id, avatar, userTechs }) => {
         : ""
     )
   );
-  console.log(techIcons);
+  //console.log(techIcons);
 
   const [medias, setMedias] = useState([
     Math.floor((Math.random() + 1) * 10),

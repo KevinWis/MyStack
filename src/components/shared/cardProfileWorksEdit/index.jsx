@@ -39,7 +39,7 @@ function CardProfileWorksEdit({ title, description, id, url }) {
   const dispatch = useDispatch();
 
   const sendUpateDispach = async () => {
-    console.log(workUpdateInfo);
+    //console.log(workUpdateInfo);
     await updateWork(workUpdateInfo);
     dispatch(getMyProfile());
     handleShowEdit();

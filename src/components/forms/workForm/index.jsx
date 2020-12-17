@@ -26,7 +26,7 @@ const WorkForm = ({ sendDispatch }) => {
     createWork(data);
     reset();
     sendDispatch();
-    console.log(data);
+    //console.log(data);
   };
 
   return (

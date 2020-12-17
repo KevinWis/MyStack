@@ -32,7 +32,7 @@ const TechForm = ({ sendDispatch }) => {
     createTech(data);
     reset();
     sendDispatch();
-    console.log(data);
+    //console.log(data);
   };
 
   return (

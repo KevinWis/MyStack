@@ -2,7 +2,7 @@ import kenzieHub from "../../services/axios";
 
 export const updateWork = async (newWorkInfo) => {
   const { title, description, workID } = newWorkInfo;
-  console.log(newWorkInfo);
+  //console.log(newWorkInfo);
   const token = localStorage.getItem("authToken");
 
   try {
@@ -19,6 +19,6 @@ export const updateWork = async (newWorkInfo) => {
       }
     );
   } catch (error) {
-    console.log(error);
+    //console.log(error);
   }
 };
