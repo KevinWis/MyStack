@@ -16,11 +16,11 @@ export const ContainerTech = styled.div`
   margin-bottom: 2rem;
 `;
 export const CardIcons = styled.div`
+  display: flex;
   width: 50%;
   height: 100%;
   position: relative;
-  left: -20px;
-  top: 1.8rem;
+
   color: white;
   border: 2px solid black;
   background-color: blue;
@@ -52,12 +52,8 @@ export const CardTitulo = styled.div`
 `;
 
 export const CardEdit = styled.div`
-  height: 7rem;
-  position: relative;
-  left: 15px;
-  top: 15px;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  right: 3rem;
+  justify-content: space-around;
 `;
