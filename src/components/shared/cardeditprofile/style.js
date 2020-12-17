@@ -3,7 +3,7 @@ import { TextField } from "@material-ui/core";
 
 export const StyledTextField = styled(TextField)`
   width: 10rem !important;
-  margin-bottom:2rem !important;
+  margin-bottom: 2rem !important;
 `;
 
 export const ContainerTech = styled.div`
@@ -16,8 +16,8 @@ export const ContainerTech = styled.div`
   margin-bottom: 2rem;
 `;
 export const CardIcons = styled.div`
-  width: 50px;
-  height: 50px;
+  width: 50%;
+  height: 100%;
   position: relative;
   left: -20px;
   top: 1.8rem;
@@ -30,18 +30,24 @@ export const CardIcons = styled.div`
   border-radius: 50%;
 `;
 export const CardTitulo = styled.div`
-  width: 50px;
-  height: 50px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-around;
+
+  width: 50%;
+  height: 100%;
   padding-right: 2rem;
-  left: -20px;
-  top: 15px;
-  position: relative;
+
   text-align: left;
-  h2 {
+  h3 {
+    width: 100%;
     margin: 0.2rem 0 0 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
-  button{
-    margin-top:3rem;
+  button {
+    margin-top: 3rem;
   }
 `;
 
@@ -55,4 +61,3 @@ export const CardEdit = styled.div`
   justify-content: space-between;
   right: 3rem;
 `;
-

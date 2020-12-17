@@ -90,7 +90,7 @@ const MemberCard = ({ name, course, id, avatar, userTechs }) => {
           <p>{getCourseModule(course)}</p>
         </UnhoveredText>
         <TechIcons>
-          {techIcons.map((techIcon) =>
+          {/* {techIcons.map((techIcon) =>
             techIcon !== "" ? (
               <div>
                 <ImageComponent
@@ -102,7 +102,7 @@ const MemberCard = ({ name, course, id, avatar, userTechs }) => {
             ) : (
               <></>
             )
-          )}
+          )} */}
         </TechIcons>
         <Footer>
           <div className="Icon">

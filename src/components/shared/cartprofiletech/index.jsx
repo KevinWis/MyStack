@@ -6,7 +6,7 @@ const CartProfileTech = ({title, status}) => {
         <ContainerTech>
           <CardIcons></CardIcons>
           <CardTitulo>
-         <h2> {title} </h2>
+         <h3> {title} </h3>
          <p> {status}</p>
           </CardTitulo>
         </ContainerTech>

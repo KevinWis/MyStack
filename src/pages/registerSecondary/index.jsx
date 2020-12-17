@@ -76,7 +76,7 @@ const RegisterSeconddary = () => {
   }, [token]);
 
   const handleForm = async (data) => {
-    //console.log(data);
+    console.log(data);
     await updateUserInfo(data);
     if (image) {
       const newData = new FormData();
