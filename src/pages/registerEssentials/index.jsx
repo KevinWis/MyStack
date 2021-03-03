@@ -42,7 +42,7 @@ const RegisterEssentials = () => {
     clearErrors();
     dispatch(registerUserThunk(data, setError));
     setTimeout(() => {
-      if (!errors) {
+      if (Object.keys(errors).length === 0) {
         history.push("/edit");
       }
     }, 500);
