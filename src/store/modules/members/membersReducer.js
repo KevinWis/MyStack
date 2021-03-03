@@ -1,4 +1,4 @@
-import { GETUSERLIST, GETUSERSBYID, REGISTERUSER } from "./actionTypes";
+import { GETUSERLIST, GETUSERSBYID } from "./actionTypes";
 
 const memberList = {
   list: [],

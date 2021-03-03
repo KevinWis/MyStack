@@ -34,14 +34,17 @@ const RegisterEssentials = () => {
       .oneOf([yup.ref("password"), null], "As senhas devem ser iguais!"),
   });
 
-  const { register, handleSubmit, errors, setError } = useForm({
+  const { register, handleSubmit, errors, setError, clearErrors } = useForm({
     resolver: yupResolver(schema),
   });
 
   const handleForm = async (data) => {
-    await dispatch(registerUserThunk(data));
+    clearErrors();
+    dispatch(registerUserThunk(data, setError));
     setTimeout(() => {
-      history.push("/edit");
+      if (!errors) {
+        history.push("/edit");
+      }
     }, 500);
   };
   return (

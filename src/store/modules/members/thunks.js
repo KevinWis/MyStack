@@ -1,6 +1,6 @@
 import kenzieHub from "../../../services/axios";
 
-import { getUserList, getUserById, registerUser } from "./actions";
+import { getUserList, getUserById } from "./actions";
 import { userLoginThunk } from "../user/thunks";
 
 export const getUserListThunk = (options) => async (dispatch) => {
@@ -13,9 +13,7 @@ export const getUserListThunk = (options) => async (dispatch) => {
     );
     userList = [...response.data];
     dispatch(getUserList(userList));
-  } catch (err) {
-    //console.log(err);
-  }
+  } catch (err) {}
 };
 
 export const getUserByIdThunk = (userId) => async (dispatch) => {
@@ -25,16 +23,15 @@ export const getUserByIdThunk = (userId) => async (dispatch) => {
     const response = await kenzieHub.get(`/users/${userId}`);
     fetchedUser = response.data;
     dispatch(getUserById(fetchedUser));
-  } catch (err) {
-    //console.log(err);
-  }
+  } catch (err) {}
 };
 
-export const registerUserThunk = (resisterUserInfo) => async (dispatch) => {
+export const registerUserThunk = (resisterUserInfo, error) => async (
+  dispatch
+) => {
   const { email, password, name } = resisterUserInfo;
 
   try {
-    //console.log(resisterUserInfo);
     const response = await kenzieHub.post(`/users`, {
       email: email,
       password: password,
@@ -48,9 +45,8 @@ export const registerUserThunk = (resisterUserInfo) => async (dispatch) => {
       email: email,
       password: password,
     };
-
     dispatch(userLoginThunk(loginInfo));
   } catch (err) {
-    //console.log(err);
+    error("email", { message: "Email ou usuário já cadastrados" });
   }
 };
