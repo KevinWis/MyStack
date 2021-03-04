@@ -1,4 +1,4 @@
-import { USERLOGIN, CREATENEWTECH, UPDATETECH } from "./actionTypes";
+import { USERLOGIN } from "./actionTypes";
 
 const userReducer = (state = {}, action) => {
   const { type } = action;
