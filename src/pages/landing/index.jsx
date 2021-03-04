@@ -12,16 +12,14 @@ const Landing = () => {
 
   return (
     <PageTemplate title="Bem-vindo" Image={WelcomeImage}>
-      <div>
-        <DefaultButton
-          value={"Entrar"}
-          _onClick={() => history.push("/login")}
-        ></DefaultButton>
-        <DefaultButton
-          value={"Se cadastrar"}
-          _onClick={() => history.push("/register")}
-        ></DefaultButton>
-      </div>
+      <DefaultButton
+        value={"Entrar"}
+        _onClick={() => history.push("/login")}
+      ></DefaultButton>
+      <DefaultButton
+        value={"Se cadastrar"}
+        _onClick={() => history.push("/register")}
+      ></DefaultButton>
     </PageTemplate>
   );
 };
