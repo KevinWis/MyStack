@@ -6,15 +6,8 @@ import DefaultButton from "../../components/shared/buttons/defaultButton";
 import { useDispatch } from "react-redux";
 import { FreelanceImage } from "../../helpers/getImages";
 import { registerUserThunk } from "../../store/modules/members/thunks.js";
-
-import {
-  ContainerContent,
-  Form,
-  StyledTextField,
-  ContainerContentPage,
-  ButtonContainer,
-  HDiv,
-} from "./style";
+import PageTemplate from "../../components/pageTemplate";
+import { Form, StyledTextField, ButtonContainer } from "./style";
 const RegisterEssentials = () => {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -48,60 +41,54 @@ const RegisterEssentials = () => {
     }, 500);
   };
   return (
-    <ContainerContentPage>
-      <HDiv>
-        <h1>Cadastro</h1>
-      </HDiv>
-      <ContainerContent>
-        <FreelanceImage width="25rem" smallWidth="25rem" />
-        <Form onSubmit={handleSubmit(handleForm)}>
-          <StyledTextField
-            margin="normal"
-            label="Usuário"
-            name="name"
-            inputRef={register}
-            error={!!errors.name}
-            helperText={errors.name?.message}
+    <PageTemplate title="Cadastro" Image={FreelanceImage}>
+      <Form onSubmit={handleSubmit(handleForm)}>
+        <StyledTextField
+          margin="normal"
+          label="Usuário"
+          name="name"
+          inputRef={register}
+          error={!!errors.name}
+          helperText={errors.name?.message}
+        />
+        <StyledTextField
+          margin="normal"
+          label="Email"
+          name="email"
+          inputRef={register}
+          error={!!errors.email}
+          helperText={errors.email?.message}
+        />
+        <StyledTextField
+          type="password"
+          margin="normal"
+          label="Senha"
+          name="password"
+          inputRef={register}
+          error={!!errors.password}
+          helperText={errors.password?.message}
+        />
+        <StyledTextField
+          type="password"
+          margin="normal"
+          label="Confirmar Senha"
+          name="confirmPassword"
+          inputRef={register}
+          error={!!errors.password}
+          helperText={errors.confirmPassword?.message}
+        />
+        <ButtonContainer>
+          <DefaultButton
+            aria-controls="customized-menu"
+            aria-haspopup="true"
+            variant="contained"
+            color="primary"
+            value="Registrar"
+            type="submit"
           />
-          <StyledTextField
-            margin="normal"
-            label="Email"
-            name="email"
-            inputRef={register}
-            error={!!errors.email}
-            helperText={errors.email?.message}
-          />
-          <StyledTextField
-            type="password"
-            margin="normal"
-            label="Senha"
-            name="password"
-            inputRef={register}
-            error={!!errors.password}
-            helperText={errors.password?.message}
-          />
-          <StyledTextField
-            type="password"
-            margin="normal"
-            label="Confirmar Senha"
-            name="confirmPassword"
-            inputRef={register}
-            error={!!errors.password}
-            helperText={errors.confirmPassword?.message}
-          />
-          <ButtonContainer>
-            <DefaultButton
-              aria-controls="customized-menu"
-              aria-haspopup="true"
-              variant="contained"
-              color="primary"
-              value="Registrar"
-              type="submit"
-            />
-          </ButtonContainer>
-        </Form>
-      </ContainerContent>
-    </ContainerContentPage>
+        </ButtonContainer>
+      </Form>
+    </PageTemplate>
   );
 };
 

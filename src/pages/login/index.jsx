@@ -2,18 +2,14 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useHistory } from "react-router-dom";
+
 import DefaultButton from "../../components/shared/buttons/defaultButton";
+import PageTemplate from "../../components/pageTemplate";
+
 import { WelcomeTwoImage } from "../../helpers/getImages";
 import { userLoginThunk } from "../../store/modules/user/thunks.js";
 import { useDispatch } from "react-redux";
-import {
-  Form,
-  ContainerForm,
-  ButtonContainer,
-  HDiv,
-  StyledTextField,
-  ContainerContent,
-} from "./style";
+import { Form, ButtonContainer, StyledTextField } from "./style";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -40,55 +36,48 @@ const Login = () => {
   };
 
   return (
-    <ContainerForm>
-      <HDiv>
-        <h1>Login</h1>
-      </HDiv>
-      <ContainerContent>
-        <WelcomeTwoImage width={"25rem"} smallWidth={"30rem"} />
+    <PageTemplate title="Login" Image={WelcomeTwoImage}>
+      <Form onSubmit={handleSubmit(handleForm)}>
+        <StyledTextField
+          margin="normal"
+          label="Email"
+          name="email"
+          inputRef={register}
+          error={!!errors.email}
+        />
+        {errors.email && <p type="warning">{errors.email.message}</p>}
+        <StyledTextField
+          margin="normal"
+          label="Senha"
+          name="password"
+          type="password"
+          error={!!errors.password}
+          inputRef={register}
+        />
+        {errors.password && <p type="warning">{errors.password.message}</p>}
 
-        <Form onSubmit={handleSubmit(handleForm)}>
-          <StyledTextField
-            margin="normal"
-            label="Email"
-            name="email"
-            inputRef={register}
-            error={!!errors.email}
-          />
-          {errors.email && <p type="warning">{errors.email.message}</p>}
-          <StyledTextField
-            margin="normal"
-            label="Senha"
-            name="password"
-            type="password"
-            error={!!errors.password}
-            inputRef={register}
-          />
-          {errors.password && <p type="warning">{errors.password.message}</p>}
-
-          <ButtonContainer>
-            <DefaultButton
-              aria-controls="customized-menu"
-              aria-haspopup="true"
-              variant="contained"
-              color="primary"
-              type="submit"
-              value={"Entrar"}
-            ></DefaultButton>
-          </ButtonContainer>
-          <ButtonContainer>
-            <DefaultButton
-              aria-controls="customized-menu"
-              aria-haspopup="true"
-              variant="contained"
-              color="primary"
-              value={"Se cadastrar"}
-              _onClick={() => history.push("/register")}
-            ></DefaultButton>
-          </ButtonContainer>
-        </Form>
-      </ContainerContent>
-    </ContainerForm>
+        <ButtonContainer>
+          <DefaultButton
+            aria-controls="customized-menu"
+            aria-haspopup="true"
+            variant="contained"
+            color="primary"
+            type="submit"
+            value={"Entrar"}
+          ></DefaultButton>
+        </ButtonContainer>
+        <ButtonContainer>
+          <DefaultButton
+            aria-controls="customized-menu"
+            aria-haspopup="true"
+            variant="contained"
+            color="primary"
+            value={"Se cadastrar"}
+            _onClick={() => history.push("/register")}
+          ></DefaultButton>
+        </ButtonContainer>
+      </Form>
+    </PageTemplate>
   );
 };
 
