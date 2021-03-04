@@ -7,13 +7,16 @@ export const Container = styled.div`
   justify-content: space-between;
 
   width: 100%;
-  margin: 14rem 0 3rem 0;
+  max-width: 1280px;
+  margin: 14rem auto 3rem auto;
 
   @media (min-width: 640px) {
-    margin: 10rem 0 3rem 0;
+    margin: 10rem auto 2rem auto;
   }
   h1 {
+    margin-top: 2rem;
     text-align: center;
+    font-weight: 400;
   }
 `;
 
@@ -22,7 +25,8 @@ export const ContainerProfile = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  align-items: left;
+  align-items: center;
 
-  margin-top: 4rem;
+  margin: 0 auto;
+  margin-top: 2rem;
 `;

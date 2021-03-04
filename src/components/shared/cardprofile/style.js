@@ -20,7 +20,7 @@ export const Cardimage = styled.div`
   margin: auto;
   margin-top: -64px;
   border: 1px solid rgba(21, 64, 72, 0.6);
-  box-shadow: 2px 4px 7px rgba(21, 64, 72, 0.6);
+  box-shadow: 2px 2px 1px rgba(21, 64, 72, 0.3);
 `;
 export const ContainerBio = styled.div`
   width: 80%;
@@ -28,12 +28,13 @@ export const ContainerBio = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 1rem;
 `;
 export const Containertitle = styled.h2`
   width: 100%;
-  margin-top: 30px;
+  margin: 2rem 0;
   font-size: 2.5rem;
+  font-weight: 300;
 `;
 export const ContainerBios = styled.div`
   width: 80%;
@@ -41,5 +42,7 @@ export const ContainerBios = styled.div`
   align-items: center;
   text-align: center;
   justify-content: center;
-  text-align: left;
+  p {
+    margin: 0.5rem 0;
+  }
 `;
