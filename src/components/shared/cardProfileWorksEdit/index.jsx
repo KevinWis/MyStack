@@ -5,12 +5,12 @@ import {
   ContainerCardContent,
   ContainerButton,
   ContainerEditButtons,
-  ButtonDelete,
-  ButtonEdit,
+  SmButtons,
   ContainerCardSumary,
+  Form,
 } from "./style";
 import Button from "../buttons/defaultButton";
-import { Tooltip, TextField } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import { useState } from "react";
 import { BsPencilSquare } from "react-icons/bs";
 import { BsFillTrashFill } from "react-icons/bs";
@@ -20,17 +20,12 @@ import { deleteWork } from "../../../kenzieHub/works/deleteWork";
 import { getMyProfile } from "../../../kenzieHub/user/myProfile";
 
 function CardProfileWorksEdit({ title, description, id, url }) {
-  const [show, setShow] = useState(true);
   const [showEdit, setShowEdit] = useState(false);
   const [workUpdateInfo, setWorkUpdateInfo] = useState({
     title: "",
     description: "",
     workID: id,
   });
-
-  const handleClick = () => {
-    // setShow(!show);
-  };
 
   const handleShowEdit = () => {
     setShowEdit(!showEdit);
@@ -39,7 +34,6 @@ function CardProfileWorksEdit({ title, description, id, url }) {
   const dispatch = useDispatch();
 
   const sendUpateDispach = async () => {
-    //console.log(workUpdateInfo);
     await updateWork(workUpdateInfo);
     dispatch(getMyProfile());
     handleShowEdit();
@@ -52,12 +46,12 @@ function CardProfileWorksEdit({ title, description, id, url }) {
   return (
     <>
       <Card>
-        <ContainerCardSumary onClick={handleClick}>
-          <ContainerCardTitle>
+        <ContainerCardSumary>
+          <ContainerCardTitle edit={showEdit}>
             {!showEdit ? (
               <h1> {title} </h1>
             ) : (
-              <form>
+              <Form>
                 <TextField
                   label="Novo Titulo"
                   name="title"
@@ -82,11 +76,11 @@ function CardProfileWorksEdit({ title, description, id, url }) {
                   value="Enviar"
                   name="description"
                 />
-              </form>
+              </Form>
             )}
           </ContainerCardTitle>
-          <ContainerCardContent>
-            {!showEdit ? <p>{description}</p> : ""}
+          <ContainerCardContent edit={showEdit}>
+            <p>{description}</p>
           </ContainerCardContent>
           <ContainerButton>
             {url && (
@@ -95,20 +89,15 @@ function CardProfileWorksEdit({ title, description, id, url }) {
               </a>
             )}
           </ContainerButton>
-        </ContainerCardSumary>
-
-        {show ? (
           <ContainerEditButtons>
-            <ButtonDelete onClick={sendDeleteDispach}>
+            <SmButtons className="delete" onClick={sendDeleteDispach}>
               <BsFillTrashFill />
-            </ButtonDelete>
-            <ButtonEdit onClick={handleShowEdit}>
+            </SmButtons>
+            <SmButtons className="edit" onClick={handleShowEdit}>
               <BsPencilSquare />
-            </ButtonEdit>
+            </SmButtons>
           </ContainerEditButtons>
-        ) : (
-          ""
-        )}
+        </ContainerCardSumary>
       </Card>
     </>
   );

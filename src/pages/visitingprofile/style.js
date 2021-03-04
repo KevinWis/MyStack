@@ -21,7 +21,7 @@ export const Container = styled.div`
 `;
 
 export const ContainerProfile = styled.div`
-  width: 95%;
+  width: 60%;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;

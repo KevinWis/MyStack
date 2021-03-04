@@ -44,5 +44,7 @@ export const ContainerBios = styled.div`
   justify-content: center;
   p {
     margin: 0.5rem 0;
+    width: 100%;
+    word-break: break-word;
   }
 `;

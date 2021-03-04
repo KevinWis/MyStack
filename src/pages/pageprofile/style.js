@@ -28,6 +28,7 @@ export const ContainerCard = styled.div`
 `;
 
 export const ContainerProfile = styled.div`
+  width: 60%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
