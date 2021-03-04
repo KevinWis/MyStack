@@ -8,15 +8,15 @@ export const Body = styled.div`
 `;
 
 export const ProfileImage = styled.div`
-  width: 128px;
-  height: 128px;
+  width: 10rem;
+  height: 10rem;
   border-radius: 50%;
   background-image: url(${({ avatar }) => (avatar ? avatar : BlankProfile)});
   background-size: cover;
   margin: auto;
-  margin-top: -64px;
+  transform: translateY(-2rem);
   border: 1px solid rgba(21, 64, 72, 0.6);
-  box-shadow: 2px 4px 7px rgba(21, 64, 72, 0.6);
+  box-shadow: 1px 2px 3px rgba(21, 64, 72, 0.2);
 `;
 
 export const ImageFilter = styled.div`
@@ -65,7 +65,7 @@ export const Media = styled.div`
 
   background-color: whitesmoke;
   border-radius: 50%;
-  box-shadow: 4px 6px 7px;
+  box-shadow: 2px 2px 3px rgb(0 0 0 / 20%);
   z-index: 100;
   display: flex;
   align-items: center;
@@ -114,7 +114,7 @@ export const UnhoveredText = styled.p`
   position: relative;
 
   margin: 0;
-  padding: 0;
+  padding: 1rem 0;
   border: 0;
   vertical-align: baseline;
 
@@ -125,7 +125,7 @@ export const UnhoveredText = styled.p`
   p:nth-child(2) {
     color: #777575;
     font-size: 1.1rem;
-    margin-top: -10px;
+    transform: translateY(10px);
   }
 `;
 
@@ -133,20 +133,12 @@ export const TechIcons = styled.div`
   width: 60%;
   height: 4rem;
   margin: auto;
-  margin-bottom: -25px;
+  transform: translateY(-25px);
   display: flex;
   justify-content: space-around;
   align-items: center;
 
-  div:nth-child(1) {
-    visibility: visible;
-  }
-
-  div:nth-child(2) {
-    visibility: visible;
-  }
-
-  div:nth-child(3) {
+  div {
     visibility: visible;
   }
 `;
@@ -156,32 +148,21 @@ export const Card = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 336px;
-  transition: height 0.5s;
   height: 208px;
-  margin: auto;
+
   background-color: whitesmoke;
-  box-shadow: 2px 4px 7px rgba(0, 0, 0, 0.6);
-  margin-bottom: 25px;
+  transform: translateY(0);
+  transition: 0.5s;
+  margin: 6.5rem auto;
 
-  margin-top: 100px;
-
+  box-shadow: 2px 2px 3px rgb(0 0 0 / 20%);
   cursor: pointer;
 
   &:hover {
-    box-shadow: 2px 4px 7px rgba(21, 64, 72, 0.6);
     p {
       visibility: visible;
     }
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 336px;
     height: 288px;
-    margin: auto;
-    background-color: whitesmoke;
-    box-shadow: 2px 4px 7px rgba(21, 64, 72, 0.6);
-    margin-bottom: 25px;
-    margin-top: 100px;
 
     ${UnhoveredText} {
       display: none;
@@ -205,6 +186,8 @@ export const Card = styled.div`
         avatar ? avatar : BlankProfile});
       background-size: cover;
       border-radius: 0px;
+
+      transform: translateY(-4.5rem);
     }
 
     ${ImageFilter} {
@@ -228,7 +211,7 @@ export const Card = styled.div`
         color: #e4f6f9;
         text-align: center;
         p {
-          margin-top: -5px;
+          margin: 0.5rem 0;
         }
       }
     }
@@ -260,7 +243,7 @@ export const Card = styled.div`
 
       background-color: whitesmoke;
       border-radius: 50%;
-      box-shadow: 4px 6px 7px;
+      box-shadow: 2px 2px 3px rgb(0 0 0 / 20%);
       z-index: 100;
       display: flex;
       align-items: center;
@@ -327,18 +310,9 @@ export const Card = styled.div`
     }
 
     ${TechIcons} {
-      div:nth-child(1) {
-        -webkit-filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
-        filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
-      }
-      div:nth-child(2) {
-        -webkit-filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
-        filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
-      }
-      div:nth-child(3) {
-        -webkit-filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
-        filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
-      }
+      div {
+        -webkit-filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.25));
+        filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.25));
       display: none;
     }
   }

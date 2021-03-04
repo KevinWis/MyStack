@@ -1,5 +1,3 @@
-import AppleIcon from "@material-ui/icons/Apple";
-import Img from "../../../images/maleavatar.svg";
 import {
   Card,
   Body,
@@ -23,7 +21,6 @@ import { TiArrowForwardOutline } from "react-icons/ti";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { dictionaryIcons } from "../../../helpers/geticons";
-import ImageComponent from "../../shared/imageComponent";
 
 const MemberCard = ({ name, course, id, avatar, userTechs }) => {
   avatar = avatar?.split(" ").join("%20");
@@ -89,21 +86,6 @@ const MemberCard = ({ name, course, id, avatar, userTechs }) => {
           <p>{name}</p>
           <p>{getCourseModule(course)}</p>
         </UnhoveredText>
-        <TechIcons>
-          {/* {techIcons.map((techIcon) =>
-            techIcon !== "" ? (
-              <div>
-                <ImageComponent
-                  className="Tech_Icon"
-                  smallWidth="64px"
-                  src={techIcon}
-                ></ImageComponent>
-              </div>
-            ) : (
-              <></>
-            )
-          )} */}
-        </TechIcons>
         <Footer>
           <div className="Icon">
             <AiOutlineHeart size="32px" />
