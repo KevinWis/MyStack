@@ -20,4 +20,7 @@ export const HeaderDiv = styled.div`
   h1 {
     margin: 0;
   }
+  img {
+    cursor: pointer;
+  }
 `;
