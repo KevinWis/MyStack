@@ -5,6 +5,7 @@ import {
   ButtonsContainer,
   MainContainer,
   InnerContainer,
+  HDiv,
 } from "./style";
 import { useHistory } from "react-router-dom";
 
@@ -16,26 +17,24 @@ const Landing = () => {
   }
 
   return (
-    <>
-      <MainContainer>
-        <Container>
-          <h1>Bem-Vindo!</h1>
-          <InnerContainer>
-            <WelcomeImage width="25rem" smallWidth="25rem" />
-            <ButtonsContainer>
-              <DefaultButton
-                value={"Entrar"}
-                _onClick={() => history.push("/login")}
-              ></DefaultButton>
-              <DefaultButton
-                value={"Se cadastrar"}
-                _onClick={() => history.push("/register")}
-              ></DefaultButton>
-            </ButtonsContainer>
-          </InnerContainer>
-        </Container>
-      </MainContainer>
-    </>
+    <MainContainer>
+      <HDiv>
+        <h1>Bem-Vindo!</h1>
+      </HDiv>
+      <Container>
+        <WelcomeImage width="25rem" smallWidth="30rem" />
+        <ButtonsContainer>
+          <DefaultButton
+            value={"Entrar"}
+            _onClick={() => history.push("/login")}
+          ></DefaultButton>
+          <DefaultButton
+            value={"Se cadastrar"}
+            _onClick={() => history.push("/register")}
+          ></DefaultButton>
+        </ButtonsContainer>
+      </Container>
+    </MainContainer>
   );
 };
 

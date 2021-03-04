@@ -45,6 +45,9 @@ export const MainContainer = styled.div`
   padding: 5rem 0 3rem 0;
   min-height: calc(100vh - 8rem);
 
+  margin: 0 auto;
+  max-width: 1280px;
+
   @media (min-width: 640px) {
     padding: 4rem 0 3rem 0;
     min-height: calc(100vh - 7rem);

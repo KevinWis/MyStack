@@ -7,6 +7,9 @@ export const ContainerImage = styled.div`
   justify-content: center;
   align-items: center;
   background-color: whitesmoke;
+
+  margin: 0 auto;
+  max-width: 1080px;
 `;
 export const CardImage = styled.div`
   width: 100%;

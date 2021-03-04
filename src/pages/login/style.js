@@ -11,7 +11,8 @@ export const ContainerForm = styled.div`
   padding: 5rem 0 3rem 0;
   height: calc(100vh - 8rem);
 
-  background-color: whitesmoke;
+  margin: 0 auto;
+  max-width: 1280px;
 
   @media (min-width: 640px) {
     padding: 4rem 0 3rem 0;
@@ -27,6 +28,11 @@ export const ContainerContent = styled.div`
   height: 80%;
   width: 100%;
   text-align: center;
+
+  flex: 1 1 0;
+  img {
+    width: 40%;
+  }
   @media (min-width: 640px) {
     flex-direction: row;
     justify-content: space-around;
@@ -34,7 +40,7 @@ export const ContainerContent = styled.div`
 `;
 
 export const Form = styled.form`
-  width: 100%;
+  width: 60%;
   height: 60%;
 
   text-align: center;
@@ -46,6 +52,8 @@ export const Form = styled.form`
   align-items: center;
 
   padding: 2rem 0;
+
+  margin: 0 auto;
 
   @media (min-width: 640px) {
     width: 50%;
