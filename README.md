@@ -16,6 +16,7 @@ A demo of this project can be found here: [MyStack](https://my-stack-kevinwis.ve
 
 - Kevin Wischneski - [Linkedin](https://www.linkedin.com/in/kevin-wischneski/) [Github](https://github.com/KevinWis)
 - Diego Barboza Pires - [Linkedin](https://www.linkedin.com/in/diego-barboza-pires-confianca/)
-- Eliabe Santos  - [Linkedin](https://www.linkedin.com/in/eliabe-santos/) [Github](https://github.com/KevinWis)
 - Bruno Gehlen- [Linkedin](https://www.linkedin.com/in/brunogehlen/) [Github](https://github.com/BrunoGehlen)
-- Gustavo Barbosa  - [Linkedin](https://www.linkedin.com/in/gustavo-barbosa-7953066b/) [Github](https://github.com/KevinWis)
+- Eliabe Santos  - [Linkedin](https://www.linkedin.com/in/eliabe-santos/) [Github](https://github.com/EliabeSantos)
+- Gustavo Barbosa  - [Linkedin](https://www.linkedin.com/in/gustavo-barbosa-7953066b/) [Github](https://github.com/gustavobarsan)
+- Emanuel José da Silva :- [Linkedin](https://www.linkedin.com/in/emanueljose/) [Github](https://github.com/emanuel-jose)
