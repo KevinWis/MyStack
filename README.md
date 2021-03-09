@@ -1,5 +1,5 @@
 # MyStack
-MyStack is a social media project aimed for developers, allowing them to showcase their tech stacks, projects, and the most important, themselves, in order to have a higher visibility to recruiters.
+MyStack is a social media project aimed for developers, allowing them to showcase their tech stack, projects, and the most important, themselves, in order to have a higher visibility to recruiters.
 
 ## Demo
 A demo of this project can be found here: [MyStack](https://my-stack-kevinwis.vercel.app/)
